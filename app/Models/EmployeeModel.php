@@ -79,5 +79,13 @@ class EmployeeModel extends Model
         return $tbl_storage->countAllResults();
     }
 
+    public function getListNip_Nim($s) {
+        $sql ="SELECT * FROM (SELECT s.numberid as nip_nim ,s.fullname as fullname, 'MHW' As status FROM student s  where s.permission_loan =1 and (s.id_student  like '%$s%' or  s.fullname  like '%$s%')
+        UNION 
+        SELECT em.nip_emp, em.name_emp, 'EMP'  FROM employe_master em where em.nip_emp  like '%$s%' or  em.name_emp  like '%$s%') as DEM order by DEM.fullname limit 15";
+        
+        return $query = $this->db->query($sql)->getResult();
+    }
+
     
 }

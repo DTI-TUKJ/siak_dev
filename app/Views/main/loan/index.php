@@ -469,7 +469,7 @@ function CheckSchedule(){
                                     minimumInputLength: 3
                                   }).on('select2:open', function(e){
                                         $('.select2-search__field').attr('placeholder', 'Search NIP or Name');
-                                    });;
+                                    });
                                 $("#modaltambah").modal('hide');
                                 $("#modalAdd").modal('show');
                           }

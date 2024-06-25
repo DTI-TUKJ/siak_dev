@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use \App\Models\MyassetModel;
 use App\Models\LoanModel;
 use App\Models\LoginModel;
+use App\Models\HistoryAssetModel;
 
 class Loan extends BaseController
 {
@@ -19,6 +20,7 @@ class Loan extends BaseController
         
         $this->MAM = new MyassetModel($this->req);
         $this->LM = new LoanModel($this->req);
+        $this->HAM = new HistoryAssetModel($this->req);
          $this->LgM = new LoginModel();
 
         //  helper('cookie');
@@ -421,16 +423,108 @@ class Loan extends BaseController
 
     public function history()
     {
-         if (session()->nip_emp==null ){
-                return redirect()->to(base_url('Siak'));
-            }
-        $data = [
-            'title' => 'Loan History',
-            'data' => $this->LM->loanHistory()
-        ];
-        //echo htmlspecialchars(view('main/loan/history'));
-        return view('main/loan/history',$data);
+        if (session()->nip_emp==null && session()->studentid==null  ){
+            return false;
+        }
+
+     return view('main/loan/history_new');
     }
+
+    public function dataJsonhistory()
+    {
+         if (session()->nip_emp==null ){
+                return false;
+            }
+            $lists = $this->HAM->get_datatables();
+            //print_r($lists);
+            $data = [];
+            //$no = $this->request->getPost("start");
+
+            foreach ($lists as $val) {
+               // $no++;
+                $row = [];
+          
+                $row[]=' <span class="tb-amount">'.$val['id_loan'].' </span>';
+                $row[]=' <span class="tb-amount">'.$val['activity'].' </span>';
+                $row[]=' <span class="tb-amount">'.$val['asset_name'].' </span>';
+                $row[]=' <div class="currency cut-text">'.$val['name_emp'].' </div>';
+                $row[]=' <div class="currency cut-text">'.$val['nip_emp'].' </div>';
+                $row[]='<div class="currency cut-text">'.str_replace('PROGRAM STUDI','',str_replace('BAGIAN','',str_replace(' KAMPUS JAKARTA', '', $val['unit_emp'] ))).'</div>';
+                $row[]=' <div class="currency cut-text">'.date('d/m/Y',strtotime($val['tanggal_pinjam'])).' </div>';
+                $row[]=' <div class="currency cut-text">'.date('d/m/Y',strtotime($val['tanggal_masuk'])).' </div>';
+
+
+             
+                    
+                
+                $data[] = $row;
+            }
+            $output = [
+                "draw" => $this->request->getPost('draw'),
+                "recordsTotal" => $this->HAM->count_all(),
+                "recordsFiltered" => $this->HAM->count_filtered(),
+                "data" => $data
+            ];
+            echo json_encode($output);
+    }
+
+    public function dataJsonhistoryClassroom()
+    {
+         if (session()->nip_emp==null ){
+                return false;
+            }
+            $showTab= $this->request->getPost('showTab');
+            $lists = $this->HAM->get_datatables_class($showTab);
+            //print_r($lists);
+            $data = [];
+            //$no = $this->request->getPost("start");
+
+            foreach ($lists as $val) {
+               // $no++;
+                $row = [];
+          
+                $row[]=' <span class="tb-amount">'.$val['id_class_loan'].' </span>';
+                if (  $showTab=='classroomNonAcad'){
+                  $row[]=' <span class="tb-amount">'.$val['activity_class'].' </span>';
+                }else{
+                    $row[]=' <span class="tb-amount">'.$val['replacement_reason'].' </span>';
+                }
+                $row[]=' <span class="tb-amount">'.$val['ROOMNAME'].' </span>';
+                $row[]=' <div class="currency cut-text">'.$val['BUILDINGNAME'].' </div>';
+             
+                $row[]=' <span class="tb-amount">'.date('d/m/Y',strtotime($val['loan_class_date'])).' </span>';
+                $row[]=' <span class="tb-amount">'.date('H:i',strtotime($val['starttime'])).' </span>';
+                $row[]=' <span class="tb-amount">'.date('H:i',strtotime($val['endtime'])).' </span>';
+                if ($val['fullname']!=null){
+                 $pic=$val['fullname'];
+                }else{
+                 $pic=$val['name_emp'];
+                }
+                $row[]=' <span class="tb-amount">'.$pic.' </span>';
+ 
+                $row[]=' <span class="tb-amount">'.$val['request_type'].' </span>';
+                if ($showTab=='classroomNonAcad'){
+                    $assocname=$val['assoc_name']==null?' - ':$val['assoc_name'];
+                    $row[]=' <span class="tb-amount">'.$assocname.' </span>';
+                }else{
+                    $row[]=' <span class="tb-amount">'.date('d/m/Y H:i',strtotime($val['actual_lecture_date'])).' </span>';
+                    $row[]=' <span class="tb-amount">'.$val['subject_name'].' </span>';
+                    $row[]=' <span class="tb-amount">'.$val['class_name'].' </span>';
+                    $row[]=' <span class="tb-amount">'.$val['studyprogram_loan'].' </span>';
+                 
+                }
+                $data[] = $row;
+            }
+            $output = [
+                "draw" => $this->request->getPost('draw'),
+                "recordsTotal" => $this->HAM->count_all_class($showTab),
+                "recordsFiltered" => $this->HAM->count_filtered_class($showTab),
+                "data" => $data
+            ];
+            // print_r($data);
+            echo json_encode($output);
+    }
+
 
      protected function sendEmailRequest($namapeminjam,$email,$act)
     {

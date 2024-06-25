@@ -122,19 +122,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                <!-- <div class="row g-gs" id="loader_container_status" style="justify-content: center;">
-                                    <span class="loader_front" id="loader_front_status" style="margin-top:5%;display: none;"></span>
-                                </div>
-                                <div class="row g-gs kontenproduk_loan"  id="kontenproduk_loan" style="justify-content: center;">
-                              
-                                  
-                                </div>
-                                 <nav class="mt-4 pagination-wrap_loan" id="pagination-wrap_loan">
-                                   
-                                 </nav> -->
+                            
                             </div>
                         </div>
-                         <div class="nk-content-body" style="margin-top:30px">
+                        <div class="nk-content-body" style="margin-top:30px">
                             <div class="nk-block-head nk-block-head-sm">
                                 <div class="nk-block-between">
                                     <div class="nk-block-head-content">
@@ -144,36 +135,12 @@
                                         </div>
                                     </div><!-- .nk-block-head-content -->
                                     <div class="nk-block-head-content">
-                                       <!--  <div class="toggle-wrap nk-block-tools-toggle">
-                                            <a href="#" class="btn btn-icon btn-trigger toggle-expand me-n1" data-target="pageMenu"><em class="icon ni ni-more-v"></em></a>
-                                            <div class="toggle-expand-content" data-content="pageMenu">
-                                                <ul class="nk-block-tools g-3">
-                                                      <li> 
-                                                        
-                                                        <input type="text" class="form-control"  name="search_available" id="search_available" placeholder="Search Available Asset">
-                                                    </li>
-                                                    <li>
-                                                    <select class="form-select" id="s_cat_available" name="s_cat_available">
-                                                         <option value="All">All</option>
-                                                         <option value="Ruangan">Ruangan</option>
-                                                            <option value="Kendaraan">Kendaraan</option>
-                                                         <option value="Zoom">Zoom</option>
-
-                                                    </select>
-                                                    </li>
-                                                   
-                                                </ul>
-                                            </div>
-                                        </div> -->
-
-
+                                      
                                     </div>
                                 </div>
                             </div><!-- .nk-block-head -->
                             <div class="nk-block">
-                                <!-- <div class="row g-gs" id="loader_container" style="justify-content: center;">
-                                    <span class="loader_front" id="loader_front" style="margin-top:5%;display: none;"></span>
-                                </div> -->
+                        
                                   <div class="card card-bordered card-preview">
                                         <div class="card-inner" >
                                             <ul class="nav nav-tabs mt-n3">
@@ -261,11 +228,207 @@
                                             </div>
                                         </div>
                                     </div>
-                               <!--  <nav class="mt-4 pagination-wrap" id="pagination-wrap">
+                          
+                            </div>
+                        </div>
+                        <?php if (session()->lectur || session()->type=='admin akademik') { ?>
+                        <div class="nk-content-body" style="margin-top:30px">
+                            <div class="nk-block-head nk-block-head-sm">
+                                <div class="nk-block-between">
+                                    <div class="nk-block-head-content">
+                                        <h3 class="nk-block-title page-title">Class Room</h3>
+                                        <div class="nk-block-des text-soft">
+                                            <p>Hubung admin untuk info asset</p>
+                                        </div> 
+                                    </div><!-- .nk-block-head-content -->
+                                    <div class="nk-block-head-content">
+                               
+                                    </div>
+                                </div>
+                            </div><!-- .nk-block-head -->
+                            <div class="nk-block">
+                                <div class="card card-bordered card-preview">
+                                        <div class="card-inner" style="padding-bottom:5px">
+                                            <ul class="nav nav-tabs mt-n3">
+                                                <li class="nav-item nav-item-loan_classroom">
+                                                    <a class="nav-link active" data-bs-toggle="tab" href="#tabItem1_classroom1" onclick="reloadtable('example', 'KAMPUS A')" >Kampus A</a>
+                                                </li>
+                                               
+                                                <li class="nav-item nav-item-loan_classroom">
+                                                    <a class="nav-link" data-bs-toggle="tab" href="#tabItem2_classroom2" onclick="reloadtable('example2', 'KAMPUS B')" >Kampus B</a>
+                                                </li>
+                                            
+                                            </ul>
+                                            <div class="tab-content">
+                                             
+                                                <div class="tab-pane active" id="tabItem1_classroom1">
+                                                    <div class=" row toggle-wrap nk-block-tools-toggle mb-4  g-gs">
+
+                                                       <div class="col-sm-2" style="min-width: 125px;">
+
+                                                
+                                                                <input type="text" class="form-control" id="flatpickr-range_classroom" name="loan_date_start" placeholder="Enter start date loan"> 
+                                                            
+                                                         
+
+                                                        </div>
+                                                        <div class="col-sm-2" style="min-width: 175px;">
+                                                    
+                                                                <select class="form-select" id="room_name" name="room_name" style="width: 300px;">
+                                                            
+                                                                </select>
+                                                        </div>
+                                                        <div class="col-sm-1" style="min-width: 125px;">
+
+                                                            <div class="form-control-wrap dash-room">
+                                                                <a class="btn btn-round btn-sm btn-primary" onclick="bookRoom()">Book Room</a>
+                                                                
+                                                            </div>
+                                                         
+                                                           
+                                                        </div>
+                                                        <div class="col-sm-3" style="min-width: 325px;">
+                                                            <div class="example-alert">
+                                                                <div class="alert alert-info alert-icon">
+                                                                   <em class="icon ni ni-alert-circle"></em> Peminjaman dilakukan minimal H-3
+                                                               </div>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                    </div>
+                                                    <div class="row g-gs"style="justify-content: center;">
+                                                                
+                                                    <table class=" nk-tb-list nk-tb-ulist table table-bordered " data-auto-responsive="false" id="example" style="min-width:1425px;">
+                                                        <thead>
+                                                            <tr class="nk-tb-item nk-tb-head">
+                                                                <th class="nk-tb-col" style=""><span class="sub-text">Day</span></th>
+                                                                <?php 
+                                                                 foreach ($dataHour as $val) {
+                                                                   ?>
+                                                                    <th class="nk-tb-col"><span class="sub-text"><?= date('H:i',strtotime($val['HOURNAME'])) ;?></span></th>
+                                                                   <?php 
+                                                                 }
+                                                                ?>
+                                                                
+                                                               
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+
+                                                   
+                                                        </tbody>
+
+                                                    </table>
+                                                         
+                                                      </div>
+                                                      
+                                                </div>
+                                                <div class="tab-pane" id="tabItem2_classroom2">
+                                                    <div class="row toggle-wrap nk-block-tools-toggle mb-4  g-gs">
+                                                            
+                                                        <div class="col-sm-2" style="min-width: 125px;">
+                                                                    <input type="text" class="form-control" id="flatpickr-range2" name="loan_date_start" placeholder="Enter start date loan"> 
+                                                                
+                                                        </div>
+                                                        <div class="col-sm-2" style="min-width: 175px;">
+                                                                <div class="form-control-wrap dash-room">
+                                                                    <select class="form-select" id="room_name2" name="room_name2" style="width: 300px;">
+                                                                
+                                                                    </select>
+
+                                                                
+                                                                </div>
+                                                        </div>
+                                                        <div class="col-sm-1" style="min-width: 125px;">
+                                                                    <div class="form-control-wrap dash-room">
+                                                                    <a class="btn btn-round btn-sm btn-primary" onclick="modalcheck()">Book Room</a>
+                                                                    
+                                                                    </div>
+                                                              </div>
+                                                        <div class="col-sm-2" style="min-width: 325px;">
+                                                                    <div class="example-alert">
+                                                                        <div class="alert alert-info alert-icon">
+                                                                            <em class="icon ni ni-alert-circle"></em> Peminjaman dilakukan minimal H-3
+                                                                        </div>
+                                                                    </div>
+                                                        </div>
+                                                        
+                                                        </div>
+                                                        <div class="row g-gs" style="justify-content: center;">
+                                                                
+                                                        <table class=" nk-tb-list nk-tb-ulist table table-bordered " data-auto-responsive="false" id="example2" style="min-width:1425px;">
+                                                            <thead>
+                                                                <tr class="nk-tb-item nk-tb-head">
+                                                                    <th class="nk-tb-col" style=""><span class="sub-text">Day</span></th>
+                                                                    <?php 
+                                                                    foreach ($dataHour as $val) {
+                                                                    ?>
+                                                                        <th class="nk-tb-col"><span class="sub-text"><?= date('H:i',strtotime($val['HOURNAME'])) ;?></span></th>
+                                                                    <?php 
+                                                                    }
+                                                                    ?>
+                                                                    
+                                                                
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+
+
+                                                    
+                                                            </tbody>
+
+                                                        </table>
+                                                         
+                                                      </div>
+                                                      
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="row footer-table g-gs">
+                                         <div class="col-sm-3 " style="display:flex;min-width: 375px;">
+                                            <div style="height: 20px;width: 75px;background-color:#e90e15;margin-right:5px">
+
+                                            </div>
+                                            <div>
+                                                jadwal sudah terisi oleh jam perkuliahan
+                                            </div>
+                                         </div>
+                                         <div class="col-sm-3" style="display:flex;min-width: 350px;"" >
+                                            <div style="height: 20px;width: 75px;background-color:#eaff00;margin-right:5px">
+
+                                            </div>
+                                            <div>
+                                                jadwal sudah terisi oleh peminjam lain
+                                            </div>
+                                         </div>
+                                         <div class="col-sm-3" style="display:flex;min-width: 225px;"" >
+                                            <div style="height: 20px;width: 75px;background-color:#7ff743;margin-right:5px">
+
+                                            </div>
+                                            <div>
+                                                jadwal bisa dipilih
+                                            </div>
+                                         </div>
+                                         
+                                         
+                                        </div> 
+                                        
+                                    </div>
+                                <!-- <div class="row g-gs" id="loader_container_status" style="justify-content: center;">
+                                    <span class="loader_front" id="loader_front_status" style="margin-top:5%;display: none;"></span>
+                                </div>
+                                <div class="row g-gs kontenproduk_loan"  id="kontenproduk_loan" style="justify-content: center;">
+                              
                                   
+                                </div>
+                                 <nav class="mt-4 pagination-wrap_loan" id="pagination-wrap_loan">
+                                   
                                  </nav> -->
                             </div>
                         </div>
+                        <?php } ;?>
                     </div>
                 </div>
             </div>
@@ -306,6 +469,24 @@
 </div>
 </div>
 
+<div class="modal fade " tabindex="-1" id="modalRequestRoomLoan">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <a href="#" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <em class="icon ni ni-cross"></em>
+            </a>
+            <div class="modal-header">
+                <h5 class="modal-title">Request Form</h5>
+            </div>
+            <div class="modal-body" id="mainRequestRoomLoan">
+
+                
+       
+        </div>  
+      
+    </div>
+</div>
+</div>
 
 <div class="modal fade " tabindex="-1" id="modalAdd">
     <div class="modal-dialog modal-xl" role="document">
@@ -325,18 +506,647 @@
     </div>
 </div>
 </div>
+
+
+
+
             <script type="text/javascript">
-                 $(document).ready(function(){
+               function calldata(table, kampus, tanggal, kelas) {
+
+                    $('#'+table).DataTable({
+                        scrollX: true,
+                        "processing": true,
+                        // // "serverSide": true,
+                    "order": false,
+                        // "lengthMenu": [30, 60, 90, 120],
+                        // "pageLength": 30,
+                        "paging":   false,
+                        "ordering": false,
+                        "info":     false,
+                        "searching": false,
+                        "ajax" : {
+                            url : '<?php echo base_url('dataScheduleClass') ?>',
+                            type: "POST",
+                            // success : function(e) {
+                            //         // $('#loader_front').hide()
+                            //         // $('#loader_container').hide()
+                            // },
+                            data : function(data){
+                                data.campus = kampus;
+                                data.date=tanggal;
+                                data.room=kelas;
+                            }
+
+                        },
+                        "columnDefs":[{
+                            "targets":'_all',
+                            "orderable":false,
+                            "className":"custom-td"
+                            // render: $.fn.dataTable.render.html()
+                            },
+                            {
+                                "targets":0,
+                            
+                                "className":"custom-td-day"
+                            }
+                        ],
+                        "language": 
+                        {          
+                        "processing": "<span class=\"loader_front\"></span>",
+                        }
+                    });
+                    }
+
+
+                        function reloadtable(table, kampus){
+                            $('#'+table).DataTable().clear().destroy();
+                            if (kampus ==='KAMPUS A'){
+                                var defdate1=document.getElementById('flatpickr-range_classroom').value;
+                                var room1=$('#room_name').val();
+                            }else{
+                                var defdate1=document.getElementById('flatpickr-range2').value;
+                                var room1=$('#room_name2').val();
+                            }
+                            calldata(table, kampus,defdate1,room1 )
+                            console.log('hai')
+                        }
+
+                function bookRoom(){
+                        var checkedValues = [];
+                        var count = $("input[type=checkbox]:checked").length;
+                        if (count==0){
+                            Swal.fire({
+                          icon: 'error',
+                          title: 'Pilih setidaknya satu jadwal',
+                        })
+                        }else{
+                            var sessionLectur='<?php echo session()->lectur ?>';
+                            var sessionadmin='<?php echo session()->type ?>';
+                            var checkedValues = [];
+                            var checkSameday = [];
+                            var checkSametime=[];
+                            var i=0;
+                            var s=1;
+                            var t=1;
+                              $("input[type=checkbox]:checked").each(function(){
+                                checkedValues.push($(this).val());
+                                if (i>=1){
+                                    var day1=checkedValues[checkedValues.length-2].split('|')
+                                     var day2=checkedValues[i].split('|')
+                                   
+                                    if (day1[0]!=day2[0]){
+                                        checkSameday.push(s);
+                                        s++
+                                    }
+
+                                    if (day2[2]!=timeIncrease(day1[2])){
+                                        checkSametime.push(t);
+                                        t++;
+                                    }
+                                }
+                                
+                                i++;
+                            });
+                            var html ='';
+                            if (checkSameday.length==0){
+                                if(checkSametime.length==0){
+                                        var dataLoan =checkedValues[0].split("|");
+                                        var lastDataLoan=checkedValues[checkedValues.length-1].split("|");
+                                        var optionType= `<option value="other">Other</option>
+                                                         <option value="organization">Organization</option>
+                                                         <option value="kelas pengganti">Kelas Pengganti</option>`
+                                        var viewOptionPic='';
+                                        if (sessionLectur && sessionadmin!='admin akademik' ){
+                                            optionType= `<option value="other">Other</option>
+                                                         <option value="kelas pengganti">Kelas Pengganti</option>`
+                                            viewOptionPic='none-view'
+                                        }
+                                        html +=`
+                                            <form id="frmAddReqRoom">
+                                            <div class="row g-4"  >
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label class="form-label" >Class Room Name</label>
+                                                        <div class="form-control-wrap">
+                                                            <input type="text" class="form-control" value="${dataLoan[3]}" name="room_name" placeholder="Enter Amount" style="background-color:#F5F6FA;" readonly>
+                                                        </div>
+                                                        <div id="room_name-error">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="date_loan">Loan Date</label>
+                                                        <div class="form-control-wrap">
+                                                            <input type="text" class="form-control" value="${dataLoan[4]}" name="date_loan" id="date_loan" placeholder="Enter date_loan" style="background-color:#F5F6FA;" readonly >
+                                                        </div>
+                                                        <div id="date_loan-error">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="start_time">Start Hour</label>
+                                                        <div class="form-control-wrap">
+                                                            <input type="text" class="form-control" value="${dataLoan[2]}" name="start_time" id="start_time" placeholder="Enter start time" style="background-color:#F5F6FA;" readonly >
+                                                        </div>
+                                                        <div id="start_time-error">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-3">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="end_time">End Hour</label>
+                                                        <div class="form-control-wrap">
+                                                            <input type="text" class="form-control" value="${timeIncrease(lastDataLoan[2])}" name="end_time" id="end_time" placeholder="Enter end time" style="background-color:#F5F6FA;" readonly >
+                                                        </div>
+                                                        <div id="end_time-error">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12 ${viewOptionPic}">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="pic_loan">PIC</label>
+                                                        <div class="form-control-wrap">
+                                                            <select class="form-select" id="pic_loan" name="pic_loan">
+                                                                <option value="">- Choose PIC -</option>
+                                                          
+                                                            </select>
+                                                        </div>
+                                                        <div id="pic_loan-error">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="type_loan">Request Type</label>
+                                                        <div class="form-control-wrap">
+                                                            <select class="form-select" id="type_loan" name="type_loan">
+                                                                <option value="">- Choose Request Type -</option>
+                                                                ${optionType}
+                                                            </select>
+                                                        </div>
+                                                        <div id="type_loan-error">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12 none-view"  id="selectOrganization">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="organization">Chosee Organization</label>
+                                                        <div class="form-control-wrap">
+                                                            <select class="form-select" id="organization" name="organization">
+                                                            <option value="">- Choose Organization -</option>
+                                                            </select>
+                                                        </div>
+                                                        <div id="organization-error">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6 input-data-perkuliahan none-view"  id="inputlectDate">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="lecDate">Actual Lecture Date</label>
+                                                        <div class="form-control-wrap">
+                                                       
+                                                        <input type="text" id="lecDate" name="lecDate" class="form-control" value=""
+                                                            placeholder="Masukan Tanggal perkuliahan sebenernya">
+                                                        </div>
+                                                        <div id="lecDate-error">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6 input-data-perkuliahan none-view" id="selectStudyProgram">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="study_program">Study Program</label>
+                                                        <div class="form-control-wrap">
+                                                            <select class="form-select" id="study_program" name="study_program">
+                                                                <option value="">- Choose study program -</option>
+                                                                <option value="D3 Teknik Telekomunikasi">D3 Teknik Telekomunikasi</option>
+                                                                <option value="S1 Teknik Telekomunikasi">S1 Teknik Telekomunikasi</option>
+                                                                <option value="S1 Teknologi Informasi">S1 Teknologi Informasi</option>
+                                                                <option value="S1 Sistem Informasi">S1 Sistem Informasi</option>
+                                                                <option value="S1 Desain Komunikasi Visual">S1 Desain Komunikasi Visual</option>
+                                                            
+                                                            </select>
+                                                        </div>
+                                                        <div id="study_program-error">
+
+                                                        </div>
+                                                     
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6 input-data-perkuliahan none-view" id="inputSubject">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="subject">Subject Name</label>
+                                                        <div class="form-control-wrap">
+                                                            <input type="text" class="form-control" value="" name="subject" id="subject" placeholder="Masukan Nama Mata Kuliah">
+                                                        </div>
+                                                        <div id="subject-error">
+
+                                                        </div>
+                                                     
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6 input-data-perkuliahan none-view" id="inputCLassName">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="classname">Class Name</label>
+                                                        <div class="form-control-wrap">
+                                                            <input type="text" class="form-control" value="" name="classname" id="classname" placeholder="Masukan Nama Kelas, contoh : D3TT-KJ-21-001 ">
+                                                        </div>
+                                                        <div id="classname-error">
+
+                                                        </div>
+                                                     
+                                                    </div>
+                                                </div>
+
+                                                
+                                                <div class="col-lg-12 input-data-perkuliahan none-view" id="inputReplacementReason">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="reason">Replacement Reason</label>
+                                                        <div class="form-control-wrap">
+                                                            <input type="text" class="form-control" value="" name="reason" id="reason" placeholder="Masukan Alasan Mengganti kelas" >
+                                                        </div>
+                                                        <div id="reason-error">
+
+                                                        </div>
+                                                     
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12" id="inputActivity">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="activity">Activity Name</label>
+                                                        <div class="form-control-wrap">
+                                                            <input type="text" class="form-control" value="" name="activity" id="activity" placeholder="Enter Activity" >
+                                                        </div>
+                                                        <div id="activity-error">
+
+                                                        </div>
+                                                     
+                                                    </div>
+                                                </div>
+                                              
+                                        
+                                              
+
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <button type="button" class="btn btn-lg btn-primary" id="buttonAddReqClass" onclick="addReqClass()">Request</button>
+                                                        <span class="loader" id="loaderAddReqClass" style="display: none;"></span>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                `
+                                    $('#mainRequestRoomLoan').html(html);
+                                    $("#type_loan").select2({
+                                        dropdownParent: $("#mainRequestRoomLoan"),
+                                        minimumResultsForSearch: -1
+
+                                    })
+
+                                    $("#study_program").select2({
+                                        dropdownParent: $("#mainRequestRoomLoan"),
+                                        minimumResultsForSearch: -1,
+                                        dropdownPosition: 'below'
+
+                                    })
+
+                                    flatpickr('#lecDate', {
+
+                                    static: false,
+                                    enableTime: true,
+                                    time_24hr: true,
+                                    dateFormat: "d M Y H:i",
+                                    minuteIncrement: 30,  // Sets the minute increment to 30 minutes
+                                    // mode: 'multiple',  // Allows multiple date/time selection
+                                    defaultMinute: 30,
+                                    
+                                    // defaultDate:defaulttgl,
+                                    //  plugins: [
+                                    //     new minMaxTimePlugin({
+                                    //         table: {
+                                    //             '<?php echo date('Y-m-d') ?>':minmaxTime,
+                                    //         }
+                                    //     })
+                                    // ]
+
+                                })
+
+                                    $("#pic_loan").select2({
+                                            dropdownParent: $("#mainRequestRoomLoan"),
+                                            ajax: {
+                                                url: "getPicClassLoan",
+                                                dataType: 'json',
+                                                type: 'POST',
+                                                data: function (params) {
+                                                return {
+                                                    searchTerm: params.term
+                                                };
+                                                },
+                                                processResults: function (data) {
+                                                return { results: data };
+                                                }
+                                            },
+                                            minimumInputLength: 3
+                                        }).on('select2:open', function(e){
+                                                $('.select2-search__field').attr('placeholder', 'Search NIP/Nim/Name  ');
+                                            });
+
+
+                                    $("#organization").select2({
+                                            dropdownParent: $("#modalRequestRoomLoan"),
+                                            ajax: {
+                                                url: "getOrg",
+                                                dataType: 'json',
+                                                type: 'POST',
+                                                data: function (params) {
+                                                return {
+                                                    searchTerm: params.term
+                                                };
+                                                },
+                                                processResults: function (data) {
+                                                return { results: data };
+                                                }
+                                            },
+                                            minimumInputLength: -1
+                                        }).on('select2:open', function(e){
+                                                $('.select2-search__field').attr('placeholder', 'Search Organization');
+                                            });
+                               
+                                        $('#type_loan').on('change', function() {
+                                            if ($(this).val()=='organization'){
+                                                $("#selectOrganization").removeClass("none-view");
+                                                $("#inputActivity").removeClass("none-view");
+                                                $(".input-data-perkuliahan").addClass("none-view");
+                                              
+                                                
+                                            }else if($(this).val()=='kelas pengganti'){
+                                                $(".input-data-perkuliahan").removeClass("none-view");
+                                                $("#selectOrganization").addClass("none-view");
+                                                $("#inputActivity").addClass("none-view");
+                                                
+                                                
+                                            }
+                                            else {
+                                                $("#selectOrganization").addClass("none-view");
+                                                $(".input-data-perkuliahan").addClass("none-view");
+                                            
+                                                $("#inputActivity").removeClass("none-view");
+                                                
+                                                    
+                                            }
+                                        
+                                        });
+                                    
+                                    // // get first value as start date
+                                    // console.log(checkedValues[0])
+                                    // //get last value as end date
+                                    // console.log(checkedValues[checkedValues.length-1])
+                                     $("#modalRequestRoomLoan").modal('show');
+                                    // console.log(checkSametime.length)
+                                }else{
+                                    Swal.fire({
+                                    icon: 'warning',
+                                    title: 'Terdapat jadwal yang terisi di rentang waktu yang anda pilih',
+                                })
+                                }
+                                
+                            }else{
+                                Swal.fire({
+                                icon: 'warning',
+                                title: 'Harap pilih jadwal di hari yang sama',
+                                })
+                            }
+                         
+                            
+                        }
+                      
+                    }
+
+                $(document).ready(function(){
                   // var param=document.getElementById('s_cat_available').value;
                   // var param_status=document.getElementById('s_cat_loan').value;
                   // console.log(param)
                   showproduk();
                   showprodukstatus();
-                   //var type = $('.nav li.nav-item a.nav-link.active').text()
-                       // console.log(type);
+                 
+                  var curdate='<?php echo session()->type!='admin akademik'? date('d M Y', strtotime(date('d M Y') . ' + 3 days')) : date('d M Y') ?>'
+                  var Minimaldate='<?php echo session()->type!='admin akademik'? date('Y-m-d', strtotime(date('Y-m-d') . ' + 3 days')) :'' ?>'
+
+                  console.log(Minimaldate)
+                
+                    
+                    
+                    flatpickr('#flatpickr-range_classroom', {
+                            // dateFormat: "F j, Y", \
+                            minDate:Minimaldate,
+                            enableTime: false,
+                            dateFormat: "d M Y",
+                            defaultDate:curdate,
+                            onChange: function(selectedDates, dateStr, instance) {
+                                // Reload DataTables with new date
+                                console.log('hai')
+                                $('#example').DataTable().ajax.reload()
+                            }
+                        })
+
+                        flatpickr('#flatpickr-range2', {
+                            // dateFormat: "F j, Y", 
+                            minDate:Minimaldate,
+                            enableTime: false,
+                            dateFormat: "d M Y",
+                            defaultDate:curdate,
+                            onChange: function(selectedDates, dateStr, instance) {
+                                // Reload DataTables with new date
+                                console.log('hai')
+                                $('#example2').DataTable().ajax.reload()
+                            }
+                        })
+
+                        $("#room_name2").select2({ 
+                            ajax: {
+                                            url: "getRoom",
+                                            dataType: 'json',
+                                            type: 'POST',
+                                            data: function (params) {
+                                            return {
+                                                searchTerm: params.term,
+                                                campus:'Kampus B'
+                                            };
+                                            },
+                                            processResults: function (data) {
+                                                return { results:
+                                                    $.map(data, function(item) {
+                                                        return {
+                                                            id: item.id,
+                                                            text: item.text
+                                                        };
+                                                    })
+                                                };
+                                            }
+                                        },
+
+                        }).on('select2:open', function(e){
+                                            $('.select2-search__field').attr('placeholder', 'Search Room');
+                                        });
+
+                        $("#room_name").select2({ 
+                            ajax: {
+                                            url: "getRoom",
+                                            dataType: 'json',
+                                            type: 'POST',
+                                            data: function (params) {
+                                            return {
+                                                searchTerm: params.term,
+                                                campus:'Kampus A'
+                                            };
+                                            },
+                                            processResults: function (data) {
+                                                return { results:
+                                                    $.map(data, function(item) {
+                                                        return {
+                                                            id: item.id,
+                                                            text: item.text
+                                                        };
+                                                    })
+                                                };
+                                            }
+                                        },
+
+                        }).on('select2:open', function(e){
+                                            $('.select2-search__field').attr('placeholder', 'Search Room');
+                                        });
+                        
+                            // Set the selected value in Select2
+                            $('#room_name').select2('trigger', 'select', {data: {id: "RKA.KJ.01.001", text: "RKA.KJ.01.001"}});
+                            $('#room_name2').select2('trigger', 'select', {data: {id: "RKB.KJ.01.001", text: "RKB.KJ.01.001"}});
+
+                            var defdate1=document.getElementById('flatpickr-range_classroom').value;
+                            var room1=$('#room_name').val();
+                        calldata('example', 'KAMPUS A',defdate1,room1 )
+                        // calldata('example2', 'KAMPUS A',defdate1,room1)
+                        $('#room_name').on('change', function() {
+                        $('#example').DataTable().ajax.reload()
+                    
+                        });
+                        $('#room_name2').on('change', function() {
+                        $('#example2').DataTable().ajax.reload()
+                    
+                        });
+            
                 })
 
          
+                function timeIncrease(time){
+                    var timeString = time;
+
+       
+                    var timeParts = timeString.split(":");
+                    var hours = parseInt(timeParts[0]);
+                    var minutes = parseInt(timeParts[1]);
+                    var seconds = parseInt(timeParts[2]);
+
+                    // Add 60 minutes (1 hour)
+                    hours += 1;
+
+                    // Convert back to string format
+                    var newTimeString = padZero(hours) + ":" + padZero(minutes) + ":" + padZero(seconds);
+
+                    return newTimeString; // Output: "07:30:00"
+                }
+                // Function to pad zero if the number is less than 10
+                function padZero(num) {
+                    return (num < 10 ? "0" : "") + num;
+                }
+
+            function addReqClass()
+                    {
+                        var form_data = new FormData($('#frmAddReqRoom')[0]);
+
+                    $.ajax({
+                        url:"<?php echo base_url('addReqLoan') ?>",
+                        global:false,
+                        async:true,
+                        type:'post',
+                        processData: false,
+                        contentType: false,
+                        dataType:'json',
+                        enctype: "multipart/form-data",
+                        data: form_data,
+                        beforeSend: function () {
+                                    $('#buttonAddReqClass').hide()
+                                    $('#loaderAddReqClass').show()
+                                },
+                        success : function(e) {
+                        if(e.status == 'ok;') 
+                        {
+                            $('#buttonAddReqClass').show()
+                            $('#loaderAddReqClass').hide()
+                            let timerInterval
+                            Swal.fire({
+                                icon: 'success',
+                                title: ' Request has been send',
+                                showConfirmButton: false,
+                                timer: 1500,
+                                timerProgressBar: true,
+                                didOpen: () => {
+                                timerInterval = setInterval(() => {
+
+                                }, 100)
+                                },
+                                willClose: () => {
+                                clearInterval(timerInterval)
+                                }
+                            }).then((result) => {
+                                /* Read more about handling dismissals below */
+                                if (result.dismiss === Swal.DismissReason.timer) {
+                                location.reload();
+                                }
+                            })
+                        } 
+                        else{ 
+                            $('#buttonAddReqClass').show()
+                            $('#loaderAddReqClass').hide()
+                            var msgeror='';
+                                $.each(e.dataname, function(key, value) {
+                                    document.getElementById(key+"-error").innerHTML ="";
+                                });
+
+                                $.each(e.data, function(key, value) {
+                                document.getElementById(key+"-error").innerHTML = `<span class="badge badge-dim bg-danger">`+value+`
+                                                                                    </span>`;
+                            });
+                     
+                            $("#modalRequestRoomLoan").modal('show');
+                        }
+                    },
+                    error :function(xhr, status, error) {
+                        $('#buttonAddReqClass').show()
+                            $('#loaderAddReqClass').hide()
+                    alert(xhr.responseText);
+                    }
+
+                });
+            }
 
                 function tabShow(tabName, viewName){
                         if (viewName=='Available'){
@@ -363,13 +1173,6 @@
 
                         (viewName=='Available')?showproduk(cat, tabName):showprodukstatus(cat, tabName);
                 }
-
-               
-
-        
-
-
-
                   // let autorelod = setInterval(function () {
                   //       var param_status_new=document.getElementById('s_cat_loan').options[document.getElementById('s_cat_loan').selectedIndex].value
                   //       var param_new=document.getElementById('s_cat_available').options[document.getElementById('s_cat_available').selectedIndex].value
@@ -1217,9 +2020,10 @@
 
                     // Mendapatkan jam dari waktu saat ini
                     const jamSekarang = waktuSekarang.getHours();
-                    if (jamSekarang >= 8 && jamSekarang <= 15) {
+                    if (jamSekarang >= 8 && jamSekarang <= 16) {
                          $("#modalcheck").modal('show');
                     } else {
+                        console.log(jamSekarang)
                         Swal.fire({
                           icon: "error",
                           title: "Oops...",
@@ -1277,7 +2081,7 @@
                                             driver +=`<div class="col-lg-6">
                                                 <div class="form-group">
                                                   
-                                                    <div class="custom-control custom-checkbox">
+                                                    <div class="custom-control">
                                                          <input type="checkbox" class="custom-control-input" id="driver" name="driver" value="1" ${disabled}>    
                                                          <label class="custom-control-label" for="driver">Driver</label>
                                                          ${nb}

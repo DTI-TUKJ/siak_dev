@@ -66,9 +66,21 @@ class Employee extends BaseController
  
     }
 
+    public function getPicClassLoan()
+    {
+        $s = $this->request->getPost('searchTerm');
+     
+        $dbs = $this->MAM->getListNip_Nim($s);
 
+        $result = array();
+        foreach ($dbs as $db)
+            $result[] = array(
+                'id' => $db->nip_nim,
+                'text' => $db->fullname.' ('.$db->nip_nim.') - '.$db->status 
+            );
 
-
+        echo json_encode($result);
+    }
 
 }
 

@@ -3029,7 +3029,8 @@ div.dataTables_wrapper div.dataTables_filter .input-group.has-validation > .form
 }
 .btn:disabled, .dual-listbox .dual-listbox__button:disabled, .btn.disabled, .dual-listbox .disabled.dual-listbox__button, fieldset:disabled .btn, fieldset:disabled .dual-listbox .dual-listbox__button, .dual-listbox fieldset:disabled .dual-listbox__button {
   color: var(--bs-btn-disabled-color);
-  pointer-events: none;
+  /* pointer-events: none; */
+  cursor: default;
   background-color: var(--bs-btn-disabled-bg);
   border-color: var(--bs-btn-disabled-border-color);
   opacity: var(--bs-btn-disabled-opacity);

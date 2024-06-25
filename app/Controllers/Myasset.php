@@ -27,7 +27,7 @@ class Myasset extends BaseController
 
     public function index()
     {
-              if (session()->id==null || session()->type=='pegawai'){
+              if (session()->id==null || session()->type=='pegawai'|| session()->type=='admin akadmik'){
                 return redirect()->to(base_url('Siak'));
             }
              $data=array(

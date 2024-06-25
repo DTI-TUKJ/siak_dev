@@ -30,7 +30,7 @@
                 <div class="card card-bordered card-preview">
                     <div class="card-inner">
 
-                        <table class=" nk-tb-list nk-tb-ulist table" data-auto-responsive="false" id="example" style="min-width:1425px;">
+                        <table class=" nk-tb-list nk-tb-ulist table table-bordered " data-auto-responsive="false" id="example" style="min-width:1425px;">
                             <thead>
                                 <tr class="nk-tb-item nk-tb-head">
                                     <!--   <th class="nk-tb-col nk-tb-col-check">

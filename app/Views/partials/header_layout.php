@@ -153,47 +153,89 @@
                                         <span class="nk-menu-text">Dashboards</span>
                                     </a>
                                     
-                                </li><!-- .nk-menu-item -->
-                                <?php if(session()->type!='pegawai') { ?>
-                                <li class="nk-menu-item has-sub">
-                                    <a href="<?php echo base_url('Siak/MyAsset') ?>" class="nk-menu-link">
-                                        <span class="nk-menu-text">My Asset</span>
-                                    </a>
-                                    
                                 </li>
-                                 <li class="nk-menu-item has-sub">
-                                    <a href="<?php echo base_url('Siak/DataLoan') ?>" class="nk-menu-link">
-                                        <span class="nk-menu-text">Loan</span>
-                                    </a>
-                                    
-                                </li><!-- .nk-menu-item -->
-                                <?php  if (session()->type=='superadmin') {?>
-                                <li class="nk-menu-item has-sub">
-                                    <a href="<?php echo base_url('Siak/User') ?>" class="nk-menu-link">
-                                        <span class="nk-menu-text">Users Admin</span>
-                                    </a>
-                                    
-                                </li><!-- .nk-menu-item -->
-                                 <li class="nk-menu-item has-sub">
-                                    <a href="<?php echo base_url('Siak/DataEmployee') ?>" class="nk-menu-link">
-                                        <span class="nk-menu-text">Employee </span>
-                                    </a>
-                                    
-                                </li><!-- .nk-menu-item -->
-                                 <?php }
-                              }  ?>
+                            <?php if(session()->numberid==null) { ?>
+                                <?php if(session()->type!='pegawai') { ?>
+                                    <?php if(session()->type!='admin akademik') { ?>
+                                    <li class="nk-menu-item has-sub">
+                                        <a href="<?php echo base_url('Siak/MyAsset') ?>" class="nk-menu-link">
+                                            <span class="nk-menu-text">My Asset</span>
+                                        </a>
+                                        
+                                    </li>
+                                    <li class="nk-menu-item has-sub">
+                                        <a href="<?php echo base_url('Siak/DataLoan') ?>" class="nk-menu-link">
+                                            <span class="nk-menu-text">Loan</span>
+                                        </a>
+                                        
+                                    </li>
+                                    <?php } ?><!-- .nk-menu-item -->
+                                    <?php  if (session()->type=='superadmin') {?>
+                                    <li class="nk-menu-item has-sub">
+                                        <a href="<?php echo base_url('Siak/User') ?>" class="nk-menu-link">
+                                            <span class="nk-menu-text">Users Admin</span>
+                                        </a>
+                                        
+                                    </li><!-- .nk-menu-item -->
+                                    <li class="nk-menu-item has-sub">
+                                        <a href="<?php echo base_url('Siak/DataEmployee') ?>" class="nk-menu-link">
+                                            <span class="nk-menu-text">Employee </span>
+                                        </a>
+                                        
+                                    </li><!-- .nk-menu-item -->
+                                    <?php } ?>
+                                    <?php if (session()->type=='admin akademik'||session()->type=='superadmin') { ?>
+                                    <li class="nk-menu-item has-sub">
+                                        <a href="<?php echo base_url('Siak/Organization') ?>" class="nk-menu-link">
+                                            <span class="nk-menu-text">Organization</span>
+                                        </a>
+                                        
+                                    </li>
+                                    <li class="nk-menu-item has-sub">
+                                        <a href="<?php echo base_url('Siak/Student') ?>" class="nk-menu-link">
+                                            <span class="nk-menu-text">Student</span>
+                                        </a>
+                                        
+                                    </li>
+                                        
+                                <?php }
+                                }  ?>
 
-                               <?php if(session()->type=='pegawai') { ?>
+                               <?php if(session()->type=='pegawai' || session()->type=='admin akademik' ) { ?>
                                 <li class="nk-menu-item has-sub">
                                     <a href="<?php echo base_url('Siak/MyLoan') ?>" class="nk-menu-link">
                                         <span class="nk-menu-text">My Loan </span>
                                     </a>
                                     
                                 </li>
-                               <?php }  ?>
+                               <?php }
                                
+                         
+                               } ?> 
+
+                                <?php if (session()->type=='student' || (session()->lectur && !session()->pembina)){ ?>
+
+                                    <li class="nk-menu-item has-sub">
+                                        <a href="<?php echo base_url('Siak/MyClassLoan') ?>" class="nk-menu-link">
+                                            <span class="nk-menu-text">My Classroom Loan </span>
+                                        </a>
+                                        
+                                    </li>
+                                <?php } ?>
+
+
+                                <?php if (session()->pembina || session()->type=='admin akademik' || session()->type=='admin logistik'){ ?>
+
+                                <li class="nk-menu-item has-sub">
+                                    <a href="<?php echo base_url('Siak/Classroomloan') ?>" class="nk-menu-link">
+                                        <span class="nk-menu-text">Classroom Loan </span>
+                                    </a>
+                                    
+                                </li>
+                                <?php } ?>
+
                               <li class="nk-menu-item has-sub">
-                                    <a href="<?php echo base_url('Siak/loanHistory') ?>" class="nk-menu-link">
+                                    <a href="<?php echo session()->type!='student'?base_url('Siak/loanHistory'):base_url('Siak/HistoryClassLoan'); ?>" class="nk-menu-link">
                                         <span class="nk-menu-text">Loan History </span>
                                     </a>
                                     
@@ -255,7 +297,7 @@
                                         </div>
                                     </div>
                                 </li> -->
-                               <?php if(isset(session()->name_emp)) {?>
+                               <?php if(isset(session()->name_emp)||isset(session()->numberid)) {?>
                                 <li class="dropdown user-dropdown">
                                     <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
                                         <div class="user-toggle">
@@ -264,8 +306,13 @@
                                             </div>
                                         </div>
                                          <div class="user-info d-none d-xl-block" style="padding-left:10px">
-                                                <div class="user-status" style="color:white;"><?php echo session()->name_emp ?></div>
+                                                <div class="user-status" style="color:white;"><?php echo session()->name_emp!=null?session()->name_emp: session()->fullname ?></div>
+                                                <?php  if (session()->name_emp!=null){ ?>
                                                 <div class="user-name dropdown-indicator" style="color: #fafafa;"><?php echo session()->type=='pegawai'? str_replace('BAGIAN','',str_replace(' KAMPUS JAKARTA', '', session()->unit_emp)):session()->type ?></div>
+                                                <?php } else {
+                                                    ?>
+                                                    <div class="user-name dropdown-indicator" style="color: #fafafa;"><?php echo session()->studyprogram ?></div>
+                                                <?php } ;?>
                                             </div>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-end dropdown-menu-s1 is-light">
@@ -275,7 +322,7 @@
                                                     <em class="icon ni ni-user-alt"></em>
                                                 </div>
                                                 <div class="user-info">
-                                                    <span class="lead-text"><?php echo session()->name_emp ?></span>
+                                                    <span class="lead-text"><?php echo session()->name_emp!=null?session()->name_emp: session()->fullname ?></span>
                                                     <!-- <span class="sub-text">sofyan@gmail.com</span> -->
                                                 </div>
                                               <!--   <div class="user-action">
@@ -295,11 +342,18 @@
                                       </div>
                                         <div class="dropdown-inner">
                                             <ul class="link-list">
-                                                <li><a href="<?php echo base_url('Logout') ?>"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>                                            </ul>
+                                                <li><a href="<?php echo base_url('Logout') ?>"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                                                <?php if(session()->type=='admin akademik' ) { ?>
+                                                <li><a href="#" onclick="activatedBeetweenSemester(event)"><i class="fa-solid fa-calendar-days" style="padding-right:15px"></i><span>Aktifkan Semester Antara</span></a></li>
+                                                <?php } ;?>
+                                                <?php if(session()->type=='superadmin' && base_url('')=='http://localhost:8080/') {?>  
+                                                <li><a href="<?php echo base_url('SchUpdate') ?>"><em class="icon ni ni-signout"></em><span>Update Schedule</span></a></li>
+                                                <?php } ?>                          
+                                            </ul>
                                         </div>
                                     </div>
                                 </li><!-- .dropdown -->
-                                <?php } ?>
+                             <?php } ?>
                             </ul><!-- .nk-quick-nav -->
                         </div><!-- .nk-header-tools -->
                     </div><!-- .nk-header-wrap -->
@@ -355,6 +409,15 @@
                         </div>
                 </div>
 
+<div class="modal fade " tabindex="-1" id="modalLoaderHead">
+    <div class="modal-dialog modal-sm"  role="document">
+        <div class="modal-content" style="background: transparent; box-shadow: none;">
+            <div class="row g-gs" id="loader_container_loan" style="justify-content: center;">
+            <span class="loader_front" id="loader_front_loan" ></span>
+            </div>
+        </div>
+    </div>
+</div>
                    <script type="text/javascript">
                 function ChangeUnit()
                     {
@@ -425,6 +488,71 @@
 
                  });
                 }
+
+                function activatedBeetweenSemester(event){
+                    event.preventDefault()
+                    Swal.fire({
+                        title: 'Yakin Ingin mengaktifkan Semester antara ?',
+                        // text: "Data tidak akan bisa kembali",
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'Yes'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $.ajax({
+                                url: "<?php echo base_url('activatedBetweenSem') ?>",
+                                global: false,
+                                async: true,
+                                type: 'post',
+                                dataType: 'json',
+                                beforeSend: function () {
+                                    
+                                    $("#modalLoaderHead").modal('show');
+                                             
+                             },
+                                data: ({
+                                }),
+                                success: function(e) {
+                                    if (e.status == 'ok;') {
+
+                                        let timerInterval
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: ' Data has been Update',
+                                            showConfirmButton: false,
+                                            timer: 1500,
+                                            timerProgressBar: true,
+                                            didOpen: () => {
+                                                timerInterval = setInterval(() => {
+
+                                                }, 100)
+                                            },
+                                            willClose: () => {
+                                                clearInterval(timerInterval)
+                                            }
+                                        }).then((result) => {
+                                            /* Read more about handling dismissals below */
+                                            if (result.dismiss === Swal.DismissReason.timer) {
+                                                location.reload();
+                                            }
+                                        })
+
+                                    }
+                                },
+                                error: function(xhr, status, error) {
+                                    alert(xhr.responseText);
+                                }
+
+                            });
+
+
+                        }
+                    })
+                }
+
+                $(document).ready(function() {
+                    
+                });
            </script>
   
 </body>
