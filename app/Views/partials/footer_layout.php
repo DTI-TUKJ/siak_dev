@@ -40,6 +40,8 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/monthSelect/index.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/minMaxTimePlugin.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/rangePlugin.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/closeOnSelect.js"></script> -->
+
 <script type="text/javascript">
 
 </script>

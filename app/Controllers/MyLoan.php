@@ -23,7 +23,7 @@ class MyLoan extends BaseController
 
     public function index()
     {
-            if (session()->type!='pegawai'){
+            if (session()->type!='pegawai' && session()->type !='admin akademik'){
                 return redirect()->to(base_url('Siak'));
             }
          

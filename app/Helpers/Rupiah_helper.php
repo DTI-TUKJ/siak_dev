@@ -183,5 +183,22 @@
       return $hp;
     }
 
+    function ifNull($condition,$val='-'){
+        return $condition==null||$condition==''||!isset($condition)?$val:$condition;
+    }
+
+    function ifNullDate($date, $dateFormat='Y-m-d H:i:s', $val='-'){
+        return $date==null||$date==''||!isset($date)?$val:date($dateFormat, strtotime($date));
+    }
+
+    function format_schoolyear($yearString) {
+        if (strlen($yearString) == 4) {
+            $firstPart = substr($yearString, 0, 2);
+            $secondPart = substr($yearString, 2, 2);
+            return $firstPart . '/' . $secondPart;
+        }
+        return $yearString; // Return the original string if it does not have 4 characters
+    }
+
    
 ?>

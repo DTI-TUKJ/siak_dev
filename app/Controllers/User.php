@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\LoginModel;
+use App\Models\scheduleModel;
+use App\Models\DBigraciasModel;
 
 class User extends BaseController
 {
@@ -13,6 +15,11 @@ class User extends BaseController
     {
         $this->session = \Config\Services::session();
         $this->LM = new LoginModel();
+        $this->req = \Config\Services::request();
+        $this->SM = new scheduleModel($this->req);
+        if ( base_url('')=='http://localhost:8080/'){
+            $this->DBM = new DBigraciasModel();
+        }
     }
 
     public function index()
@@ -114,5 +121,30 @@ class User extends BaseController
 
         echo json_encode(array('status' => 'ok;', 'text' => ''));
 
+    }
+
+    public function updateSchedulefromDBI(){
+
+        if ( base_url('')!='http://localhost:8080/'){
+            return redirect()->to(base_url('Siak'));
+        }
+
+        $activeSemester =$this->DBM->getSemesterActive();
+        $data=$this->DBM->GetSchedule($activeSemester['SCHOOLYEAR'], $activeSemester['SEMESTER']);
+        $dataNewMhswa= $activeSemester['SEMESTER']==1? $this->DBM->getAllDataMhw($activeSemester['SCHOOLYEAR']):'none';
+        $dataClassroom=$this->DBM->getClassRoom();
+        
+        $dataApi=array(
+            "schedule"=>$data,
+            "token"=>'',
+            "settingSemester"=> $activeSemester,
+            "dataMhw"=>$dataNewMhswa,
+            "dataClassroom"=>$dataClassroom
+        );
+        // echo json_encode($dataApi);
+         $res =updateTableSchedule($dataApi);
+        //  $update = $this->SM->updateSchedule($data);
+        // print_r($dataNewMhswa);
+        print_r($res);
     }
 }

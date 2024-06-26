@@ -49,25 +49,25 @@ class Database extends Config
         'numberNative' => false,
     ];
 
-    // public $DBIGRACIAS = [
-    //     'DSN'      => '(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.252.251.81)(PORT=1521))) (CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=nucleo.telkomuniversity.ac.id)))',
-    //     'hostname' => '10.252.251.81',
-    //     'username' => 'SOFYANHADIHIDAYAT',
-    //     'password' => 'tUnCDeV202302',
-    //     'database' => 'nucleo.telkomuniversity.ac.id',
-    //     'DBDriver' => 'OCI8',
-    //     'DBPrefix' => '',
-    //     'pConnect' => false,
-    //     'DBDebug'  => (ENVIRONMENT !== 'production'),
-    //     'charset'  => 'utf8',
-    //     'DBCollat' => 'utf8_general_ci',
-    //     'swapPre'  => '',
-    //     'encrypt'  => false,
-    //     'compress' => false,
-    //     'strictOn' => true,
-    //     'failover' => [],
-    //     'port'     => 1521,
-    // ];
+    public $DBIGRACIAS = [
+        'DSN'      => '(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.252.251.81)(PORT=1521))) (CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=nucleo.telkomuniversity.ac.id)))',
+        'hostname' => '10.252.251.81',
+        'username' => 'SOFYANHADIHIDAYAT',
+        'password' => 'tUnCDeV202302',
+        'database' => 'nucleo.telkomuniversity.ac.id',
+        'DBDriver' => 'OCI8',
+        'DBPrefix' => '',
+        'pConnect' => false,
+        'DBDebug'  => (ENVIRONMENT !== 'production'),
+        'charset'  => 'utf8',
+        'DBCollat' => 'utf8_general_ci',
+        'swapPre'  => '',
+        'encrypt'  => false,
+        'compress' => false,
+        'strictOn' => true,
+        'failover' => [],
+        'port'     => 1521,
+    ];
     /**
      * This database connection is used when
      * running PHPUnit database tests.

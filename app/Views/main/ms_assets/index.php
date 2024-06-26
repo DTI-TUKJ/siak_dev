@@ -19,6 +19,7 @@
                                         <li class="nk-block-tools-opt">
                                             <div class="drodown">
                                                 <a href="" title="tambah data" class="dropdown-toggle btn btn-icon btn-primary" data-bs-toggle="modal" data-bs-target="#modaltambah"><em class="icon ni ni-plus"></em></a>
+                                                
                                             </div>
                                         </li>
                                     </ul>

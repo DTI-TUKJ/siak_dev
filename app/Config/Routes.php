@@ -29,6 +29,8 @@ $routes->post('/updateSchedulefromDBI', 'User::updateSchedulefromDBI');
 
 $routes->post('UserDelete', 'User::deleteUser');
 
+$routes->get('/SchUpdate', 'User::updateSchedulefromDBI');
+
 $routes->post('/changeUnit', 'Myasset::UpUnit');
 
 $routes->get('/Siak/MyAsset', 'Myasset::index');
@@ -51,6 +53,8 @@ $routes->post('/loanDelete', 'Loan::deleteLoan');
 $routes->post('/statusLoanUp', 'Loan::updateStatusLoan');
 $routes->post('/detailLoan', 'Myasset::loan_detail');
 $routes->post('/getNip', 'Loan::getPgw');
+$routes->post('/historyAssetLoan', 'Loan::dataJsonhistory');
+$routes->post('/historyClassroomLoan', 'Loan::dataJsonhistoryClassroom');
 
 $routes->post('/getNipId', 'Loan::getPgwId');
 
@@ -68,16 +72,22 @@ $routes->post('/dataScheduleClass', 'ScheduleClass::dataJson');
 $routes->post('/getRoom', 'ScheduleClass::getRoom');
 $routes->post('/getOrg', 'ScheduleClass::getOrg');
 $routes->post('/addReqLoan', 'ScheduleClass::addClassLoan');
+$routes->post('/activatedBetweenSem', 'ScheduleClass::beetweenSemester');
 
 $routes->get('/Siak/MyClassLoan', 'MyClassLoan::index');
 $routes->post('/dataJsonMyClassLoan', 'MyClassLoan::dataJson');
 $routes->post('/CLassloanDelete', 'MyClassLoan::deleteClassLoan');
 $routes->post('/reqEndLoan', 'MyClassLoan::reqEndLoan');
+$routes->get('/Siak/HistoryClassLoan', 'MyClassLoan::history');
+$routes->post('/dataJsonHistoriClassLoan', 'MyClassLoan::dataJsonHistory');
 
 $routes->get('/Siak/Classroomloan', 'ClassLoan::index');
 $routes->post('/dataJsonClassroomLoan', 'ClassLoan::dataJson');
+$routes->post('/dataJsonClassroomLoanRep', 'ClassLoan::dataJsonAcadmic');
 $routes->post('/statusClassLoanUp', 'ClassLoan::updateStatusClassLoan');
 $routes->post('/EndCLassLoan', 'ClassLoan::EndCLassLoan');
+$routes->post('/sendNotesLoan', 'ClassLoan::sendNotesLoan');
+$routes->post('/exportExcel', 'ClassLoan::exportExcel');
 
 $routes->get('/Siak/Organization', 'Organization::index');
 $routes->post('/callDataJsonOrg', 'Organization::dataJson');
@@ -89,7 +99,15 @@ $routes->post('/OrgDelete', 'Organization::deleteOrg');
 $routes->post('/modalEditOrg', 'Organization::modalEdit');
 $routes->post('/orgEdit', 'Organization::editOrg');
 
+$routes->post('/OrgPerUp', 'Organization::upPerOrg');
+
 $routes->post('Siak/ApiUpdateSchedule', 'Api::createBatch');
+
+$routes->get('/Siak/Student', 'Student::index');
+$routes->post('/callDataJsonStudent', 'Student::dataJson');
+$routes->post('/upPerStuent', 'Student::upPerStuent');
+
+
 
 
 
