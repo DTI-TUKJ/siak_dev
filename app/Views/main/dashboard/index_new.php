@@ -511,7 +511,7 @@
 
 
             <script type="text/javascript">
-               function calldata(table, kampus, tanggal, kelas) {
+               function calldata(table, kampus, tanggal) {
 
                     $('#'+table).DataTable({
                         scrollX: true,
@@ -534,7 +534,7 @@
                             data : function(data){
                                 data.campus = kampus;
                                 data.date=tanggal;
-                                data.room=kelas;
+                                data.room=kampus=='KAMPUS A'?$('#room_name').val():$('#room_name2').val();
                             }
 
                         },
@@ -559,16 +559,18 @@
 
 
                         function reloadtable(table, kampus){
+                            
                             $('#'+table).DataTable().clear().destroy();
                             if (kampus ==='KAMPUS A'){
                                 var defdate1=document.getElementById('flatpickr-range_classroom').value;
-                                var room1=$('#room_name').val();
+                                // var room1=$('#room_name').val();
                             }else{
                                 var defdate1=document.getElementById('flatpickr-range2').value;
-                                var room1=$('#room_name2').val();
+                                // var room1=$('#room_name2').val();
                             }
-                            calldata(table, kampus,defdate1,room1 )
-                            console.log('hai')
+                           
+                            calldata(table, kampus,defdate1)
+                            
                         }
 
                 function bookRoom(){
@@ -1041,14 +1043,16 @@
                             $('#room_name2').select2('trigger', 'select', {data: {id: "RKB.KJ.01.001", text: "RKB.KJ.01.001"}});
 
                             var defdate1=document.getElementById('flatpickr-range_classroom').value;
-                            var room1=$('#room_name').val();
-                        calldata('example', 'KAMPUS A',defdate1,room1 )
+                            // var room1=$('#room_name').val();
+                           
+                        calldata('example', 'KAMPUS A',defdate1)
                         // calldata('example2', 'KAMPUS A',defdate1,room1)
                         $('#room_name').on('change', function() {
-                        $('#example').DataTable().ajax.reload()
+                            
+                         $('#example').DataTable().ajax.reload()
                     
                         });
-                        $('#room_name2').on('change', function() {
+                         $('#room_name2').on('change', function() {
                         $('#example2').DataTable().ajax.reload()
                     
                         });

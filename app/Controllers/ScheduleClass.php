@@ -59,7 +59,8 @@ class ScheduleClass extends BaseController
              $date = date('Y-m-d H:i:s',strtotime($this->request->getPost("date")));
              $room =$this->request->getPost("room");
              $getSemesterActive=$this->SM->getActiveSchoolyear();
-             
+            //   echo $room;
+            //   die();
             for ($i=0; $i < 7 ; $i++) { 
                 # code...
             // }
