@@ -511,7 +511,7 @@
 
 
             <script type="text/javascript">
-               function calldata(table, kampus, tanggal) {
+               function calldata(table, kampus) {
 
                     $('#'+table).DataTable({
                         scrollX: true,
@@ -533,7 +533,7 @@
                             // },
                             data : function(data){
                                 data.campus = kampus;
-                                data.date=tanggal;
+                                data.date=kampus=='KAMPUS A'?document.getElementById('flatpickr-range_classroom').value:document.getElementById('flatpickr-range2').value;
                                 data.room=kampus=='KAMPUS A'?$('#room_name').val():$('#room_name2').val();
                             }
 
@@ -561,15 +561,8 @@
                         function reloadtable(table, kampus){
                             
                             $('#'+table).DataTable().clear().destroy();
-                            if (kampus ==='KAMPUS A'){
-                                var defdate1=document.getElementById('flatpickr-range_classroom').value;
-                                // var room1=$('#room_name').val();
-                            }else{
-                                var defdate1=document.getElementById('flatpickr-range2').value;
-                                // var room1=$('#room_name2').val();
-                            }
-                           
-                            calldata(table, kampus,defdate1)
+
+                            calldata(table, kampus)
                             
                         }
 
@@ -1045,7 +1038,7 @@
                             var defdate1=document.getElementById('flatpickr-range_classroom').value;
                             // var room1=$('#room_name').val();
                            
-                        calldata('example', 'KAMPUS A',defdate1)
+                        calldata('example', 'KAMPUS A')
                         // calldata('example2', 'KAMPUS A',defdate1,room1)
                         $('#room_name').on('change', function() {
                             
