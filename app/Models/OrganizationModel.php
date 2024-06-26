@@ -53,8 +53,8 @@ class OrganizationModel extends Model
         if ($this->request->getPost('length') != -1){
             $this->dt->limit($this->request->getPost('length'), $this->request->getPost('start'));
         }
-    
-        $this->dt->select($this->table.'.*, s.*, em1.name_emp as pembina_a, em2.name_emp as pembina_b');
+        // $this->dt->distinct();
+        $this->dt->distinct()->select($this->table.'.*, s.*, em1.name_emp as pembina_a, em2.name_emp as pembina_b');
         $this->dt->join('student s', $this->table.'.assoc_leader_id=s.numberid','LEFT');
         $this->dt->join('employe_master em1', $this->table.'.assoc_lecturer_id=em1.nip_emp', 'LEFT');
         $this->dt->join('employe_master em2', $this->table.'.assoc_lecturer_id_b=em2.nip_emp', 'LEFT');
@@ -68,8 +68,8 @@ class OrganizationModel extends Model
     public function count_filtered()
     {
         $this->_get_datatables_query();
-        
-        $this->dt->select($this->table.'.*, s.*, em1.name_emp, em2.name_emp');
+        // $this->dt->distinct();
+        $this->dt->distinct()->select($this->table.'.*, s.*, em1.name_emp as pembina_a, em2.name_emp as pembina_b');
         $this->dt->join('student s', $this->table.'.assoc_leader_id=s.numberid','LEFT');
         $this->dt->join('employe_master em1', $this->table.'.assoc_lecturer_id=em1.nip_emp', 'LEFT');
         $this->dt->join('employe_master em2', $this->table.'.assoc_lecturer_id_b=em2.nip_emp', 'LEFT');
