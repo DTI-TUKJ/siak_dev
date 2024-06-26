@@ -374,7 +374,7 @@ class ScheduleClass extends BaseController
       echo json_encode(array('status' => 'ok;', 'text' => ''));
     }
 
-    protected function SendWaReq($nama, $num,$act, $activity='', $type='', $alldata)
+    protected function SendWaReq($nama, $num,$act, $activity='', $type='', $alldata='')
     {
         $testing='';
         if (base_url('')=='http://localhost:8080/'){
