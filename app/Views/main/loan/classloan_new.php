@@ -65,13 +65,15 @@
                                                         
                                                                 </select>
                                                             </li>
+                                                            <?php if (session()->type =='admin akademik') { ?>
                                                             <li>
                                                                 <div class="form-control-wrap dash-room">
                                                                     <a class="btn btn-round btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalexport">Export to Excel</a>
                                                                     
                                                                 </div>
                                                             </li>
-                                                            
+                                                             <?php } ?>
+                                
                                                         </ul>
                                                     
                                                     </div>
@@ -134,12 +136,14 @@
                                                         
                                                         <ul class="nk-block-tools g-3">
                                                           
+                                                        <?php if (session()->type =='admin akademik') { ?>
                                                             <li>
                                                                 <div class="form-control-wrap dash-room">
                                                                     <a class="btn btn-round btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalexport">Export to Excel</a>
                                                                     
                                                                 </div>
                                                             </li>
+                                                             <?php } ?>
                                                             
                                                         </ul>
                                                     
