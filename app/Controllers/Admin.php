@@ -236,7 +236,7 @@ class Admin extends BaseController
     {   
 
             $isDataValid = $this->validation->withRequest($this->request)->run();
-            $acc      =  array('username' => 'sofyanhadihidayat','password' => 'Hady@2024');
+            $acc      =  array('username' => 'sofyanhadihidayat','password' => 'Hady@0305');
             $getToken = GetToken($acc);
 
                 $profile  = GetProfile($getToken->token);
