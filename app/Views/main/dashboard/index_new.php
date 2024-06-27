@@ -517,7 +517,7 @@
                         scrollX: true,
                         "processing": true,
                         // // "serverSide": true,
-                    "order": false,
+                        "order": false,
                         // "lengthMenu": [30, 60, 90, 120],
                         // "pageLength": 30,
                         "paging":   false,
@@ -1077,7 +1077,7 @@
 
             function addReqClass()
                     {
-                        var form_data = new FormData($('#frmAddReqRoom')[0]);
+                    var form_data = new FormData($('#frmAddReqRoom')[0]);
 
                     $.ajax({
                         url:"<?php echo base_url('addReqLoan') ?>",

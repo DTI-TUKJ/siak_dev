@@ -84,7 +84,14 @@ class ScheduleClass extends BaseController
                         $row[]= '<input type="button" class="custom-checkbox" data-parsley-multiple="groups" data-parsley-mincheck="2" name="dataSchChosed[]" disabled>';
                      }
                    }else{
-                    $row[]= '<input type="checkbox" class="custom-checkbox" value="'.$days.'|'.$campus.'|'.$value['HOURNAME'].'|'.$room.'|'.date('d M Y', strtotime($date.'+'.$i.' days')).'" data-parsley-multiple="groups" data-parsley-mincheck="2" name="dataSchChosed[]">';
+                    
+                    if(count($jum_sch_class)==0){
+                        $row[]= '<input type="checkbox" class="custom-checkbox" value="'.$days.'|'.$campus.'|'.$value['HOURNAME'].'|'.$room.'|'.date('d M Y', strtotime($date.'+'.$i.' days')).'" data-parsley-multiple="groups" data-parsley-mincheck="2" name="dataSchChosed[]">';
+                    }else{
+                        $row[]= '<input type="button" class="custom-checkbox " data-parsley-multiple="groups" data-parsley-mincheck="2" name="dataSchChosed[]" disabled style="background-color: #eaff00; border: 2px solid #eaff00; ">';
+                    }
+
+                    
                    }
                 }
                 $data[] = $row;
