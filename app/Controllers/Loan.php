@@ -647,7 +647,7 @@ Notifikasi Siak" );
      public function getPgwId()
     {
         $s = $this->request->getPost('searchTerm');
-        $dbs = $this->LM->getNip($s);
+        $dbs = $this->LM->getNipForAdduser($s);
 
         $result = array();
         foreach ($dbs as $db)

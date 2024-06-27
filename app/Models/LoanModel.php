@@ -229,10 +229,19 @@ class LoanModel extends Model
     }
 
      public function getNip($nip)
-  {
+    {
 
 
         $sql ="SELECT * FROM employe_master  where nip_emp like '%$nip%' or  name_emp like '%$nip%' and position='Pegawai' and unit_emp is not null order by nip_emp limit 15";
+        
+        return $query = $this->db->query($sql)->getResult();
+    }
+
+    public function getNipForAdduser($nip)
+    {
+
+
+        $sql ="SELECT * FROM employe_master  where nip_emp like '%$nip%' or  name_emp like '%$nip%' and unit_emp is not null order by nip_emp limit 15";
         
         return $query = $this->db->query($sql)->getResult();
     }
