@@ -145,6 +145,7 @@
                                         <option value="">-Pilih Type-</option>
                                         <option value="admin logistik">Admin Logistik</option>
                                         <option value="admin purel">Admin Purel</option>
+                                        <option value="admin akademik">Admin akademik</option>
                                         <option value="superadmin">Super Admin</option>
                                     </select>
                                 </div>
