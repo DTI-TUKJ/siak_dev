@@ -6,7 +6,9 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>DTI (Dukungan Teknologi Informasi) | Telkom University Jakarta</title>
-  <meta content="Dukungan Teknologi Informasi Telkom University Jakarta: Inovasi dan Keamanan untuk Kemajuan Universitas dengan Pengalaman Mendalam dalam Teknologi." name="description">
+  <meta
+    content="Dukungan Teknologi Informasi Telkom University Jakarta: Inovasi dan Keamanan untuk Kemajuan Universitas dengan Pengalaman Mendalam dalam Teknologi."
+    name="description">
   <meta content="Teknologi Informasi,Telkom University Jakarta,Solusi TI terbaik" name="keywords">
 
   <!-- Favicons -->
@@ -14,7 +16,9 @@
   <link href="<?= base_url('landingAssets/img/logo_DTI.ico') ?>" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="<?= base_url('landingAssets/vendor/aos/aos.css') ?>" rel="stylesheet">
@@ -60,7 +64,8 @@
 
       <!-- <h1 class="logo"><a href="index.html">Day</a></h1> -->
       <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="index.html" class="logo"><img src="<?= base_url('landingAssets/img/logo_dti_new.png') ?>" alt="" class="img-fluid" width="130px"></a>
+      <a href="index.html" class="logo"><img src="<?= base_url('landingAssets/img/logo_dti_new.png') ?>" alt=""
+          class="img-fluid" width="130px"></a>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -81,7 +86,7 @@
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
       <h1>Dukungan Teknologi Informasi</h1>
       <h2>Unit Bagian Dukungan Teknologi Informasi Telkom University Jakarta</h2>
-      <a href="#about" class="btn-get-started scrollto">Profil</a>
+      <a href="#about" class="btn-get-started scrollto" style="border-radius: 10px;">Profil</a>
     </div>
   </section><!-- End Hero -->
 
@@ -93,15 +98,19 @@
 
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
-            <img src="<?= base_url('landingAssets/img/timDTI.jpeg') ?>" class="img-fluid" alt="">
+            <img src="<?= base_url('landingAssets/img/timDTI.jpg') ?>" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
             <h3>Tentang DTI</h3>
             <p>
-              Dukungan Teknologi Informasi Telkom University Jakarta adalah sebuah tim yang berdedikasi untuk menyediakan solusi teknologi informasi terbaik bagi komunitas Telkom University di Jakarta. 
-              Dengan pengalaman dan pengetahuan yang mendalam dalam dunia teknologi, kami bertujuan untuk mendukung perkembangan akademik dan administratif universitas ini melalui implementasi teknologi modern. 
-              Kami berkomitmen untuk memberikan layanan terbaik dalam menghadirkan inovasi, keamanan, dan keefisienan dalam penggunaan teknologi informasi.
-              DTI terdiri dari tiga komponen utama yang memiliki peran kunci dalam menjaga kelancaran dan keberlanjutan infrastruktur teknologi universitas. 
+              Dukungan Teknologi Informasi Telkom University Jakarta adalah sebuah tim yang berdedikasi untuk
+              menyediakan solusi teknologi informasi terbaik bagi komunitas Telkom University di Jakarta.
+              Dengan pengalaman dan pengetahuan yang mendalam dalam dunia teknologi, kami bertujuan untuk mendukung
+              perkembangan akademik dan administratif universitas ini melalui implementasi teknologi modern.
+              Kami berkomitmen untuk memberikan layanan terbaik dalam menghadirkan inovasi, keamanan, dan keefisienan
+              dalam penggunaan teknologi informasi.
+              DTI terdiri dari tiga komponen utama yang memiliki peran kunci dalam menjaga kelancaran dan keberlanjutan
+              infrastruktur teknologi universitas.
             </p>
             <ul>
               <li><i class="bi bi-check-circle"></i> Infrastruktur IT.</li>
@@ -109,7 +118,8 @@
               <li><i class="bi bi-check-circle"></i> Pengembangan Aplikasi.</li>
             </ul>
             <p>
-              Bersama-sama, DTI Telkom University Jakarta berperan dalam mewujudkan visi universitas dalam menyediakan lingkungan akademik yang terkini dan berkualitas.
+              Bersama-sama, DTI Telkom University Jakarta berperan dalam mewujudkan visi universitas dalam menyediakan
+              lingkungan akademik yang terkini dan berkualitas.
             </p>
           </div>
         </div>
@@ -234,7 +244,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="zoom-in"></div>
           <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="zoom-in">
-            <div class="member">
+            <div class="member" style="border-radius: 20px;">
               <img src="<?= base_url('landingAssets/img/team/pak-seandy.png') ?>" alt="">
               <h4>Seandy Arandiant Rozano, S.T.</h4>
               <span>Kepala Bagian</span>
@@ -250,9 +260,9 @@
           <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="zoom-in"></div>
         </div>
 
-        <div class="row">
+        <div class="row" style="border-radius: 20px;">
           <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="zoom-in">
-            <div class="member">
+            <div class="member" style="border-radius: 20px;">
               <img src="<?= base_url('landingAssets/img/team/mega1.png') ?>" alt="">
               <h4>Mega Lestari</h4>
               <span>Layanan IT</span>
@@ -267,7 +277,7 @@
           </div>
 
           <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="zoom-in">
-            <div class="member">
+            <div class="member" style="border-radius: 20px;">
               <img src="<?= base_url('landingAssets/img/team/sofyan1.png') ?>" alt="">
               <h4>Sofyan Hadi Hidayat</h4>
               <span>Infrastruktur IT</span>
@@ -282,7 +292,7 @@
           </div>
 
           <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="zoom-in">
-            <div class="member">
+            <div class="member" style="border-radius: 20px;">
               <img src="<?= base_url('landingAssets/img/team/syafiq1.png') ?>" alt="">
               <h4>Syafiq Al Thariq</h4>
               <span>Pengembangan Aplikasi</span>
@@ -300,7 +310,7 @@
 
         <div class="row">
           <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="zoom-in">
-            <div class="member">
+            <div class="member" style="border-radius: 20px;">
               <img src="<?= base_url('landingAssets/img/team/nida1.png') ?>" alt="">
               <h4>Nida Syifa Nadhifah</h4>
               <span>Technical Writer</span>
@@ -313,9 +323,9 @@
               </div>
             </div>
           </div>
-          
+
           <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="zoom-in">
-            <div class="member">
+            <div class="member" style="border-radius: 20px;">
               <img src="<?= base_url('landingAssets/img/team/tigar1.png') ?>" alt="">
               <h4>Tigar Isya Prasta</h4>
               <span>Infrastruktur IT</span>
@@ -330,7 +340,7 @@
           </div>
 
           <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="zoom-in">
-            <div class="member">
+            <div class="member" style="border-radius: 20px;">
               <img src="<?= base_url('landingAssets/img/team/candra1.png') ?>" alt="">
               <h4>Candra Eko Prabowo</h4>
               <span>Infrastruktur IT</span>
@@ -361,7 +371,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="fade-up">
             <a target="_blank" href="http://dti-jkt.telkomuniversity.ac.id/Siak">
-              <div class="icon-box">
+              <div class="icon-box" style="border-radius: 20px;">
                 <div class="icon"><i class="bx bx-file"></i></div>
                 <h4>SIAK</h4>
                 <p>Sistem Informasi Aset Kampus</p>
@@ -371,25 +381,27 @@
 
           <div class="col-lg-4 col-md-6 align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="150">
             <a href="#">
-              <div class="icon-box">
+              <div class="icon-box" style="border-radius: 20px;">
                 <div class="icon"><i class="bx bx-file"></i></div>
-                <h4>DTI Loan</a></h4>
-                <p>Sistem Informasi Peminjaman Aset DTI</p>
-              </div>
-            </a>
+                <h4>DTI Loan
+            </a></h4>
+            <p>Sistem Informasi Peminjaman Aset DTI</p>
           </div>
+          </a>
+        </div>
 
-          <div class="col-lg-4 col-md-6 align-items-stretch mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-            <a  target="_blank" aria-label="Chat on WhatsApp" href="https://wa.me/081319800200">
-              <div class="icon-box">
-                <div class="icon"><i class="bx bx-tachometer"></i></div>
-                <h4>Service Desk</a></h4>
-                <p>Penyedia komunikasi terkait layanan dan teknis.</p>
-              </div>
-            </a>
-          </div>
+        <div class="col-lg-4 col-md-6 align-items-stretch mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+          <a target="_blank" aria-label="Chat on WhatsApp" href="https://wa.me/081319800200">
+            <div class="icon-box" style="border-radius: 20px;">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4>Service Desk
+          </a></h4>
+          <p>Penyedia komunikasi terkait layanan dan teknis.</p>
+        </div>
+        </a>
+      </div>
 
-          <!-- <div class="col-lg-4 col-md-6 align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="450">
+      <!-- <div class="col-lg-4 col-md-6 align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="450">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-world"></i></div>
               <h4><a href="">Nemo Enim</a></h4>
@@ -397,7 +409,7 @@
             </div>
           </div> -->
 
-          <!-- <div class="col-lg-4 col-md-6 align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="600">
+      <!-- <div class="col-lg-4 col-md-6 align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="600">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-slideshow"></i></div>
               <h4><a href="">Dele cardo</a></h4>
@@ -405,7 +417,7 @@
             </div>
           </div> -->
 
-          <!-- <div class="col-lg-4 col-md-6 align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="750">
+      <!-- <div class="col-lg-4 col-md-6 align-items-stretch mt-4" data-aos="fade-up" data-aos-delay="750">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-arch"></i></div>
               <h4><a href="">Divera don</a></h4>
@@ -413,7 +425,7 @@
             </div>
           </div> -->
 
-        </div>
+      </div>
 
       </div>
     </section><!-- End Services Section -->
@@ -425,47 +437,61 @@
         <div class="text-center">
           <h3>JOIN US</h3>
           <p> Bergabung Bersama Kami Di Telkom University Jakarta.</p>
-          <a target="_blank" class="cta-btn" href="https://smb.telkomuniversity.ac.id/">Klik</a>
+          <a target="_blank" class="cta-btn" href="https://smb.telkomuniversity.ac.id/"
+            style="border-radius: 10px;">Klik</a>
         </div>
 
       </div>
     </section><!-- End Cta Section -->
 
-        <!-- ======= Contact Section ======= -->
-        <section id="contact" class="contact">
-          <div class="container">
-    
-            <div class="section-title">
-              <span>Contact</span>
-              <h2>Contact</h2>
-              <!-- <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p> -->
-            </div>
-    
-            <div class="row" data-aos="fade-up">
-              <div class="col-lg-6 ">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15867.268244490395!2d106.750681!3d-6.1552506!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7c105468173%3A0xf77ce22697e61bc4!2sTelkom%20University%20Jakarta%20-%20Kampus%201!5e0!3m2!1sen!2sid!4v1699327282592!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              </div>
-    
-              <div class="col-lg-3 col-md-6">
-                <div class="info-box  mb-4">
-                  <i class="bx bx-envelope"></i>
-                  <h3>Email Us</h3>
-                  <p>dtijkt@telkomuniversity.ac.id</p>
-                </div>
-              </div>
-    
-              <div class="col-lg-3 col-md-6">
-                <div class="info-box  mb-4">
-                  <i class="bx bx-phone-call"></i>
-                  <h3>Call Us</h3>
-                  <p>+62 813-1980-0200</p>
-                </div>
-              </div>
-    
-            </div>  
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
 
-    <!-- ======= Portfolio Section ======= -->
-    <!-- <section id="portfolio" class="portfolio">
+        <div class="section-title">
+          <span>Contact</span>
+          <h2>Contact</h2>
+          <!-- <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p> -->
+        </div>
+
+        <div class="row w-100 justify-content-center">
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4" style="border-radius: 15px;">
+              <i class="bx bx-envelope"></i>
+              <h3>Email Us</h3>
+              <p>dtijkt@telkomuniversity.ac.id</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4" style="border-radius: 15px;">
+              <i class="bx bx-phone-call"></i>
+              <h3>Call Us</h3>
+              <p>+62 813-1980-0200</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row w-100 justify-content-center">
+          <div class="row" data-aos="fade-up">
+            <div class="col-lg-6 col-md-12 mb-4">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15867.268244490395!2d106.750681!3d-6.1552506!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7c105468173%3A0xf77ce22697e61bc4!2sTelkom%20University%20Jakarta%20-%20Kampus%201!5e0!3m2!1sen!2sid!4v1699327282592!5m2!1sen!2sid"
+                width="100%" height="450" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-lg-6 col-md-12 mb-4">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.495130616861!2d106.8311176!3d-6.2059374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5fd105e5e79%3A0xf938a4e98e6c1021!2sTelkom%20University%20Kampus%20Jakarta%20-%20Kampus%202!5e0!3m2!1sen!2sid!4v1624867689937!5m2!1sen!2sid"
+                width="100%" height="450" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ======= Portfolio Section ======= -->
+        <!-- <section id="portfolio" class="portfolio">
       <div class="container">
 
         <div class="section-title">
@@ -626,7 +652,7 @@
       <div class="container">
         <div class="row">
 
-           <div class="col-lg-4 col-md-6 footer-newsletter">
+          <div class="col-lg-4 col-md-6 footer-newsletter">
             <!-- <h4>Our Newsletter</h4>
             <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
             <form action="" method="post">
@@ -650,7 +676,8 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a target="_blank" href="http://dti-jkt.telkomuniversity.ac.id/Silo">SiLo</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a target="_blank"
+                  href="http://dti-jkt.telkomuniversity.ac.id/Silo">SiLo</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">DTI Loan</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Coming Soon</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Coming Soon</a></li>
@@ -663,18 +690,24 @@
               <h3>DTI Telkom University Jakarta</h3>
               <h4>Kampus A</h4>
               <p>
-                Jalan Raya Daan Mogot KM.11, RT.1/RW.4, Kedaung Kali Angke, Cengkareng, Kota Jakarta Barat, DKI Jakarta 11710<br><br>
+                Jalan Raya Daan Mogot KM.11, RT.1/RW.4, Kedaung Kali Angke, Cengkareng, Kota Jakarta Barat, DKI Jakarta
+                11710<br><br>
               <h4>Kampus B</h4>
               <p>
-                Jalan Halimun Raya No.2, RT.15/RW.6, Guntur, Kecamatan Setiabudi, Kota Jakarta Selatan, DKI Jakarta 12980<br><br>
+                Jalan Halimun Raya No.2, RT.15/RW.6, Guntur, Kecamatan Setiabudi, Kota Jakarta Selatan, DKI Jakarta
+                12980<br><br>
                 <strong>Phone:</strong> +62 813-1980-0200<br>
                 <strong>Email:</strong> dtijkt@telkomuniversity.ac.id<br>
               </p>
               <div class="social-links mt-3">
-                <a target="_blank" href="https://twitter.com/TelUniversity" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a target="_blank" href="https://www.facebook.com/Telkomuniversityjakarta" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a target="_blank" href="https://www.instagram.com/telkomuniversity_jkt/" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a target="_blank" href="https://www.linkedin.com/school/telkom-university/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                <a target="_blank" href="https://twitter.com/TelUniversity" class="twitter"><i
+                    class="bx bxl-twitter"></i></a>
+                <a target="_blank" href="https://www.facebook.com/Telkomuniversityjakarta" class="facebook"><i
+                    class="bx bxl-facebook"></i></a>
+                <a target="_blank" href="https://www.instagram.com/telkomuniversity_jkt/" class="instagram"><i
+                    class="bx bxl-instagram"></i></a>
+                <a target="_blank" href="https://www.linkedin.com/school/telkom-university/" class="linkedin"><i
+                    class="bx bxl-linkedin"></i></a>
               </div>
             </div>
           </div>
@@ -689,17 +722,18 @@
         &copy; <strong><span>Dukungan Teknologi Informasi</span></strong> | Telkom University Jakarta
       </div>
       <!-- <div class="credits"> -->
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/day-multipurpose-html-template-for-free/ -->
-        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/day-multipurpose-html-template-for-free/ -->
+      <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
       <!-- </div> -->
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
- <!-- <div id="preloader"></div> -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+  <!-- <div id="preloader"></div> -->
 
   <!-- Vendor JS Files -->
   <script src="<?= base_url('landingAssets/vendor/aos/aos.js') ?>"></script>
