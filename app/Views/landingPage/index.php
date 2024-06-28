@@ -242,10 +242,8 @@
                 Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
               </p> -->
               <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.instagram.com/seandyarrozza/"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/seandy-arandiant-rozano/"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
           </div>
@@ -262,10 +260,8 @@
                 Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
               </p> -->
               <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.instagram.com/mega_lstr2011/"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/megalestari2200"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
           </div>
@@ -279,10 +275,8 @@
                 Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
               </p> -->
               <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.instagram.com/fyanhh_/"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/sofyan-hadi-hidayat-74baa9134/"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
           </div>
@@ -296,10 +290,8 @@
                 Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
               </p> -->
               <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.instagram.com/syafiqalthariq/"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/syafiq-al-thariq-63974622a/"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
           </div>
@@ -316,10 +308,8 @@
                 Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
               </p> -->
               <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.instagram.com/nidasyifan/"><i class="bi bi-instagram"></i></a>
+                <a href="http://linkedin.com/in/nidasyifanadhifah"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
           </div>
@@ -333,10 +323,8 @@
                 Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
               </p> -->
               <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.instagram.com/tigarisya/"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/tigar-isya-prasta-5865a71a3/"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
           </div>
@@ -350,10 +338,8 @@
                 Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
               </p> -->
               <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.instagram.com/candraeko6/"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/candra-eko-prabowo-52351224a/"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
           </div>
