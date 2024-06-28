@@ -98,7 +98,7 @@
 
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
-            <img src="<?= base_url('landingAssets/img/timDTI.jpg') ?>" class="img-fluid" alt="">
+            <img src="<?= base_url('landingAssets/img/timDTI.jpg') ?>" class="img-fluid" alt="" style="border-radius: 15px;">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
             <h3>Tentang DTI</h3>
