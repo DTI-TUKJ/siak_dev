@@ -87,7 +87,7 @@ tests/coverage*
 #-------------------------
 # vendor/
 app/config/database.php
-
+public/assets/report_classroom/
 #-------------------------
 # IDE / Development Files
 #-------------------------
