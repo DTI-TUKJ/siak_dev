@@ -98,7 +98,8 @@
 
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
-            <img src="<?= base_url('landingAssets/img/timDTI.jpg') ?>" class="img-fluid" alt="" style="border-radius: 15px;">
+            <img src="<?= base_url('landingAssets/img/timDTI.jpg') ?>" class="img-fluid" alt=""
+              style="border-radius: 15px;">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
             <h3>Tentang DTI</h3>
@@ -372,7 +373,7 @@
           <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="fade-up">
             <a target="_blank" href="http://dti-jkt.telkomuniversity.ac.id/Siak">
               <div class="icon-box" style="border-radius: 20px;">
-                <div class="icon"><i class="bx bx-file"></i></div>
+                <div class="icon" style="border-radius: 10px;"><i class="bx bx-file"></i></div>
                 <h4>SIAK</h4>
                 <p>Sistem Informasi Aset Kampus</p>
               </div>
@@ -382,7 +383,7 @@
           <div class="col-lg-4 col-md-6 align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="150">
             <a href="#">
               <div class="icon-box" style="border-radius: 20px;">
-                <div class="icon"><i class="bx bx-file"></i></div>
+                <div class="icon" style="border-radius: 10px;"><i class="bx bx-file"></i></div>
                 <h4>DTI Loan
             </a></h4>
             <p>Sistem Informasi Peminjaman Aset DTI</p>
@@ -393,7 +394,7 @@
         <div class="col-lg-4 col-md-6 align-items-stretch mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
           <a target="_blank" aria-label="Chat on WhatsApp" href="https://wa.me/081319800200">
             <div class="icon-box" style="border-radius: 20px;">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <div class="icon" style="border-radius: 10px;"><i class="bx bx-tachometer"></i></div>
               <h4>Service Desk
           </a></h4>
           <p>Penyedia komunikasi terkait layanan dan teknis.</p>
@@ -479,12 +480,22 @@
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15867.268244490395!2d106.750681!3d-6.1552506!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7c105468173%3A0xf77ce22697e61bc4!2sTelkom%20University%20Jakarta%20-%20Kampus%201!5e0!3m2!1sen!2sid!4v1699327282592!5m2!1sen!2sid"
                 width="100%" height="450" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="section-title">
+                  <span>KAMPUS A</span>
+                  <h2>KAMPUS A</h2>
+                  <!-- <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p> -->
+                </div>
             </div>
             <div class="col-lg-6 col-md-12 mb-4">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.495130616861!2d106.8311176!3d-6.2059374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5fd105e5e79%3A0xf938a4e98e6c1021!2sTelkom%20University%20Kampus%20Jakarta%20-%20Kampus%202!5e0!3m2!1sen!2sid!4v1624867689937!5m2!1sen!2sid"
-                width="100%" height="450" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy" 
+                width="100%" height="450" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="section-title">
+                  <span>KAMPUS B</span>
+                  <h2>KAMPUS B</h2>
+                  <!-- <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p> -->
+                </div>
             </div>
           </div>
         </div>

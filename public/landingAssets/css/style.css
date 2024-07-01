@@ -685,6 +685,7 @@ section {
 }
 
 .services .icon-box .icon::before {
+  border-radius: 10px;
   position: absolute;
   content: "";
   left: -8px;
