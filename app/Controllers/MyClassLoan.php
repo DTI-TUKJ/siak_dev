@@ -117,7 +117,7 @@ class MyClassLoan extends BaseController
                 
                  $sizeFileEvidence='';
                 if(isset($val['evidence_end_loan'])){
-                    $sizeFileEvidence=filesize('assets/evidance_end_loan/'.$val['evidence_end_loan']);
+                    $sizeFileEvidence=file_exists('assets/evidance_end_loan/'.$val['evidence_end_loan'])?filesize('assets/evidance_end_loan/'.$val['evidence_end_loan']):0;
                 }
                 $disBtnEnd=$val['status_class_loan']==1?'':'disabled';
                 $btnEnd='<button class="btn btn-xs btn-warning " onclick="EndLoan(\''.$val['id_class_loan'].'\',\''.$val['evidence_end_loan'].'\', \''.$sizeFileEvidence.'\')" data-title="End Loan" '. $disBtnEnd.'><i class="icon fa-solid fa-door-open"></i></button> ';

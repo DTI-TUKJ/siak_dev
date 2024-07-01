@@ -61,25 +61,31 @@ class MyClassLoanModel extends Model
             $this->dt->join('student s2', 'association.assoc_leader_id=s2.numberid','LEFT');
             if (isset(session()->numberid)){
                 $this->dt->where('nim_loaner', session()->numberid);
-            }else if (session()->pembina && session()->type!='admin akademik'){
-                $this->dt->where('assoc_lecturer_id', session()->nip_emp);
-                $this->dt->orWhere('assoc_lecturer_id_b', session()->nip_emp);
-                if (session()->lectur){
-                    $this->dt->orWhere('nip_emp', session()->nip_emp);
-                }
-            }else if(session()->lectur && session()->type!='admin akademik'){
-                $this->dt->where('nim_loaner', session()->nip_emp);
             }
-            
             if ($type!='all' && $type!=''){
                 $this->dt->where('request_type', $type);
             }
-
+            
             if ($showTab=='non-academic'){
                 $this->dt->where('request_type !=', 'kelas pengganti');
+                if (session()->pembina && session()->type!='admin akademik'){
+                    $this->dt->where('assoc_lecturer_id', session()->nip_emp);
+                    $this->dt->orWhere('assoc_lecturer_id_b', session()->nip_emp);
+                }
+                
             }else if($showTab=='academic'){
+
                 $this->dt->where('request_type', 'kelas pengganti');
+                if (session()->lectur && session()->type!='admin akademik'){
+                    $this->dt->orWhere('nip_emp', session()->nip_emp);
+                }
             }
+            
+            if(session()->lectur && session()->type!='admin akademik'){
+                $this->dt->where('nim_loaner', session()->nip_emp);
+            }
+            
+
             
             $this->dt->orderBy('id_class_loan', 'DESC');
        
@@ -170,8 +176,8 @@ class MyClassLoanModel extends Model
         $this->dt->join('employe_master em2', 'association.assoc_lecturer_id_b=em2.nip_emp', 'LEFT');
         $this->dt->where($this->table.'.schoolyear', $schoolyear);
         $this->dt->where($this->table.'.semester', $semester);
-        $this->dt->where('status_class_loan !=', 0);
-          $this->dt->where('status_class_loan !=', 2);
+        $this->dt->where('status_class_loan', 4);
+    
          if($period!='-'){
            $this->dt->where('loan_class_date >=', date('Y-m-d', strtotime($period[0]))); 
            $this->dt->where('loan_class_date <=', date('Y-m-d', strtotime($period[1]))); 

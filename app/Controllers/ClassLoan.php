@@ -77,8 +77,7 @@ class ClassLoan extends BaseController
            $type = $this->request->getPost("type");
            $showTab= $this->request->getPost("showTab");
            $lists = $this->CLM->get_datatables($type, $showTab);
-
-           //print_r($lists);
+      
            $data = [];
            //$no = $this->request->getPost("start");
 
@@ -113,7 +112,7 @@ class ClassLoan extends BaseController
 
                     $btnacc=$btnEndloan.'<button class="btn btn-xs  btn-danger mr-5 '.$btndis.'" onclick="deletedata(\''.$val['id_class_loan'].'\')"><i class="icon fa-solid fa-trash"></i></button>';
 
-                    if (session()->nip_emp!=$val['nim_loaner']){
+                    if (session()->nip_emp!=$val['nim_loaner']) {
 
                         $btnDisAcc='';
                         $tittleAcc='Accept Button';
@@ -250,6 +249,7 @@ class ClassLoan extends BaseController
     
            $type = $this->request->getPost("type");
            $showTab= $this->request->getPost("showTab");
+           
            $lists = $this->CLM->get_datatables($type, $showTab);
 
            //print_r($lists);
@@ -261,7 +261,8 @@ class ClassLoan extends BaseController
                $row = [];
 
                $btndis='';
-                    if ($val['status_class_loan']==3 || $val['status_class_loan']==2 ){
+                    if ($val['status_class_loan']!=0 && session()->type='admin akademik' ){
+                          
                             $btndis='disabled';
                     }
                  
@@ -286,7 +287,7 @@ class ClassLoan extends BaseController
                         $btnEndloan='<button type="button" class="btn btn-xs btn-warning mr-5"   onclick="'.$onclick.'" data-title="End Loan" '.$btnDisEndloan.'><i class="icon fa-solid fa-door-closed" ></i></button>';
                     }
 
-                    $btnacc=$btnEndloan.'<button class="btn btn-xs  btn-danger mr-5 '.$btndis.'" onclick="deletedata(\''.$val['id_class_loan'].'\')" ><i class="icon fa-solid fa-trash"></i></button>';
+                    $btnacc=$btnEndloan.'<button class="btn btn-xs  btn-danger mr-5 " onclick="deletedata(\''.$val['id_class_loan'].'\')" '.$btndis.'><i class="icon fa-solid fa-trash"></i></button>';
 
                     if (session()->nip_emp!=$val['nim_loaner']){
 
@@ -409,6 +410,11 @@ class ClassLoan extends BaseController
         $st=$action=='accept'?1:2;
         if (session()->type=='admin akademik'){
             $data['aproval_lak']=$st;
+            $data['aproval_date_lak']= date('Y-m-d H:i:s');
+            if ($getDataClassLoan['pembina_b']==null){
+                $data['status_class_loan']= $st;
+            }
+            
          }
        
         switch ($aprovalFrom) {
@@ -456,11 +462,19 @@ class ClassLoan extends BaseController
         }else{
             $name_loaner= isset($getDataClassLoan['fullname'])?$getDataClassLoan['fullname']:$getDataClassLoan['name_emp'];
             $getOwner = $this->LgM->getOwner('admin akademik');
+            $getOwnerLogistik = $this->LgM->getOwner('admin logistik');
             $i=1;
             $waNum='';
+            $waNumLog='';
             foreach ($getOwner as $val) {
                 $mark=count($getOwner)==$i?'':'|';
                $waNum=$waNum.convert_num($val['no_tlp']).$mark;
+               $i++;
+            }
+
+            foreach ($getOwnerLogistik as $val1) {
+                $mark1=count($getOwner)==$i?'':'|';
+               $waNumLog=$waNumLog.convert_num($val1['no_tlp']).$mark1;
                $i++;
             }
             
@@ -468,18 +482,37 @@ class ClassLoan extends BaseController
                 if($getDataClassLoan['no_tlp_pembina_b']!='' || $getDataClassLoan['no_tlp_pembina_b']!=null){
                     $this->SendWaReq($getDataClassLoan,$st, $getDataClassLoan['no_tlp_pembina_b'],'sendAccept', $getDataClassLoan['activity_class'], $name_loaner  );
                 }else{
-                    $this->SendWaReq($getDataClassLoan, $st,$waNum,'sendAccept', $getDataClassLoan['activity_class'], $name_loaner, $aprovalFrom );
+                    if (session()->type!='admin akademik'){
+                        $this->SendWaReq($getDataClassLoan, $st,$waNum,'sendAccept', $getDataClassLoan['activity_class'], $name_loaner, $aprovalFrom ); 
+                    }
+
+                    if (isset($data['status_class_loan'])){
+                        if ($data['status_class_loan']==1){
+                            $this->SendWaReq($getDataClassLoan, $st, $Telephone,'sendAproval' );
+                            $this->SendWaReq($getDataClassLoan, $st, $waNumLog,'sendAprovalToAdminLogistik' );
+                        }
+                    }
                 }
             }
          
             if($aprovalFrom=='aproval_lecturer_b'){
                 // echo $waNum; 
+                if (session()->type!='admin akademik'){
                 $this->SendWaReq($getDataClassLoan, $st,$waNum,'sendAccept', $getDataClassLoan['activity_class'], $name_loaner, $aprovalFrom );
+                }
+
+                if (isset($data['status_class_loan'])){
+                    if ($data['status_class_loan']==1){
+                        $this->SendWaReq($getDataClassLoan, $st, $Telephone,'sendAproval' );
+                        $this->SendWaReq($getDataClassLoan, $st, $waNumLog,'sendAprovalToAdminLogistik' );
+                    }
+                }
             }
 
             if($aprovalFrom=='adminlaak'){
                 // echo $waNum; 
                 $this->SendWaReq($getDataClassLoan, $st, $Telephone,'sendAproval' );
+                $this->SendWaReq($getDataClassLoan, $st, $waNumLog,'sendAprovalToAdminLogistik' );
             }
         }
 
@@ -658,7 +691,7 @@ class ClassLoan extends BaseController
                     $sheet->setCellValue('K'.$c, ifNull($val['pembina_b']));
                     $sheet->setCellValue('L'.$c, ifNull($val['name_leader_assoc']));
                     $sheet->setCellValue('M'.$c, ifNullDate($val['aproval_date_lecture_a'], 'd/m/Y - H:i'));
-                    $sheet->setCellValue('N'.$c, ifNullDate($val['aproval_date_lecture_a'], 'd/m/Y - H:i'));
+                    $sheet->setCellValue('N'.$c, ifNullDate($val['aproval_date_lecture_b'], 'd/m/Y - H:i'));
                     $sheet->setCellValue('O'.$c, ifNullDate($val['aproval_date_lak'], 'd/m/Y - H:i'));
                     $c++;$i++;
                     
@@ -804,7 +837,7 @@ class ClassLoan extends BaseController
         }
         $stText=$statusLoan==1?'Diterima':'Ditolak';
         if ($act=='sendAproval'){
-            $activity=$alldata['request_type']=='kelas pengganti'? 'kelas pengganti Matakuliah '.$alldata['subject_name']:$activity;
+            $activity=$alldata['request_type']=='kelas pengganti'? 'kelas pengganti Matakuliah '.$alldata['subject_name']:$alldata['activity_class'];
             $reasonRep=null;
             if ($alldata['request_type']=='kelas pengganti'){
               $reasonRep="Alasan Mengganti Kelas : *".$alldata['replacement_reason']."*";
@@ -814,7 +847,7 @@ class ClassLoan extends BaseController
              "sender" => "6281319800200",
              "number" => convert_num($num),
              "message" => 
-"[SIAK] Permintaan pemijamana ruang kelas sudah  ".$stText.$testing."
+"[SIAK] Permintaan peminjaman ruang kelas sudah  ".$stText.$testing."
 
 Terdapat permintaan peminjaman yang sudah ".$stText.", berikut rincian data peminjamanya
  
@@ -830,7 +863,7 @@ dti-jkt.telkomuniversity.ac.id/Siak/StudentSignin
 
 Notifikasi Siak" ); 
          }else if($act=='sendAccept'){
-            $activity=$alldata['request_type']=='kelas pengganti'? 'kelas pengganti Matakuliah '.$alldata['subject_name']:$activity;
+            $activity=$alldata['request_type']=='kelas pengganti'? 'kelas pengganti Matakuliah '.$alldata['subject_name']:$alldata['activity_class'];
             $reasonRep=null;
             if ($alldata['request_type']=='kelas pengganti'){
               $reasonRep="Alasan Mengganti Kelas : *".$alldata['replacement_reason']."*";
@@ -839,7 +872,7 @@ Notifikasi Siak" );
             $data=array(
                 "api_key" => "S5lpTgiaUFhigWCLyUYNfcZwyGfZb0",
                  "sender" => "6281319800200",
-                 "number" =>  $aprovalFrom=='aproval_lecturer_b'?$num:convert_num($num),
+                 "number" =>  $aprovalFrom=='aproval_lecturer_a' && $alldata['pembina_b']!=null ? convert_num($num):$num,
                  "message" => 
 "[SIAK] Anda Memiliki Request Peminjaman Ruangan yang membutuhkan Aproval ".$testing."
 
@@ -869,6 +902,32 @@ Silahkan masuk ke akun siak anda dengan link dibawah
     
 dti-jkt.telkomuniversity.ac.id/Siak/Signin
     
+Notifikasi Siak" ); 
+         }else if ($act=='sendAprovalToAdminLogistik'){
+            $activity=$alldata['request_type']=='kelas pengganti'? 'kelas pengganti Matakuliah '.$alldata['subject_name']:$alldata['activity_class'];
+            $reasonRep=null;
+            if ($alldata['request_type']=='kelas pengganti'){
+              $reasonRep="Alasan Mengganti Kelas : *".$alldata['replacement_reason']."*";
+            }
+         $data=array(
+            "api_key" => "S5lpTgiaUFhigWCLyUYNfcZwyGfZb0",
+             "sender" => "6281319800200",
+             "number" => $num,
+             "message" => 
+"[SIAK] Permintaan peminjaman ruang kelas sudah  ".$stText.$testing."
+
+Terdapat permintaan peminjaman yang sudah ".$stText.", berikut rincian data peminjamanya
+ 
+Kegiatan               : *".$activity."*
+Ruang Kelas            :  *".$alldata['ROOMNAME']."* 
+Tanggal Pemakaian      : *".date('d/m/Y', strtotime($alldata['loan_class_date']))."*
+Waktu Peminjaman       : *".date('H:i',strtotime($alldata['starttime']))." - ".date('H:i',strtotime($alldata['endtime']))."*
+Organization           : *".$alldata['assoc_name']."*
+".$reasonRep."
+Silahkan masuk ke akun siak anda dengan link dibawah
+
+dti-jkt.telkomuniversity.ac.id/Siak/StudentSignin
+
 Notifikasi Siak" ); 
          }
             
