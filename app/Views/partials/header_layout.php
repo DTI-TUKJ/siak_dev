@@ -342,12 +342,36 @@
                                       </div>
                                         <div class="dropdown-inner">
                                             <ul class="link-list">
-                                                <li><a href="<?php echo base_url('Logout') ?>"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                                                <?php 
+                                                 $manualBook ='';
+                                                 if(session()->type!='Admin Akademik'){
+                                                    if (session()->type=='student'){
+                                                        $manualBook=base_url('assets/manual_book/User Guide Siak V1.2 (Mahasiswa).pdf');
+                                                    }else if(session()->lectur){
+                                                        
+                                                        $manualBook=session()->pembina?base_url('assets/manual_book/User Guide Siak V1.2 (Dosen + Pembina).pdf'):base_url('assets/manual_book/User Guide Siak V1.2 (Dosen).pdf');
+                                                    }
+                                                 }else{
+                                                    $manualBook=base_url('assets/manual_book/User Guide Siak V1.2 (Admin LAAK).pdf');
+                                                 }
+                                                 ?>
+
+                                                
+                                               <li>
+                                                    <a href="<?php echo  $manualBook ?>"><em class="icon ni ni-download"></em><span>Download Manual Book</span></a>
+                                                </li>
+                                                <li>
+                                                    <a href="<?php echo base_url('Logout') ?>"><em class="icon ni ni-signout"></em><span>Sign out</span></a>
+                                                </li>
                                                 <?php if(session()->type=='admin akademik' ) { ?>
-                                                <li><a href="#" onclick="activatedBeetweenSemester(event)"><i class="fa-solid fa-calendar-days" style="padding-right:15px"></i><span>Aktifkan Semester Antara</span></a></li>
+                                                <li>
+                                                    <a href="#" onclick="activatedBeetweenSemester(event)"><i class="fa-solid fa-calendar-days" style="padding-right:15px"></i><span>Aktifkan Semester Antara</span></a>
+                                                </li>
                                                 <?php } ;?>
                                                 <?php if(session()->type=='superadmin' && base_url('')=='http://localhost:8080/') {?>  
-                                                <li><a href="<?php echo base_url('SchUpdate') ?>"><em class="icon ni ni-signout"></em><span>Update Schedule</span></a></li>
+                                                <li>
+                                                    <a href="<?php echo base_url('SchUpdate') ?>"><em class="icon ni ni-signout"></em><span>Update Schedule</span></a>
+                                                </li>
                                                 <?php } ?>                          
                                             </ul>
                                         </div>
