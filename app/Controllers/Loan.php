@@ -212,6 +212,8 @@ class Loan extends BaseController
                   'driver'            =>($this->request->getPost('driver')!==null)?$this->request->getPost('driver'):0,
                          
             );
+            $car=$this->MAM->getById($id_asset);
+
             $this->LM->createLoan($data);
             if ($this->request->getPost('owner')!==null){
                $getOwner = $this->LgM->getOwner($this->request->getPost('owner'));
@@ -233,7 +235,7 @@ class Loan extends BaseController
                     }
                 
                 if ($this->request->getPost('driver')!==null){
-                    $this->SendWaReq($namapeminjam, '081211469053','driverNotif',$this->request->getPost('activity'), datetoindo(date('Y-m-d', strtotime($date_loan[0]))));
+                    $this->SendWaReq($namapeminjam, '081461216787','driverNotif',$this->request->getPost('activity'), datetoindo(date('Y-m-d', strtotime($date_loan[0])))." Pukul ".date('H:i', strtotime($date_loan[0]))." (Waktu Dimulainya kegiatan), Dengan mobil ".$car['asset_name']);
                 }
             }
             echo json_encode(array('status' => 'ok;', 'text' => ''));
