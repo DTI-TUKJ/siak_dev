@@ -233,7 +233,7 @@ class Loan extends BaseController
                     }
                 
                 if ($this->request->getPost('driver')!==null){
-                    $this->SendWaReq($namapeminjam, '081311797350','driverNotif',$this->request->getPost('activity'), datetoindo(date('Y-m-d', strtotime($date_loan[0]))));
+                    $this->SendWaReq($namapeminjam, '081211469053','driverNotif',$this->request->getPost('activity'), datetoindo(date('Y-m-d', strtotime($date_loan[0]))));
                 }
             }
             echo json_encode(array('status' => 'ok;', 'text' => ''));
