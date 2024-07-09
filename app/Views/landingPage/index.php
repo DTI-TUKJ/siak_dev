@@ -74,6 +74,7 @@
           <li><a class="nav-link scrollto" href="#team">Tim</a></li>
           <li><a class="nav-link scrollto" href="#services">Layanan</a></li>
           <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
+          <li><a class="nav-link scrollto" href="#panduan">Panduan</a></li>          
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -391,6 +392,9 @@
           </a>
         </div>
 
+        <br>
+        <br>
+
         <div class="col-lg-4 col-md-6 align-items-stretch mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
           <a target="_blank" aria-label="Chat on WhatsApp" href="https://wa.me/081319800200">
             <div class="icon-box" style="border-radius: 20px;">
@@ -481,7 +485,7 @@
                 width="100%" height="450" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="section-title">
-                  <span>KAMPUS A</span>
+                  <!-- <span>KAMPUS A</span> -->
                   <h2>KAMPUS A</h2>
                   <!-- <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p> -->
                 </div>
@@ -492,14 +496,13 @@
                 width="100%" height="450" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="section-title">
-                  <span>KAMPUS B</span>
+                  <!-- <span>KAMPUS B</span> -->
                   <h2>KAMPUS B</h2>
                   <!-- <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p> -->
                 </div>
             </div>
           </div>
         </div>
-
 
         <!-- ======= Portfolio Section ======= -->
         <!-- <section id="portfolio" class="portfolio">
@@ -656,6 +659,21 @@
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
+
+  <section id="panduan" class="panduan">
+          <div class="container">
+            <div class="section-title">
+              <span>PANDUAN</span>
+              <h2>PANDUAN</h2>                
+              <div class="row justify-content-center">
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+                  <img src="<?= base_url('landingAssets/img/foto_panduan.jpg') ?>" class="img-fluid" alt=""
+                    style="border-radius: 15px;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
