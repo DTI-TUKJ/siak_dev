@@ -46,12 +46,14 @@
                                                        <th class="nk-tb-col"><span class="sub-text">Name</span></th>
                                                         <th class="nk-tb-col"><span class="sub-text">Activity</span></th>
                                                         <th class="nk-tb-col"><span class="sub-text">Destination </span></th>
+                                                        <th class="nk-tb-col"><span class="sub-text">Pick Up Point </span></th>
                                                         <th class="nk-tb-col"><span class="sub-text">Unit</span></th>
                                                         <th class="nk-tb-col"><span class="sub-text">Asset Name</span></th>
                                                           <!-- <th class="nk-tb-col"><span class="sub-text">Loan Amount</span></th> -->
                                                         <th class="nk-tb-col"><span class="sub-text">Request Date</span></th>
                                                         <th class="nk-tb-col"><span class="sub-text">Loan Date start</span></th>
                                                         <th class="nk-tb-col"><span class="sub-text">Loan Date End</span></th>
+                                                        <th class="nk-tb-col"><span class="sub-text">Aproval Date</span></th>
                                                         <th class="nk-tb-col"><span class="sub-text">Date in</span></th>
                                                         
                                                        
@@ -293,7 +295,8 @@ function CheckSchedule(){
        var html='';
        var option='';
       var driver='';
-      var destination=''
+      var destination='';
+      var pickup='';
         var form_data = new FormData($('#frmcheck')[0]);
                $.ajax({
                  url:"<?php echo base_url('checkSchedule') ?>",
@@ -348,6 +351,20 @@ function CheckSchedule(){
                                                         <input type="text" class="form-control" value="" name="destination" id="destination" placeholder="Enter destination" >
                                                     </div>
                                                     <div id="destination-error">
+
+                                                    </div>
+                                                </div>
+                                            </div>`
+                                            pickup+=` <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label class="form-label" for="pick_up_loc">Pick Up Location</label>
+                                                    <div class="form-control-wrap">
+                                                        <input type="text" class="form-control" value="" name="pick_up_loc" id="pick_up_loc" placeholder="Masukan Lokasi penjemputan" >
+                                                    </div>
+                                                    <div>
+                                                        <span class="badge badge-dim bg-warning">Kosongkan Jika Tidak Memakai driver</span>
+                                                    </div>
+                                                    <div id="pick_up_loc-error">
 
                                                     </div>
                                                 </div>
@@ -438,6 +455,7 @@ function CheckSchedule(){
                                             </div>
                                             
                                               ${driver}
+                                              ${pickup}
                                            
 
                                             <div class="col-12">

@@ -2035,6 +2035,7 @@
        var option='';
            var driver='';
            var destination=''
+           var pickup=''
         var form_data = new FormData($('#frmcheck')[0]);
                $.ajax({
                  url:"<?php echo base_url('checkSchedule') ?>",
@@ -2095,6 +2096,20 @@
                                                         <input type="text" class="form-control" value="" name="destination" id="destination" placeholder="Enter destination" >
                                                     </div>
                                                     <div id="destination-error">
+
+                                                    </div>
+                                                </div>
+                                            </div>`
+                                            pickup+=` <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label class="form-label" for="pick_up_loc">Pick Up Location</label>
+                                                    <div class="form-control-wrap">
+                                                        <input type="text" class="form-control" value="" name="pick_up_loc" id="pick_up_loc" placeholder="Masukan Lokasi penjemputan" >
+                                                    </div>
+                                                    <div>
+                                                        <span class="badge badge-dim bg-warning">Kosongkan Jika Tidak Memakai driver</span>
+                                                    </div>
+                                                    <div id="pick_up_loc-error">
 
                                                     </div>
                                                 </div>
@@ -2175,7 +2190,7 @@
                                             </div>
                                             ${driver}
                                           
-                                           
+                                            ${pickup}
 
                                             <div class="col-12">
                                                 <div class="form-group">

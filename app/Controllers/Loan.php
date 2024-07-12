@@ -72,6 +72,7 @@ class Loan extends BaseController
                 $row[]=' <span class="tb-amount">'.$val['name'].' </span>';
                 $row[]=' <div class="currency cut-text">'.$val['activity'].' </div>';
                 $row[]=' <div class="currency cut-text">'.$val['destination_city'].' </div>';
+                $row[]=' <div class="currency cut-text">'.$val['pickup_point'].' </div>';
                 $row[]='<div class="currency cut-text">'.str_replace('PROGRAM STUDI','',str_replace('BAGIAN','',str_replace(' KAMPUS JAKARTA', '', $val['unit'] ))).'</div>';
 
 
@@ -91,6 +92,10 @@ class Loan extends BaseController
                   $row[]=' <span class="tb-amount">'.date('d/m/Y',strtotime($val['inputdate'])).' </span>';
                 $row[]=' <span class="tb-amount">'.date('d/m/Y - H:i',strtotime($val['tanggal_pinjam'])).' </span>';
                 $row[]=' <span class="tb-amount">'.date('d/m/Y - H:i',strtotime($val['tanggal_kembali'])).' </span>';
+
+                (!isset($val['loan_asset_aproval_date']))?$date_aproval = '-':$date_aproval=date('d/m/Y - H:i',strtotime($val['loan_asset_aproval_date']));
+
+                $row[]=' <span class="tb-amount">'.$date_aproval.' </span>';
 
                 (!isset($val['tanggal_masuk']))?$date_in = '-':$date_in=date('d/m/Y - H:i',strtotime($val['tanggal_masuk']));
 
@@ -209,7 +214,8 @@ class Loan extends BaseController
                 'id_asset_loan'     =>$this->request->getPost('id_asset'),
                 'activity'          => $this->request->getPost('activity'),
                 'destination_city'  => ($this->request->getPost('destination')!==null)?$this->request->getPost('destination'):null,
-                  'driver'            =>($this->request->getPost('driver')!==null)?$this->request->getPost('driver'):0,
+                'driver'            =>($this->request->getPost('driver')!==null)?$this->request->getPost('driver'):0,
+                'pickup_point'      =>($this->request->getPost('pick_up_loc')!==null)?$this->request->getPost('pick_up_loc'):"-",
                          
             );
             $car=$this->MAM->getById($id_asset);
@@ -235,7 +241,7 @@ class Loan extends BaseController
                     }
                 
                 if ($this->request->getPost('driver')!==null){
-                    $this->SendWaReq($namapeminjam, '081211469053','driverNotif',$this->request->getPost('activity'), datetoindo(date('Y-m-d', strtotime($date_loan[0])))." Pukul ".date('H:i', strtotime($date_loan[0]))." (Waktu Dimulainya kegiatan), Dengan mobil ".$car['asset_name']);
+                    $this->SendWaReq($namapeminjam, '081211469053','driverNotif',$this->request->getPost('activity'), datetoindo(date('Y-m-d', strtotime($date_loan[0])))." Pukul ".date('H:i', strtotime($date_loan[0]))." (Waktu Dimulainya kegiatan), Dengan mobil ".$car['asset_name']."Serta Lokasi Penjemputan Di ".$this->request->getPost('pick_up_loc'));
                 }
             }
             echo json_encode(array('status' => 'ok;', 'text' => ''));
@@ -395,18 +401,20 @@ class Loan extends BaseController
              $data = array(
                 'status'  => $st,
                 'tanggal_masuk'=>date('Y-m-d H:i:s'),
-                 'updateby'=> session()->nip_emp
+                'updateby'=> session()->nip_emp
             );
         }else if ($action=='accept'){
             $st=1;
              $data = array(
                 'status'  => $st,
+                'loan_asset_aproval_date'=>date('Y-m-d H:i:s'),
                  'updateby'=> session()->nip_emp
                 );
         }else{
             $st=2;
             $data = array(
                 'status'  => $st,
+                'loan_asset_aproval_date'=>date('Y-m-d H:i:s'),
                  'updateby'=> session()->nip_emp
              );
         }
