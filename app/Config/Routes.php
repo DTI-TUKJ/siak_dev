@@ -12,18 +12,18 @@ $routes->setAutoRoute(true);
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Index::index');
-$routes->get('/Siak', 'Home::index');
+$routes->get('/', 'Home::index');
+$routes->get('/Siak', 'Home::index_old');
 
-$routes->post('/Siak/AdminSignin', 'Admin::index');
-$routes->post('/Siak/Signin', 'Admin::pgwSignin');
-$routes->post('/Siak/StudentSignin', 'Admin::studentSignin');
-$routes->get('/Siak/StudentSignin', 'Admin::studentSignin');
-$routes->get('/Siak/AdminSignin', 'Admin::index');
-$routes->get('/Siak/Signin', 'Admin::pgwSignin');
+$routes->post('/AdminSignin', 'Admin::index');
+$routes->post('/Signin', 'Admin::pgwSignin');
+$routes->post('/StudentSignin', 'Admin::studentSignin');
+$routes->get('/StudentSignin', 'Admin::studentSignin');
+$routes->get('/AdminSignin', 'Admin::index');
+$routes->get('/Signin', 'Admin::pgwSignin');
 $routes->get('/Siak/redirect', 'Admin::redirect');
 $routes->get('/Logout', 'Admin::Logout');
-$routes->get('/Siak/User', 'User::index');
+$routes->get('/User', 'User::index');
 // $routes->get('/Siak/User', 'User::index');
 $routes->post('/updateSchedulefromDBI', 'User::updateSchedulefromDBI');
 
@@ -33,7 +33,7 @@ $routes->get('/SchUpdate', 'User::updateSchedulefromDBI');
 
 $routes->post('/changeUnit', 'Myasset::UpUnit');
 
-$routes->get('/Siak/MyAsset', 'Myasset::index');
+$routes->get('/MyAsset', 'Myasset::index');
 $routes->post('/callDataJson', 'Myasset::dataJson');
 $routes->post('/addAsset', 'Myasset::insertAsset');
 $routes->post('/AssetDelete', 'Myasset::deleteAsset');
@@ -44,8 +44,8 @@ $routes->post('/showAssetStatus', 'Myasset::show_asset_status');
 
 
 
-$routes->get('/Siak/DataLoan', 'Loan::index');
-$routes->get('/Siak/loanHistory', 'Loan::history');
+$routes->get('/DataLoan', 'Loan::index');
+$routes->get('/loanHistory', 'Loan::history');
 $routes->post('/dataJsonLoan', 'Loan::dataJson');
 $routes->post('/checkSchedule', 'Loan::ScheduleCheck');
 $routes->post('/addLoan', 'Loan::addLoan');
@@ -58,11 +58,11 @@ $routes->post('/historyClassroomLoan', 'Loan::dataJsonhistoryClassroom');
 
 $routes->post('/getNipId', 'Loan::getPgwId');
 
-$routes->get('/Siak/MyLoan', 'MyLoan::index');
+$routes->get('/MyLoan', 'MyLoan::index');
 $routes->post('/dataJsonMyLoan', 'MyLoan::dataJson');
 
 
-$routes->get('/Siak/DataEmployee', 'Employee::index');
+$routes->get('/DataEmployee', 'Employee::index');
 
 $routes->post('callDataEmpJson', 'Employee::dataJson');
 $routes->post('getPicClassLoan', 'Employee::getPicClassLoan');
@@ -74,14 +74,14 @@ $routes->post('/getOrg', 'ScheduleClass::getOrg');
 $routes->post('/addReqLoan', 'ScheduleClass::addClassLoan');
 $routes->post('/activatedBetweenSem', 'ScheduleClass::beetweenSemester');
 
-$routes->get('/Siak/MyClassLoan', 'MyClassLoan::index');
+$routes->get('/MyClassLoan', 'MyClassLoan::index');
 $routes->post('/dataJsonMyClassLoan', 'MyClassLoan::dataJson');
 $routes->post('/CLassloanDelete', 'MyClassLoan::deleteClassLoan');
 $routes->post('/reqEndLoan', 'MyClassLoan::reqEndLoan');
-$routes->get('/Siak/HistoryClassLoan', 'MyClassLoan::history');
+$routes->get('/HistoryClassLoan', 'MyClassLoan::history');
 $routes->post('/dataJsonHistoriClassLoan', 'MyClassLoan::dataJsonHistory');
 
-$routes->get('/Siak/Classroomloan', 'ClassLoan::index');
+$routes->get('/Classroomloan', 'ClassLoan::index');
 $routes->post('/dataJsonClassroomLoan', 'ClassLoan::dataJson');
 $routes->post('/dataJsonClassroomLoanRep', 'ClassLoan::dataJsonAcadmic');
 $routes->post('/statusClassLoanUp', 'ClassLoan::updateStatusClassLoan');
@@ -89,7 +89,7 @@ $routes->post('/EndCLassLoan', 'ClassLoan::EndCLassLoan');
 $routes->post('/sendNotesLoan', 'ClassLoan::sendNotesLoan');
 $routes->post('/exportExcel', 'ClassLoan::exportExcel');
 
-$routes->get('/Siak/Organization', 'Organization::index');
+$routes->get('/Organization', 'Organization::index');
 $routes->post('/callDataJsonOrg', 'Organization::dataJson');
 $routes->post('/getLeader', 'Organization::getLeader');
 
@@ -103,7 +103,7 @@ $routes->post('/OrgPerUp', 'Organization::upPerOrg');
 
 $routes->post('Siak/ApiUpdateSchedule', 'Api::createBatch');
 
-$routes->get('/Siak/Student', 'Student::index');
+$routes->get('/Student', 'Student::index');
 $routes->post('/callDataJsonStudent', 'Student::dataJson');
 $routes->post('/upPerStuent', 'Student::upPerStuent');
 

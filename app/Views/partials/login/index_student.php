@@ -125,7 +125,7 @@
                                 }
 
                                     $sso='SSO';
-                                    echo form_open('Siak/StudentSignin', 'class="form-border"') ;
+                                    echo form_open('StudentSignin', 'class="form-border"') ;
                            
                                 ?>
                                 <div class="form-group">

@@ -25,7 +25,7 @@ class Home extends BaseController
         //  print_r($data);
         if (session()->nip_emp==null){
               if(session()->numberid==null){
-                return redirect()->to(base_url('Siak/Signin'));
+                return redirect()->to(base_url('Signin'));
               }
             }
         $data=array(
@@ -33,5 +33,10 @@ class Home extends BaseController
         );
           //  print_r(session()->get());
        return session()->name_emp!=null?view('main/dashboard/index_new',$data):view('main/dashboard/index_student', $data);
+    }
+
+    public function index_old()
+    { 
+      return redirect()->to(base_url(''));
     }
 }

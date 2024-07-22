@@ -134,12 +134,12 @@
                                     <?php
                                     }
                                 } 
-                                if ($_SERVER['REQUEST_URI']=='/Siak/AdminSignin' || $_SERVER['REQUEST_URI']=='/index.php/Siak/AdminSignin'){
+                                if ($_SERVER['REQUEST_URI']=='/AdminSignin' || $_SERVER['REQUEST_URI']=='/index.php/AdminSignin'){
                                     $sso='';
-                                    echo form_open('Siak/AdminSignin', 'class="form-border"') ;
+                                    echo form_open('AdminSignin', 'class="form-border"') ;
                                 }else{
                                     $sso='SSO';
-                                    echo form_open('Siak/Signin', 'class="form-border"') ;
+                                    echo form_open('Signin', 'class="form-border"') ;
                                 } 
                                 ?>
                                 <div class="form-group">

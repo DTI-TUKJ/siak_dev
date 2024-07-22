@@ -133,7 +133,7 @@
 		$curl = curl_init();
 
 		curl_setopt_array($curl, array(
-		CURLOPT_URL => 'https://dti-jkt.telkomuniversity.ac.id/Siak/ApiUpdateSchedule',
+		CURLOPT_URL => 'https://siak-jkt.telkomuniversity.ac.id/Siak/ApiUpdateSchedule',
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => '',
 		CURLOPT_MAXREDIRS => 10,

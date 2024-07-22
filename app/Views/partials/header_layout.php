@@ -149,7 +149,7 @@
                             </div>
                             <ul class="nk-menu nk-menu-main ui-s2">
                                 <li class="nk-menu-item has-sub">
-                                    <a href="<?php echo base_url('Siak') ?>" class="nk-menu-link">
+                                    <a href="<?php echo base_url('') ?>" class="nk-menu-link">
                                         <span class="nk-menu-text">Dashboards</span>
                                     </a>
                                     
@@ -158,13 +158,13 @@
                                 <?php if(session()->type!='pegawai') { ?>
                                     <?php if(session()->type!='admin akademik') { ?>
                                     <li class="nk-menu-item has-sub">
-                                        <a href="<?php echo base_url('Siak/MyAsset') ?>" class="nk-menu-link">
+                                        <a href="<?php echo base_url('MyAsset') ?>" class="nk-menu-link">
                                             <span class="nk-menu-text">My Asset</span>
                                         </a>
                                         
                                     </li>
                                     <li class="nk-menu-item has-sub">
-                                        <a href="<?php echo base_url('Siak/DataLoan') ?>" class="nk-menu-link">
+                                        <a href="<?php echo base_url('DataLoan') ?>" class="nk-menu-link">
                                             <span class="nk-menu-text">Loan</span>
                                         </a>
                                         
@@ -172,13 +172,13 @@
                                     <?php } ?><!-- .nk-menu-item -->
                                     <?php  if (session()->type=='superadmin') {?>
                                     <li class="nk-menu-item has-sub">
-                                        <a href="<?php echo base_url('Siak/User') ?>" class="nk-menu-link">
+                                        <a href="<?php echo base_url('User') ?>" class="nk-menu-link">
                                             <span class="nk-menu-text">Users Admin</span>
                                         </a>
                                         
                                     </li><!-- .nk-menu-item -->
                                     <li class="nk-menu-item has-sub">
-                                        <a href="<?php echo base_url('Siak/DataEmployee') ?>" class="nk-menu-link">
+                                        <a href="<?php echo base_url('DataEmployee') ?>" class="nk-menu-link">
                                             <span class="nk-menu-text">Employee </span>
                                         </a>
                                         
@@ -186,13 +186,13 @@
                                     <?php } ?>
                                     <?php if (session()->type=='admin akademik'||session()->type=='superadmin') { ?>
                                     <li class="nk-menu-item has-sub">
-                                        <a href="<?php echo base_url('Siak/Organization') ?>" class="nk-menu-link">
+                                        <a href="<?php echo base_url('Organization') ?>" class="nk-menu-link">
                                             <span class="nk-menu-text">Organization</span>
                                         </a>
                                         
                                     </li>
                                     <li class="nk-menu-item has-sub">
-                                        <a href="<?php echo base_url('Siak/Student') ?>" class="nk-menu-link">
+                                        <a href="<?php echo base_url('Student') ?>" class="nk-menu-link">
                                             <span class="nk-menu-text">Student</span>
                                         </a>
                                         
@@ -203,7 +203,7 @@
 
                                <?php if(session()->type=='pegawai' || session()->type=='admin akademik' ) { ?>
                                 <li class="nk-menu-item has-sub">
-                                    <a href="<?php echo base_url('Siak/MyLoan') ?>" class="nk-menu-link">
+                                    <a href="<?php echo base_url('MyLoan') ?>" class="nk-menu-link">
                                         <span class="nk-menu-text">My Loan </span>
                                     </a>
                                     
@@ -216,7 +216,7 @@
                                 <?php if (session()->type=='student' || (session()->lectur && !session()->pembina)){ ?>
 
                                     <li class="nk-menu-item has-sub">
-                                        <a href="<?php echo base_url('Siak/MyClassLoan') ?>" class="nk-menu-link">
+                                        <a href="<?php echo base_url('MyClassLoan') ?>" class="nk-menu-link">
                                             <span class="nk-menu-text">My Classroom Loan </span>
                                         </a>
                                         
@@ -227,7 +227,7 @@
                                 <?php if (session()->pembina || session()->type=='admin akademik' || session()->type=='admin logistik'){ ?>
 
                                 <li class="nk-menu-item has-sub">
-                                    <a href="<?php echo base_url('Siak/Classroomloan') ?>" class="nk-menu-link">
+                                    <a href="<?php echo base_url('Classroomloan') ?>" class="nk-menu-link">
                                         <span class="nk-menu-text">Classroom Loan </span>
                                     </a>
                                     
@@ -235,7 +235,7 @@
                                 <?php } ?>
 
                               <li class="nk-menu-item has-sub">
-                                    <a href="<?php echo session()->type!='student'?base_url('Siak/loanHistory'):base_url('Siak/HistoryClassLoan'); ?>" class="nk-menu-link">
+                                    <a href="<?php echo session()->type!='student'?base_url('loanHistory'):base_url('HistoryClassLoan'); ?>" class="nk-menu-link">
                                         <span class="nk-menu-text">Loan History </span>
                                     </a>
                                     

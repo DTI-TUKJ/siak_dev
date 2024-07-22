@@ -498,7 +498,7 @@ class Admin extends BaseController
      public function Logout()
     {
         session()->destroy();
-        return redirect()->to(base_url('Siak'));
+        return redirect()->to(base_url(''));
     }
       
 }
