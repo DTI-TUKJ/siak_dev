@@ -309,7 +309,7 @@ class MyClassLoan extends BaseController
 Terdapat Request untuk Mengakhiri Peminjaman Ruangan Oleh  *".$name."* untuk Kegiatan *".$activity."*, 
 Silahkan masuk ke akun siak anda dengan link dibawah
     
-dti-jkt.telkomuniversity.ac.id/Siak/Signin
+siak-jkt.telkomuniversity.ac.id/Signin
     
 Notifikasi Siak" ); 
          }
