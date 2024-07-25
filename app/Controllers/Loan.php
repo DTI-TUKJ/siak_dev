@@ -590,9 +590,9 @@ class Loan extends BaseController
 There is request from *".$nama."* for activity *".$activity."*, 
 Please check on your Siak account to accept/reject request or you can visit url bellow
 
-https://dti-jkt.telkomuniversity.ac.id/Siak/AdminSignin (For admin account) 
+https://siak-jkt.telkomuniversity.ac.id/AdminSignin (For admin account) 
 Or
-https://dti-jkt.telkomuniversity.ac.id/Siak/Signin (for SSO Account)
+https://siak-jkt.telkomuniversity.ac.id/Signin (for SSO Account)
 
 Notifikasi Siak" ); 
          }else if($act=='accept'){
@@ -605,7 +605,7 @@ Notifikasi Siak" );
 
 There is Loan request has been accepted, Please check on your Siak account or you can visit url bellow.
 
-dti-jkt.telkomuniversity.ac.id/Siak
+siak-jkt.telkomuniversity.ac.id
 
 Notifikasi Siak" ); 
          }else if($act=='driverNotif'){
@@ -629,7 +629,7 @@ Notifikasi Siak" );
 
 There is Loan request has been Rejected, Please check on your Siak account or you can visit url bellow.
 
-dti-jkt.telkomuniversity.ac.id/Siak
+siak-jkt.telkomuniversity.ac.id
 
 Notifikasi Siak" ); 
          }

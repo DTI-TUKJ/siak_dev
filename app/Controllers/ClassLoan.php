@@ -859,7 +859,7 @@ Organization           : *".$alldata['assoc_name']."*
 ".$reasonRep."
 Silahkan masuk ke akun siak anda dengan link dibawah
 
-dti-jkt.telkomuniversity.ac.id/Siak/StudentSignin
+siak-jkt.telkomuniversity.ac.id/StudentSignin
 
 Notifikasi Siak" ); 
          }else if($act=='sendAccept'){
@@ -886,7 +886,7 @@ Organization           : *".$alldata['assoc_name']."*
 ".$reasonRep."
 Silahkan masuk ke akun siak anda dengan link dibawah
     
-dti-jkt.telkomuniversity.ac.id/Siak/Signin
+siak-jkt.telkomuniversity.ac.id/Signin
     
 Notifikasi Siak" ); 
          }else if($act=='SendNotes'){
@@ -900,7 +900,7 @@ Notifikasi Siak" );
 Terdapat Request end loan yang ditunda dengan catatan : ".$notes." , 
 Silahkan masuk ke akun siak anda dengan link dibawah
     
-dti-jkt.telkomuniversity.ac.id/Siak/Signin
+siak-jkt.telkomuniversity.ac.id/Signin
     
 Notifikasi Siak" ); 
          }else if ($act=='sendAprovalToAdminLogistik'){
@@ -926,7 +926,7 @@ Organization           : *".$alldata['assoc_name']."*
 ".$reasonRep."
 Silahkan masuk ke akun siak anda dengan link dibawah
 
-dti-jkt.telkomuniversity.ac.id/Siak/StudentSignin
+siak-jkt.telkomuniversity.ac.id/StudentSignin
 
 Notifikasi Siak" ); 
          }
