@@ -528,6 +528,18 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-6">
+                           <div class="form-group">
+                                                  
+                                <div class="custom-control">
+                                  <input type="checkbox" class="custom-control-input" id="delete_pb_2" name="delete_pb_2" value="1" >    
+                                   <label class="custom-control-label" for="delete_pb_2">Hapus Pembina 2</label>
+                                      </div>
+                                     <div id="delete_pb_2-error">
+
+                                    </div>
+                           </div>
+                         </div>
                    
                         <div class="col-12">
                             <div class="form-group">

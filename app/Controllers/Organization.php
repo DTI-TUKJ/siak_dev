@@ -322,6 +322,7 @@ class Organization extends BaseController
                 ]);
             $isDataValid = $this->validation->withRequest($this->request)->run();
             
+            $lecturer_b=$this->request->getPost('delete_pb_2')==1? null:$this->request->getPost('pembina_b');
 
             if ($isDataValid) {
                 $id=$this->request->getPost('assoc_id');
@@ -330,7 +331,7 @@ class Organization extends BaseController
 
                     'assoc_leader_id'     => $this->request->getPost('ketua_himpunan'),
                     'assoc_lecturer_id'   => $this->request->getPost('pembina_a'),
-                    'assoc_lecturer_id_b' => $this->request->getPost('pembina_b'),
+                    'assoc_lecturer_id_b' => $lecturer_b,
                     'assoc_desc'          => strtoupper($this->request->getPost('description_assoc')),
                     );
                     $this->OM->updateOrg($data,$id);
