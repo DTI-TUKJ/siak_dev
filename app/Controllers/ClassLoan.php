@@ -251,6 +251,7 @@ class ClassLoan extends BaseController
            $showTab= $this->request->getPost("showTab");
            
            $lists = $this->CLM->get_datatables($type, $showTab);
+           
 
            //print_r($lists);
            $data = [];
@@ -261,7 +262,7 @@ class ClassLoan extends BaseController
                $row = [];
 
                $btndis='';
-                    if ($val['status_class_loan']!=0 && session()->type='admin akademik' ){
+                    if ($val['status_class_loan']!=0 && session()->type=='admin akademik' ){
                           
                             $btndis='disabled';
                     }
@@ -361,7 +362,8 @@ class ClassLoan extends BaseController
                  }
                  
                  $row[]=$statuslaak;
-                 $row[]=' <span class="tb-amount">'.date('d/m/Y H:i',strtotime($val['aproval_date_lak'])).' </span>';
+                 $aprovalDateLak=isset($val['aproval_date_lak'])?date('d/m/Y H:i',strtotime($val['aproval_date_lak'])):'-';
+                 $row[]=' <span class="tb-amount">'. $aprovalDateLak.' </span>';
 
                  if($val['status_class_loan']==1){
 
@@ -522,10 +524,9 @@ class ClassLoan extends BaseController
     public function EndCLassLoan()
     {
 
-       
-        if (!session()->pembina && session()->type!='admin akademik'){
-            return false;
-        }
+        // if (!session()->pembina && session()->type!='admin akademik'){
+        //     return false;
+        // }
      
         $id = $this->request->getPost('id_class_loan');
         $data=array(

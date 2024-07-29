@@ -77,7 +77,7 @@ class MyClassLoanModel extends Model
 
                 $this->dt->where('request_type', 'kelas pengganti');
                 if (session()->lectur && session()->type!='admin akademik'){
-                    $this->dt->orWhere('nip_emp', session()->nip_emp);
+                    $this->dt->Where('nip_emp', session()->nip_emp);
                 }
             }
             

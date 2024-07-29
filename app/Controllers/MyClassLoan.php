@@ -30,8 +30,7 @@ class MyClassLoan extends BaseController
             if (session()->type!='student' &&  (!session()->lectur || session()->pembina) ){
                 return redirect()->to(base_url('Siak'));
             }
-     
-         
+        //   print_r(session()->get());
          return view('main/loan/myclasloan_new');
     }
 
@@ -119,7 +118,7 @@ class MyClassLoan extends BaseController
                 if(isset($val['evidence_end_loan'])){
                     $sizeFileEvidence=file_exists('assets/evidance_end_loan/'.$val['evidence_end_loan'])?filesize('assets/evidance_end_loan/'.$val['evidence_end_loan']):0;
                 }
-                $disBtnEnd=$val['status_class_loan']==1?'':'disabled';
+                $disBtnEnd=$val['status_class_loan']==1 ||$val['status_class_loan']==3 ?'':'disabled';
                 $btnEnd='<button class="btn btn-xs btn-warning " onclick="EndLoan(\''.$val['id_class_loan'].'\',\''.$val['evidence_end_loan'].'\', \''.$sizeFileEvidence.'\')" data-title="End Loan" '. $disBtnEnd.'><i class="icon fa-solid fa-door-open"></i></button> ';
 
                 $row[]='<div style="display:flex">'.$btnEnd.'<button class="btn btn-xs btn-danger mr-5 '.$btndis.'" onclick="deletedata(\''.$val['id_class_loan'].'\')"><i class="icon fa-solid fa-trash"></i></button> </div>';

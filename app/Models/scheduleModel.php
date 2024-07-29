@@ -113,7 +113,7 @@ class scheduleModel extends Model
         FROM room_class_loan nsl 
         JOIN ROOMS r on nsl.class_id=r.ROOMID
         WHERE nsl.dayname = ? and r.BUILDINGNAME like ? and 
-        ? >= nsl.starttime  and ? < nsl.endtime and r.ROOMNAME =? and nsl.loan_class_date= ?";
+        ? >= nsl.starttime  and ? < nsl.endtime and r.ROOMNAME =? and nsl.loan_class_date= ? and nsl.status_class_loan !=2";
         
         return $query = $this->db->query($sql,[$day,"%".$campus."%", $hour,$hour, $room, $date])->getResultArray();
     }

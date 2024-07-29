@@ -410,7 +410,7 @@ Organization           : *".$alldata['org_name']."*
 ".$reasonRep."
 Silahkan cek akun siak anda untuk menerima atau menolak permintaan dengan login link dibawah
 
-dti-jkt.telkomuniversity.ac.id/Siak/Signin
+siak-jkt.telkomuniversity.ac.id/Signin
 
 Notifikasi Siak" ); 
          }

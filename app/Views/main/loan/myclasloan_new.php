@@ -212,9 +212,9 @@
     function reloadtable(table, tabName, ajaxUrl){
      
         $('#'+table).DataTable().clear().destroy();
-        //  $('#'+table).DataTable().ajax.reload()
+        // $('#'+table).DataTable().ajax.reload()
         calldata(table, tabName, ajaxUrl);
-                            console.log('hai y')
+        console.log('hai y')
      }
 
       $(document).ready(function () {

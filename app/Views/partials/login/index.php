@@ -4,9 +4,9 @@
 <head>
     <base href="./././">
     <meta charset="utf-8">
-    <meta name="author" content="Softnio">
+    <meta name="author" content="Dukungan Teknologi Informasi Telkom University Jakarta">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
+    <meta name="description" content="Solusi Administrasi Peminjaman Logistik Telkom University Jakarta: Pengelolaan efisien untuk kebutuhan logistik di lingkungan kampus">
     <!-- Fav Icon  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="shortcut icon" href="<?php echo base_url('') ?>/images/logo_telkom_university.png">

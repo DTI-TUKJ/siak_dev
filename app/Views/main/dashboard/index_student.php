@@ -116,7 +116,7 @@
                                                             </div>
                                                             <div class="col-sm-1" style="min-width: 125px;">
                                                                         <div class="form-control-wrap dash-room">
-                                                                        <a class="btn btn-round btn-sm btn-primary" onclick="modalcheck()">Book Room</a>
+                                                                        <a class="btn btn-round btn-sm btn-primary" onclick="bookRoom('<?php echo session()->permission_loan; ?>')">Book Room</a>
                                                                         
                                                                         </div>
                                                             </div>
@@ -531,7 +531,7 @@
                                     }else{
                                         Swal.fire({
                                         icon: 'warning',
-                                        title: 'Terdapat jadwal yang terisi di rentang waktu yang anda pilih',
+                                        title: 'Terdapat jadwal yang terisi/tidak dipilih di rentang waktu yang anda pilih',
                                     })
                                     }
                                     
