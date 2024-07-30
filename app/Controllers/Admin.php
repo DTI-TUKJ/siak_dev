@@ -32,8 +32,8 @@ class Admin extends BaseController
                 'titletab' => 'Mitra',
                 'activemitra' => 'active',
             ];
-            echo env;
-            // echo view('partials/login/index', $data);
+            // echo env;
+             echo view('partials/login/index', $data);
         } else {
      
             $this->validation->setRules([
