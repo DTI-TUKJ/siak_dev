@@ -860,7 +860,7 @@ Organization           : *".$alldata['assoc_name']."*
 ".$reasonRep."
 Silahkan masuk ke akun siak anda dengan link dibawah
 
-siak-jkt.telkomuniversity.ac.id/StudentSignin
+siak-jkt.telkomuniversity.ac.id/Signin
 
 Notifikasi Siak" ); 
          }else if($act=='sendAccept'){
@@ -927,7 +927,7 @@ Organization           : *".$alldata['assoc_name']."*
 ".$reasonRep."
 Silahkan masuk ke akun siak anda dengan link dibawah
 
-siak-jkt.telkomuniversity.ac.id/StudentSignin
+siak-jkt.telkomuniversity.ac.id/Signin
 
 Notifikasi Siak" ); 
          }

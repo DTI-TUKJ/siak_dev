@@ -183,6 +183,7 @@
                                 </div>
                                 <div class="form-group">
                                     <button name="simpan" class="btn btn-lg btn-primary btn-block">Sign in</button>
+                                    <a href="<?php echo base_url('Signin') ?>" class="btn btn-sm btn-secondary btn-block mt-2">Go To Employee Login Page</a>
                                 </div>
                                 </form>
 

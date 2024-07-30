@@ -199,6 +199,7 @@
                                     <button name="simpan" class="btn btn-lg btn-primary btn-block">Sign in</button>
                                 </div>
                                 </form>
+                                <a href="<?php echo base_url('StudentSignin') ?>" class="btn btn-sm btn-secondary btn-block mt-2">Go To Student Login Page</a>
 
                             </div>
                         </div>
