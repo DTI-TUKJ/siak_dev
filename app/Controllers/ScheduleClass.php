@@ -336,7 +336,10 @@ class ScheduleClass extends BaseController
             if ($data['request_type']=='organization'){
                 $dataOrg=$this->OM->getById($data['id_association']);
                 if ($dataOrg['no_tlp_pembina_a']!='' || $dataOrg['no_tlp_pembina_a']!=null){
-                    $this->SendWaReq( $loaner, $dataOrg['no_tlp_pembina_a'] ,'addClassRoomLoan',$this->request->getPost('activity'),'', $data);
+                    if (ENVIRONMENT=='production'){
+                         $this->SendWaReq( $loaner, $dataOrg['no_tlp_pembina_a'] ,'addClassRoomLoan',$this->request->getPost('activity'),'', $data);
+                    }
+                   
                 }
             }else{
                 $getOwner = $this->LgM->getOwner('admin akademik');
@@ -349,7 +352,9 @@ class ScheduleClass extends BaseController
                 }
                  
                 if (session()->type!='admin akademik'){
+                    if (ENVIRONMENT=='production'){
                      $this->SendWaReq( $loaner, $waNum ,'addClassRoomLoan',$this->request->getPost('activity'),$data['request_type'], $data);
+                    }
                  }
             }
            

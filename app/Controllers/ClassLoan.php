@@ -459,7 +459,9 @@ class ClassLoan extends BaseController
         // echo $Telephone;
         if ($st==2){
             if ($Telephone!='' || $Telephone!=null){
+                if (ENVIRONMENT=='production'){
                 $this->SendWaReq($getDataClassLoan, $st, $Telephone,'sendAproval' );
+                }
             }
         }else{
             $name_loaner= isset($getDataClassLoan['fullname'])?$getDataClassLoan['fullname']:$getDataClassLoan['name_emp'];
@@ -479,13 +481,28 @@ class ClassLoan extends BaseController
                $waNumLog=$waNumLog.convert_num($val1['no_tlp']).$mark1;
                $i++;
             }
-            
-            if($aprovalFrom=='aproval_lecturer_a'){ 
-                if($getDataClassLoan['no_tlp_pembina_b']!='' || $getDataClassLoan['no_tlp_pembina_b']!=null){
-                    $this->SendWaReq($getDataClassLoan,$st, $getDataClassLoan['no_tlp_pembina_b'],'sendAccept', $getDataClassLoan['activity_class'], $name_loaner  );
-                }else{
+            if (ENVIRONMENT=='production'){
+                if($aprovalFrom=='aproval_lecturer_a'){ 
+                    if($getDataClassLoan['no_tlp_pembina_b']!='' || $getDataClassLoan['no_tlp_pembina_b']!=null){
+                        $this->SendWaReq($getDataClassLoan,$st, $getDataClassLoan['no_tlp_pembina_b'],'sendAccept', $getDataClassLoan['activity_class'], $name_loaner  );
+                    }else{
+                        if (session()->type!='admin akademik'){
+                            $this->SendWaReq($getDataClassLoan, $st,$waNum,'sendAccept', $getDataClassLoan['activity_class'], $name_loaner, $aprovalFrom ); 
+                        }
+
+                        if (isset($data['status_class_loan'])){
+                            if ($data['status_class_loan']==1){
+                                $this->SendWaReq($getDataClassLoan, $st, $Telephone,'sendAproval' );
+                                $this->SendWaReq($getDataClassLoan, $st, $waNumLog,'sendAprovalToAdminLogistik' );
+                            }
+                        }
+                    }
+                }
+        
+                if($aprovalFrom=='aproval_lecturer_b'){
+                    // echo $waNum; 
                     if (session()->type!='admin akademik'){
-                        $this->SendWaReq($getDataClassLoan, $st,$waNum,'sendAccept', $getDataClassLoan['activity_class'], $name_loaner, $aprovalFrom ); 
+                    $this->SendWaReq($getDataClassLoan, $st,$waNum,'sendAccept', $getDataClassLoan['activity_class'], $name_loaner, $aprovalFrom );
                     }
 
                     if (isset($data['status_class_loan'])){
@@ -495,26 +512,12 @@ class ClassLoan extends BaseController
                         }
                     }
                 }
-            }
-         
-            if($aprovalFrom=='aproval_lecturer_b'){
-                // echo $waNum; 
-                if (session()->type!='admin akademik'){
-                $this->SendWaReq($getDataClassLoan, $st,$waNum,'sendAccept', $getDataClassLoan['activity_class'], $name_loaner, $aprovalFrom );
-                }
 
-                if (isset($data['status_class_loan'])){
-                    if ($data['status_class_loan']==1){
-                        $this->SendWaReq($getDataClassLoan, $st, $Telephone,'sendAproval' );
-                        $this->SendWaReq($getDataClassLoan, $st, $waNumLog,'sendAprovalToAdminLogistik' );
-                    }
+                if($aprovalFrom=='adminlaak'){
+                    // echo $waNum; 
+                    $this->SendWaReq($getDataClassLoan, $st, $Telephone,'sendAproval' );
+                    $this->SendWaReq($getDataClassLoan, $st, $waNumLog,'sendAprovalToAdminLogistik' );
                 }
-            }
-
-            if($aprovalFrom=='adminlaak'){
-                // echo $waNum; 
-                $this->SendWaReq($getDataClassLoan, $st, $Telephone,'sendAproval' );
-                $this->SendWaReq($getDataClassLoan, $st, $waNumLog,'sendAprovalToAdminLogistik' );
             }
         }
 

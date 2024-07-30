@@ -279,7 +279,9 @@ class MyClassLoan extends BaseController
                     }
 
                     $name_loaner= isset($getDataClassLoan['fullname'])?$getDataClassLoan['fullname']:$getDataClassLoan['name_emp'];
-                    $this->SendWaReq($waNum,'sendReqEnd', $getDataClassLoan['activity_class'],  $name_loaner);
+                    if (ENVIRONMENT=='production'){
+                     $this->SendWaReq($waNum,'sendReqEnd', $getDataClassLoan['activity_class'],  $name_loaner);
+                    }
                     
                     }else{
                      $callback=json_encode(array('status' => 'error;','text' => 'File Dokomen tidak boleh kosong'));
