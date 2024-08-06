@@ -331,14 +331,10 @@
                                             </div>
                                         </div>
                                        <div class="dropdown-inner">
-                                         <?php if (session()->status_pgw=='MAGANG') {?>
-                                        
-                                    <!--         <ul class="link-list">
-                                           
-                                                 <li><a type="button" class="li-menu-user" data-bs-toggle="modal" data-bs-target="#modalunit"><i class="icon fa-solid fa-people-roof"></i><span>My Unit</span></a></li>
-                                            </ul> -->
                                       
-                                        <?php } ?>
+                                    
+                                      
+                                  
                                       </div>
                                         <div class="dropdown-inner">
                                             <ul class="link-list">
@@ -358,7 +354,8 @@
 
                                                 
                                                <li>
-                                                    <a href="<?php echo  $manualBook ?>"><em class="icon ni ni-download"></em><span>Download Manual Book</span></a>
+                                               <a type="button" class="li-menu-user" data-bs-toggle="modal" data-bs-target="#modalunit"><em class="icon ni ni-download"></em><span>Download Manual Book</span></a>
+                                             
                                                 </li>
                                                 <li>
                                                     <a href="<?php echo base_url('Logout') ?>"><em class="icon ni ni-signout"></em><span>Sign out</span></a>
@@ -404,27 +401,53 @@
                                         <em class="icon ni ni-cross"></em>
                                     </a>
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Change Unit</h5>
+                                        <h5 class="modal-title">List Manual Book</h5>
                                     </div>
                                     <div class="modal-body">
                                       
-                                            <form id="frmupunit">
-                                               
-                                                <div class="form-group">
-                                                    <label class="form-label" for="cf-full-name">Unit Name</label>
-                                                    <input type="text" class="form-control" id="unit_emp" name="unit_emp" value="<?php echo session()->unit_emp; ?>">
-                                                    
-                                                    <div id="unit_emp-error">
+                                   
+                                            <div class="basic-list-group">
+                                                        <ul class="list-group">
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                            User Guide Siak V1.2 (Admin LAAK)
+                                                                <a href="<?php echo base_url('assets/manual_book/User Guide Siak V1.2 (Admin LAAK).pdf') ?>" class="li-menu-user" >
+                                                                    <span class="badge badge-primary badge-pill"><em class="icon ni ni-download"></em></span>
+                                                                </a>
+                                                               
+                                                            </li>
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                            User Guide Siak V1.2 (Dosen + Pembina)
+                                                            <a href="<?php echo base_url('assets/manual_book/User Guide Siak V1.2 (Dosen + Pembina).pdf') ;?>" class="li-menu-user" >
+                                                             <span class="badge badge-primary badge-pill"><em class="icon ni ni-download"></em></span>
+                                                             </a>
+                                                            </li>
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                            User Guide Siak V1.2 (Dosen)
+                                                            <a href="<?php echo base_url('assets/manual_book/User Guide Siak V1.2 (Dosen).pdf');?>" class="li-menu-user" >
+                                                                <span class="badge badge-primary badge-pill"><em class="icon ni ni-download"></em></span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                            User Guide Siak V1.2 (Mahasiswa)
+                                                            <a href="<?php echo base_url('assets/manual_book/User Guide Siak V1.2 (Mahasiswa).pdf') ;?>" class="li-menu-user" >
+                                                                <span class="badge badge-primary badge-pill"><em class="icon ni ni-download"></em></span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                            User Guide Siak V1.2 (Pembina)
+                                                            <a href="<?php echo base_url('assets/manual_book/User Guide Siak V1.2 (Pembina).pdf') ;?>" class="li-menu-user" >
+                                                                <span class="badge badge-primary badge-pill"><em class="icon ni ni-download"></em></span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                            User Guide Siak V1.1 (Pegawai,Admin Logistik & purel)
+                                                            <a href="<?php echo base_url('assets/manual_book/User Guide Siak V1.1 (Pegawai,Admin Logistik & purel).pdf') ;?>" class="li-menu-user" >
+                                                                <span class="badge badge-primary badge-pill"><em class="icon ni ni-download"></em></span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
                                                     </div>
-                                                </div>
-                                                
-                                              
-                                                <div class="form-group">
-                                                    <button type="button" class="btn btn-lg btn-primary" id="buttonChangeUnit" onclick="ChangeUnit()">Save</button>
-                                                    <span class="loader" id="loaderChangeUnit" style="display: none;"></span>
-
-                                                </div>
-                                            </form>
+                            
                                        
                                
                                 </div>  
@@ -432,6 +455,8 @@
                             </div>
                         </div>
                 </div>
+
+                
 
 <div class="modal fade " tabindex="-1" id="modalLoaderHead">
     <div class="modal-dialog modal-sm"  role="document">
