@@ -73,7 +73,7 @@ class ScheduleClass extends BaseController
                 foreach ($hours as $value) {
                     $jum_sch = $this->SM->getSchedule($days,$campus, $value['HOURNAME'], $room);
                     $jum_sch_class = $this->SM->getScheduleClassLoan($days,$campus, $value['HOURNAME'], $room,date('Y-m-d', strtotime($date.'+'.$i.' days')));
-                    if ($getSemesterActive['set_semester']!='antara'){
+                   
                      if (count($jum_sch)==0){
                         if(count($jum_sch_class)>=1){
                             $row[]= '<input type="button" class="custom-checkbox " data-parsley-multiple="groups" data-parsley-mincheck="2" name="dataSchChosed[]" disabled style="background-color: #eaff00; border: 2px solid #eaff00; ">';
@@ -83,16 +83,7 @@ class ScheduleClass extends BaseController
                      }else{
                         $row[]= '<input type="button" class="custom-checkbox" data-parsley-multiple="groups" data-parsley-mincheck="2" name="dataSchChosed[]" disabled>';
                      }
-                   }else{
-                    
-                        if(count($jum_sch_class)==0){
-                            $row[]= '<input type="checkbox" class="custom-checkbox" value="'.$days.'|'.$campus.'|'.$value['HOURNAME'].'|'.$room.'|'.date('d M Y', strtotime($date.'+'.$i.' days')).'" data-parsley-multiple="groups" data-parsley-mincheck="2" name="dataSchChosed[]">';
-                        }else{
-                            $row[]= '<input type="button" class="custom-checkbox " data-parsley-multiple="groups" data-parsley-mincheck="2" name="dataSchChosed[]" disabled style="background-color: #eaff00; border: 2px solid #eaff00; ">';
-                        }
-
-                    
-                   }
+                   
                 }
                 $data[] = $row;
                 

@@ -361,9 +361,9 @@
                                                     <a href="<?php echo base_url('Logout') ?>"><em class="icon ni ni-signout"></em><span>Sign out</span></a>
                                                 </li>
                                                 <?php if(session()->type=='admin akademik' ) { ?>
-                                                <li>
+                                                <!-- <li>
                                                     <a href="#" onclick="activatedBeetweenSemester(event)"><i class="fa-solid fa-calendar-days" style="padding-right:15px"></i><span>Aktifkan Semester Antara</span></a>
-                                                </li>
+                                                </li> -->
                                                 <?php } ;?>
                                                 <?php if(session()->type=='superadmin' && base_url('')=='http://localhost:8080/') {?>  
                                                 <li>

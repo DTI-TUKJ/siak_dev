@@ -27,7 +27,7 @@ class DBigraciasModel extends Model
     }   
    
     public function getSchedule($schoolyear, $semester){
-        $sql ="SELECT * FROM ACADEMIC.NEW_SCHEDULES_LECTURER_TUJ nsl WHERE SCHOOLYEAR = ? and SEMESTER=?";
+        $sql ="SELECT * FROM ACADEMIC.NEW_SCHEDULES_LECTURER_TUJ nsl WHERE SCHOOLYEAR = ? and SEMESTER=? ";
         $query = $this->dbi->query($sql, array($schoolyear,$semester));
         return $query->getResult();
     }
