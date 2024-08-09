@@ -141,7 +141,7 @@
         scrollX:true,
         "processing":true,
         "serverSide":true,
-        "order":false,
+        "order": [[8, 'desc']],
         "lengthMenu": [30, 60, 90, 120], 
         "pageLength": 30,
         "ajax" : {
@@ -157,7 +157,7 @@
 
         },
         "columnDefs":[{
-            "targets":'_all',
+            "targets":0,
             "orderable":false,
             // render: $.fn.dataTable.render.html()
         }],

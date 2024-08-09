@@ -8,9 +8,9 @@ use CodeIgniter\Model;
 class LoanModel extends Model
 {
     protected $table = "loan";
-    protected $column_order = array(null,null,null, null, null,null);
+    protected $column_order = array('nip','name','activity','destination_city','pickup_point','unit','asset_name','inputdate','tanggal_pinjam','tanggal_kembali','loan_asset_aproval_date','tanggal_masuk','status');
     protected $column_search = array('name', 'unit', 'nip');
-    protected $order = array('' => '');
+    protected $order = array(''=>'');
     protected $request;
     protected $db;
     protected $dt;
