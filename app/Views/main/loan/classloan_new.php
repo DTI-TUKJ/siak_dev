@@ -376,7 +376,7 @@
 
       $(document).ready(function () {
             calldata('example', 'non-academic', '<?php echo base_url('dataJsonClassroomLoan') ?>');
-           // calldata('example2', 'academic', '<?php echo base_url('dataJsonClassroomLoanRep') ?>');
+          
             $('#type_filter').on('change', function() {
                 $('#example').dataTable().fnDraw(false)
             })
