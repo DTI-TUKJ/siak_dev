@@ -423,7 +423,7 @@ class Admin extends BaseController
             ]);
 
             $isDataValid = $this->validation->withRequest($this->request)->run();
-            $acc      =  array('username' => $this->request->getPost('email'),'password' => $this->request->getPost('password'));
+            $acc      =  array('username' => strtolower($this->request->getPost('email')),'password' => $this->request->getPost('password'));
             $getToken = GetToken($acc);
 
             if (isset($getToken->token)){
