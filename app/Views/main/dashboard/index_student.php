@@ -23,11 +23,14 @@
                                         <div class="card-inner" style="padding-bottom:5px">
                                             <ul class="nav nav-tabs mt-n3">
                                                 <li class="nav-item nav-item-loan">
-                                                    <a class="nav-link active" data-bs-toggle="tab" href="#tabItem1_used" onclick="reloadtable('example')" >Kampus A</a>
+                                                    <a class="nav-link active" data-bs-toggle="tab" href="#tabItem1_used" onclick="reloadtable('example', 'KAMPUS A')" >Kampus A</a>
                                                 </li>
                                                
                                                 <li class="nav-item nav-item-loan">
-                                                    <a class="nav-link" data-bs-toggle="tab" href="#tabItem2_used" onclick="reloadtable('example2')" >Kampus B</a>
+                                                    <a class="nav-link" data-bs-toggle="tab" href="#tabItem2_used" onclick="reloadtable('example2', 'KAMPUS B')" >Kampus B</a>
+                                                </li>
+                                                <li class="nav-item nav-item-loan_classroom">
+                                                    <a class="nav-link" data-bs-toggle="tab" href="#tabItem3_used"  onclick="reloadtable('example3', 'KAMPUS C')" >Kampus C</a>
                                                 </li>
                                             
                                             </ul>
@@ -157,6 +160,65 @@
                                                       </div>
                                                         
                                                 </div>
+                                                <div class="tab-pane" id="tabItem3_used">
+                                                    <div class="row toggle-wrap nk-block-tools-toggle mb-4  g-gs">
+                                                            
+                                                        <div class="col-sm-2" style="min-width: 125px;">
+                                                                    <input type="text" class="form-control" id="flatpickr-range3" name="loan_date_start" placeholder="Enter start date loan"> 
+                                                                
+                                                        </div>
+                                                        <div class="col-sm-2" style="min-width: 175px;">
+                                                                <div class="form-control-wrap dash-room">
+                                                                    <select class="form-select" id="room_name3" name="room_name3" style="width: 300px;">
+                                                                
+                                                                    </select>
+
+                                                                
+                                                                </div>
+                                                        </div>
+                                                        <div class="col-sm-1" style="min-width: 125px;">
+                                                                    <div class="form-control-wrap dash-room">
+                                                                    <a class="btn btn-round btn-sm btn-primary" onclick="bookRoom()">Book Room</a>
+                                                                    
+                                                                    </div>
+                                                              </div>
+                                                        <div class="col-sm-2" style="min-width: 325px;">
+                                                                    <div class="example-alert">
+                                                                        <div class="alert alert-info alert-icon">
+                                                                            <em class="icon ni ni-alert-circle"></em> Peminjaman dilakukan minimal H-3
+                                                                        </div>
+                                                                    </div>
+                                                        </div>
+                                                        
+                                                        </div>
+                                                        <div class="row g-gs" style="justify-content: center;">
+                                                                
+                                                        <table class=" nk-tb-list nk-tb-ulist table table-bordered " data-auto-responsive="false" id="example3" style="min-width:1425px;">
+                                                            <thead>
+                                                                <tr class="nk-tb-item nk-tb-head">
+                                                                    <th class="nk-tb-col" style=""><span class="sub-text">Day</span></th>
+                                                                    <?php 
+                                                                    foreach ($dataHour as $val) {
+                                                                    ?>
+                                                                        <th class="nk-tb-col"><span class="sub-text"><?= date('H:i',strtotime($val['HOURNAME'])) ;?></span></th>
+                                                                    <?php 
+                                                                    }
+                                                                    ?>
+                                                                    
+                                                                
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+
+
+                                                    
+                                                            </tbody>
+
+                                                        </table>
+                                                         
+                                                      </div>
+                                                      
+                                                </div>
                                                
                                             </div>
                                         </div>
@@ -230,13 +292,13 @@
 
             <script type="text/javascript">
 
-                function calldata() {
+                function calldata(table, kampus) {
 
-                    $('#example').DataTable({
-                         scrollX: true,
+                    $('#'+table).DataTable({
+                        scrollX: true,
                         "processing": true,
                         // // "serverSide": true,
-                       "order": false,
+                        "order": false,
                         // "lengthMenu": [30, 60, 90, 120],
                         // "pageLength": 30,
                         "paging":   false,
@@ -251,9 +313,18 @@
                             //         // $('#loader_container').hide()
                             // },
                             data : function(data){
-                                data.campus = 'KAMPUS A';
-                                data.date=document.getElementById('flatpickr-range').value;
-                                data.room=$('#room_name').val();
+                                data.campus = kampus;
+                                if(kampus=='KAMPUS A'){
+                                    data.date=document.getElementById('flatpickr-range').value;
+                                    data.room=$('#room_name').val();
+                                }else if (kampus=='KAMPUS B'){
+                                    data.date=document.getElementById('flatpickr-range2').value;
+                                    data.room=$('#room_name2').val();
+                                }else{
+                                    data.date=document.getElementById('flatpickr-range3').value;
+                                    data.room=$('#room_name3').val();
+                                }
+                            
                             }
 
                         },
@@ -277,57 +348,42 @@
                 }
 
 
-                function calldata2() {
-
-                    $('#example2').DataTable({
-                        scrollX: true,
-                        "processing": true,
-                        // // "serverSide": true,
-                    "order": false,
-                        // "lengthMenu": [30, 60, 90, 120],
-                        // "pageLength": 30,
-                        "paging":   false,
-                        "ordering": false,
-                        "info":     false,
-                        "searching": false,
-                        "ajax" : {
-                            url : '<?php echo base_url('dataScheduleClass') ?>',
-                            type: "POST",
-                            // success : function(e) {
-                            //         // $('#loader_front').hide()
-                            //         // $('#loader_container').hide()
-                            // },
-                            data : function(data){
-                                data.campus = 'KAMPUS B';
-                                data.date=document.getElementById('flatpickr-range2').value;
-                                data.room=$('#room_name2').val();
-                            }
-
-                        },
-                        "columnDefs":[{
-                            "targets":'_all',
-                            "orderable":false,
-                            "className":"custom-td"
-                            // render: $.fn.dataTable.render.html()
-                            },
-                            {
-                                "targets":0,
-                            
-                                "className":"custom-td-day"
-                            }
-                        ],
-                        "language": 
-                        {          
-                        "processing": "<span class=\"loader_front\"></span>",
-                        }
-                    });
-                    }
-
+ 
             
-                    function reloadtable(table){
-                        $('#'+table).DataTable().ajax.reload()
-                        console.log('hai')
+                    function reloadtable(table,kampus){
+                        $('#'+table).DataTable().clear().destroy();
+
+                        calldata(table, kampus)
                     }
+
+                    function select2Generate(id, kampus){
+                    $("#"+id).select2({ 
+                            ajax: {
+                                            url: "getRoom",
+                                            dataType: 'json',
+                                            type: 'POST',
+                                            data: function (params) {
+                                            return {
+                                                searchTerm: params.term,
+                                                campus:kampus
+                                            };
+                                            },
+                                            processResults: function (data) {
+                                                return { results:
+                                                    $.map(data, function(item) {
+                                                        return {
+                                                            id: item.id,
+                                                            text: item.text
+                                                        };
+                                                    })
+                                                };
+                                            }
+                                        },
+
+                        }).on('select2:open', function(e){
+                                            $('.select2-search__field').attr('placeholder', 'Search Room');
+                                        });
+                }
 
             function bookRoom(permission){
                     const waktuSekarang = new Date();
@@ -601,73 +657,38 @@
                             }
                         })
 
-                        $("#room_name2").select2({ 
-                            ajax: {
-                                            url: "getRoom",
-                                            dataType: 'json',
-                                            type: 'POST',
-                                            data: function (params) {
-                                            return {
-                                                searchTerm: params.term,
-                                                campus:'Kampus B'
-                                            };
-                                            },
-                                            processResults: function (data) {
-                                                return { results:
-                                                    $.map(data, function(item) {
-                                                        return {
-                                                            id: item.id,
-                                                            text: item.text
-                                                        };
-                                                    })
-                                                };
-                                            }
-                                        },
-
-                        }).on('select2:open', function(e){
-                                            $('.select2-search__field').attr('placeholder', 'Search Room');
-                                        });
-
-                        $("#room_name").select2({ 
-                            ajax: {
-                                            url: "getRoom",
-                                            dataType: 'json',
-                                            type: 'POST',
-                                            data: function (params) {
-                                            return {
-                                                searchTerm: params.term,
-                                                campus:'Kampus A'
-                                            };
-                                            },
-                                            processResults: function (data) {
-                                                return { results:
-                                                    $.map(data, function(item) {
-                                                        return {
-                                                            id: item.id,
-                                                            text: item.text
-                                                        };
-                                                    })
-                                                };
-                                            }
-                                        },
-
-                        }).on('select2:open', function(e){
-                                            $('.select2-search__field').attr('placeholder', 'Search Room');
-                                        });
-                        
+                        flatpickr('#flatpickr-range3', {
+                            // dateFormat: "F j, Y",
+                            minDate:'<?php echo date('Y-m-d', strtotime(date('Y-m-d') . ' + 3 days')) ?>', 
+                            enableTime: false,
+                            dateFormat: "d M Y",
+                            defaultDate:curdate,
+                            onChange: function(selectedDates, dateStr, instance) {
+                                // Reload DataTables with new date
+                                console.log('hai')
+                                $('#example3').DataTable().ajax.reload()
+                            }
+                        })
+                        select2Generate('room_name', 'Kampus A')
+                        select2Generate('room_name2', 'Kampus B')
+                        select2Generate('room_name3', 'Kampus C')
                             // Set the selected value in Select2
                             $('#room_name').select2('trigger', 'select', {data: {id: "RKA.KJ.01.001", text: "RKA.KJ.01.001"}});
                             $('#room_name2').select2('trigger', 'select', {data: {id: "RKB.KJ.01.001", text: "RKB.KJ.01.001"}});
+                            $('#room_name3').select2('trigger', 'select', {data: {id: "RKC.KJ.03.001", text: "RKC.KJ.03.001"}});
 
                             
-                        calldata()
-                        calldata2()
+                        calldata('example', 'KAMPUS A')
                         $('#room_name').on('change', function() {
-                        $('#example').DataTable().ajax.reload()
+                             $('#example').DataTable().ajax.reload()
                     
                         });
                         $('#room_name2').on('change', function() {
-                        $('#example2').DataTable().ajax.reload()
+                            $('#example2').DataTable().ajax.reload()
+                    
+                        });
+                        $('#room_name3').on('change', function() {
+                            $('#example3').DataTable().ajax.reload()
                     
                         });
                 
