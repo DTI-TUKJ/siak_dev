@@ -56,7 +56,7 @@ class DBigraciasModel extends Model
     $query = $this->dbi->query($sql, array($schoolYear));
 
     return $query->getResult();
-}
+    }
 
     public function getNip($s) {
         $sql ="SELECT * FROM MASTERDATA.EMPLOYEEMASTER e JOIN MASTERDATA.ORGANIZATIONSTRUCTURE o ON e.WORKLOCATION =o.ORGSTRUCTUREID 

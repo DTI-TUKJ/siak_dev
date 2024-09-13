@@ -628,12 +628,14 @@
                  
                   
                     var curdate='<?php echo date('d M Y', strtotime(date('d M Y') . ' + 3 days')) ?>'
+                     var MaksimalDate = '<?php echo $dataSettingApp['date_cutoff_req_set'] ?>'
                 
                     
                     
                     flatpickr('#flatpickr-range', {
                             // dateFormat: "F j, Y", 
                             minDate:'<?php echo date('Y-m-d', strtotime(date('Y-m-d') . ' + 3 days')) ?>',
+                            maxDate:MaksimalDate,
                             enableTime: false,
                             dateFormat: "d M Y",
                             defaultDate:curdate,
@@ -647,6 +649,7 @@
                         flatpickr('#flatpickr-range2', {
                             // dateFormat: "F j, Y",
                             minDate:'<?php echo date('Y-m-d', strtotime(date('Y-m-d') . ' + 3 days')) ?>', 
+                            maxDate:MaksimalDate,
                             enableTime: false,
                             dateFormat: "d M Y",
                             defaultDate:curdate,
@@ -660,6 +663,7 @@
                         flatpickr('#flatpickr-range3', {
                             // dateFormat: "F j, Y",
                             minDate:'<?php echo date('Y-m-d', strtotime(date('Y-m-d') . ' + 3 days')) ?>', 
+                            maxDate:MaksimalDate,
                             enableTime: false,
                             dateFormat: "d M Y",
                             defaultDate:curdate,

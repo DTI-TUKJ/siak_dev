@@ -130,6 +130,8 @@ class User extends BaseController
         }
 
         $activeSemester =$this->DBM->getSemesterActive();
+        // print_r($activeSemester);
+        // die();
         $data=$this->DBM->GetSchedule($activeSemester['SCHOOLYEAR'], $activeSemester['SEMESTER']);
         $dataNewMhswa= $activeSemester['SEMESTER']==1? $this->DBM->getAllDataMhw($activeSemester['SCHOOLYEAR']):'none';
         $dataClassroom=$this->DBM->getClassRoom();

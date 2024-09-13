@@ -361,9 +361,9 @@
                                                     <a href="<?php echo base_url('Logout') ?>"><em class="icon ni ni-signout"></em><span>Sign out</span></a>
                                                 </li>
                                                 <?php if(session()->type=='admin akademik' ) { ?>
-                                                <!-- <li>
-                                                    <a href="#" onclick="activatedBeetweenSemester(event)"><i class="fa-solid fa-calendar-days" style="padding-right:15px"></i><span>Aktifkan Semester Antara</span></a>
-                                                </li> -->
+                                                <li>
+                                                    <a type="button"  data-bs-toggle="modal" data-bs-target="#modalemail""><i class="fa-solid fa-calendar-days" style="padding-right:15px"></i><span>Set maks Request Date</span></a>
+                                                </li>
                                                 <?php } ;?>
                                                 <?php if(session()->type=='superadmin' && base_url('')=='http://localhost:8080/') {?>  
                                                 <li>
@@ -380,8 +380,7 @@
                     </div><!-- .nk-header-wrap -->
                 </div><!-- .container-fliud -->
             </div>
-
-     
+                                     
             <!-- main header @e -->
             <!-- content @s -->
             <?= $this->renderSection('content') ?>
@@ -467,13 +466,50 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal fade " tabindex="-1" id="modalemail">
+                            <div class="modal-dialog modal-md" role="document">
+                                <div class="modal-content">
+                                    <a href="#" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                        <em class="icon ni ni-cross"></em>
+                                    </a>
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Setting Maksimal Tanggal Request</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                      
+                                            <form id="frmubahemail">
+                                               
+                                                <div class="form-group">
+                                                    <label class="form-label" for="cf-full-name">Choose Date</label>
+                                                    <input type="text" class="form-control" id="dateMaksReq" name="dateMaksReq">
+                                                    <span class="badge badge-dim bg-info" style="">Tanggal yang diinput bisa sebagai batas akhir semester antara, semeter berjalan, dan masa PRS</span>
+                                                    <div id="email-error">
+                                                    </div>
+                                                </div>
+                                                
+                                              
+                                                <div class="form-group">
+                                                    <button type="button" class="btn btn-lg btn-primary" onclick="ChangeDateMaksReq()">Update</button>
+                                                </div>
+                                            </form>
+                                       
+                               
+                                </div>  
+                              
+                            </div>
+                        </div>
+            </div> 
                    <script type="text/javascript">
-                function ChangeUnit()
+
+
+                function ChangeDateMaksReq()
                     {
-                        var form_data = new FormData($('#frmupunit')[0]);
+                        var form_data = new FormData($('#frmubahemail')[0]);
 
                        $.ajax({
-                         url:"<?php echo base_url('changeUnit') ?>",
+                         url:"<?php echo base_url('changeMaksDateReq') ?>",
                          global:false,
                          async:true,
                          type:'post',
@@ -482,15 +518,10 @@
                          dataType:'json',
                          enctype: "multipart/form-data",
                          data: form_data,
-                         beforeSend: function () {
-                                    $('#buttonChangeUnit').hide()
-                                    $('#loaderChangeUnit').show()
-                                  },
                          success : function(e) {
                            if(e.status == 'ok;') 
                            {
-                            $('#buttonChangeUnit').show()
-                            $('#loaderChangeUnit').hide()
+                           
                              let timerInterval
                               Swal.fire({
                                 icon: 'success',
@@ -514,8 +545,7 @@
                               })
                           } 
                           else{ 
-                             $('#buttonChangeUnit').show()
-                            $('#loaderChangeUnit').hide()
+                         
                             var msgeror='';
                             console.log(e.data)
                              $.each(e.dataname, function(key, value) {
@@ -526,9 +556,8 @@
                              document.getElementById(key+"-error").innerHTML = `<span class="badge badge-dim bg-danger">`+value+`
                                                                                 </span>`;
                           });
-                            $('#buttonChangeUnit').show()
-                            $('#loaderChangeUnit').hide()
-                            $("#modalunit").modal('show');
+                       
+                            $("#modalemail").modal('show');
                          }
                       },
                       error :function(xhr, status, error) {
@@ -600,7 +629,40 @@
                 }
 
                 $(document).ready(function() {
+                    var curdate='';
+                            $.ajax({
+                                url: "<?php echo base_url('getDataSetting') ?>",
+                                global: false,
+                                async: true,
+                                type: 'post',
+                                dataType: 'json',
+                                data: ({
+                                }),
+                                success: function(e) {
+                                    if (e.status == 'ok;') {
+                                           curdate = e.data['date_cutoff_req_set'];
+                                           flatpickr('#dateMaksReq', {
+                                            // dateFormat: "F j, Y", \
+                                            // minDate:Minimaldate,
+                                            enableTime: false,
+                                            dateFormat: "d M Y",
+                                            defaultDate:curdate,
+                                            onChange: function(selectedDates, dateStr, instance) {
+                                                // Reload DataTables with new date
+                                                console.log('hai')
+                                            
+                                            }
+                                        })
+
+                                    }
+                                },
+                                error: function(xhr, status, error) {
+                                    alert(xhr.responseText);
+                                }
+
+                            });
                     
+              
                 });
            </script>
   

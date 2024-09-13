@@ -153,5 +153,20 @@ class LoginModel extends Model
         return $query;
     }
 
+    public function getDataSetting(){
+        $builder = $this->db->table('settingapp');
+        $builder->select('*');
+
+        $builder->where('id_set', 1);
+        $query = $builder->get();
+        return $query->getRowArray();
+    }
+
+    public function updateDataSetting($data, $id)
+    {
+        $query = $this->db->table('settingapp')->update($data, array('id_set' => $id));
+        return $query;
+    }
+
 
 }

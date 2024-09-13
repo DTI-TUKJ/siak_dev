@@ -626,7 +626,7 @@
                         "processing": "<span class=\"loader_front\"></span>",
                         }
                     });
-                    }
+                }
 
 
                         function reloadtable(table, kampus){
@@ -1046,14 +1046,15 @@
                  
                   var curdate='<?php echo session()->type!='admin akademik'? date('d M Y', strtotime(date('d M Y') . ' + 3 days')) : date('d M Y') ?>'
                   var Minimaldate='<?php echo session()->type!='admin akademik'? date('Y-m-d', strtotime(date('Y-m-d') . ' + 3 days')) :'' ?>'
-
-                  console.log(Minimaldate)
+                  var MaksimalDate = '<?php echo $dataSettingApp['date_cutoff_req_set'] ?>'
+                  console.log(MaksimalDate)
                 
                     
                     
                     flatpickr('#flatpickr-range_classroom', {
                             // dateFormat: "F j, Y", \
                             minDate:Minimaldate,
+                            maxDate:MaksimalDate,
                             enableTime: false,
                             dateFormat: "d M Y",
                             defaultDate:curdate,
@@ -1067,6 +1068,7 @@
                         flatpickr('#flatpickr-range2', {
                             // dateFormat: "F j, Y", 
                             minDate:Minimaldate,
+                            maxDate:MaksimalDate,
                             enableTime: false,
                             dateFormat: "d M Y",
                             defaultDate:curdate,
@@ -1080,6 +1082,7 @@
                         flatpickr('#flatpickr-range3', {
                             // dateFormat: "F j, Y", 
                             minDate:Minimaldate,
+                            maxDate:MaksimalDate,
                             enableTime: false,
                             dateFormat: "d M Y",
                             defaultDate:curdate,

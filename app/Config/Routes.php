@@ -14,6 +14,8 @@ $routes->setAutoRoute(true);
  */
 $routes->get('/', 'Home::index');
 $routes->get('/Siak', 'Home::index_old');
+$routes->post('/getDataSetting', 'Home::getDataSetting');
+$routes->post('/changeMaksDateReq', 'Home::UpMakDateReq');
 
 $routes->post('/AdminSignin', 'Admin::index');
 $routes->post('/Signin', 'Admin::pgwSignin');

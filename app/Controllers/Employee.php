@@ -25,7 +25,7 @@ class Employee extends BaseController
     public function index()
     {
             if (session()->id==null || session()->type=='pegawai'){
-                return redirect()->to(base_url('Siak'));
+                return redirect()->to(base_url(''));
             }
              $data=array(
                         "data_owner"=>$this->LM->findAll(),
@@ -52,7 +52,7 @@ class Employee extends BaseController
                 $row[]=' <span>'.$val['unit_emp'].'</span>';
                 $row[]=' <span>'.$val['no_tlp'].'</span>';
                 $row[]=' <span class="tb-amount">'.$val['email'].' </span>';
-                $row[]='<a class="btn btn-secondary" onclick="popupedit(\''.$val['nip_emp'].'\')"><i class="fa-solid fa-pen-to-square"></i></a>';
+                $row[]=' <a class="btn btn-secondary" onclick="popupedit(\''.$val['nip_emp'].'\')"><i class="fa-solid fa-pen-to-square"></i></a>';
                 
                 $data[] = $row;
             }

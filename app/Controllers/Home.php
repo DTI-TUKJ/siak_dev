@@ -10,7 +10,7 @@ class Home extends BaseController
     public function __construct()
     {
         // session_start();
-        // $this->validation =  \Config\Services::validation();\
+        $this->validation =  \Config\Services::validation();
         $this->req = \Config\Services::request();
         $this->SM = new scheduleModel($this->req);
         $this->LM = new LoginModel();
@@ -28,8 +28,11 @@ class Home extends BaseController
                 return redirect()->to(base_url('Signin'));
               }
             }
+        $datajbt=$this->LM->getDataSetting();
+        $datajbt['date_cutoff_req_set']=date('Y-m-d', strtotime($datajbt['date_cutoff_req_set']));
         $data=array(
           "dataHour"=>$this->SM->getHoursAll(),
+          "dataSettingApp"=>$datajbt
         );
 
         // $filePath = base_url('assets/json/settingWeb.json');
@@ -50,5 +53,59 @@ class Home extends BaseController
     public function index_old()
     { 
       return redirect()->to(base_url(''));
+    }
+
+    public function getDataSetting(){
+
+      if (session()->nip_emp==null){
+        if(session()->numberid==null){
+          return false;
+        }
+      }
+       $datajbt=$this->LM->getDataSetting();
+       $datajbt['date_cutoff_req_set']=date('d M Y', strtotime($datajbt['date_cutoff_req_set']));
+       echo json_encode(array('status' => 'ok;', 'data'=>$datajbt,));
+    }
+
+    public function UpMakDateReq()
+    {
+        if (session()->nip_emp==null){
+            return false;
+        }
+
+
+      
+        $this->validation->setRules([
+            
+                 'dateMaksReq' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'tanggal tidak boleh kosong',
+                    ],
+                ],
+                
+            
+
+        ]);
+        $isDataValid = $this->validation->withRequest($this->request)->run();
+        
+        if ($isDataValid) {
+            
+            $data = array(
+                'date_cutoff_req_set' => date ('Y-m-d', strtotime($this->request->getPost('dateMaksReq'))),
+                
+            );
+            session()->set($data);
+            $this->LM->updateDataSetting($data, 1);
+            echo json_encode(array('status' => 'ok;', 'text' => ''));
+        }else {
+
+            $validation = $this->validation;
+            $error=$validation->getErrors();
+            $dataname=$_POST;
+            echo json_encode(array('status' => 'error;', 'text' => '', 'data'=>$error, 'dataname'=>$dataname));
+         }
+
+    
     }
 }
