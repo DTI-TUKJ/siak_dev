@@ -1336,7 +1336,7 @@
                                                                         
                                                                     </div>
                                                                   
-                                                                    <div class="invest-data mt-1">
+                                                                    <div class="invest-data mt-1"  style=" display: inline-block;word-break: break-word;">
                                                                         <div class="invest-data-amount g-2">
                                                                             <div class="invest-data-history">
                                                                                 <div class="title">Description</div>
@@ -1777,7 +1777,7 @@
                                         <div class="col-md-4 subkonten" id="subkonten">
                                                 <div class="card card-bordered card-full">
                                                     <div class="card-inner">
-                                                        <div class="row g-gs">
+                                                        <div class="row g-gs" >
                                                             <div class="col-md-3">
                                                                 <div class="image-item ">
                                                                   <img class="image-content" src="<?php echo base_url('').'/assets/images/item/' ?>${value.asset_image}" alt="" srcset="" class="profile-img" style="width: 110px;height: 100px;object-fit: cover;margin: 0 auto;">
@@ -1798,18 +1798,18 @@
                                                                         
                                                                     </div>
                                                                     
-                                                                    <div class="invest-data ">
-                                                                        <div class="invest-data-amount g-2">
-                                                                            <div class="invest-data-history">
+                                                                    <div class="invest-data " style=" display: inline-block;word-break: break-word;">
+                                                                        <div class="invest-data-amount g-2" >
+                                                                            <div class="invest-data-history" style="">
                                                                                 <div class="title">Description</div>
-                                                                                <div class="amount">${value.description}</div>
+                                                                                <p class="amount" >${value.description}</p>
                                                                             </div>
                                                                        
                                                                         </div>
                                                                       
                                                                     </div>   
                                                                     
-                                                                     <div class="invest-data mt-1">
+                                                                     <div class="invest-data mt-1" >
                                                                         <div class="invest-data-amount g-2">
                                                                             
                                                                             <div class="invest-data-history">
