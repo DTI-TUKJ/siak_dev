@@ -111,11 +111,16 @@ class ScheduleClass extends BaseController
         $dbs = $this->SM->getRoomAll($s, $c);
 
         $result = array();
-        foreach ($dbs as $db)
+        foreach ($dbs as $db){
+           if ($db->ROOMNAME!='RKB.KJ.02.001' && $db->ROOMNAME!='RKB.KJ.03.004' && $db->ROOMNAME!='RKB.KJ.04.001'){
             $result[] = array(
                 'id' => $db->ROOMNAME,
-                'text' => $db->ROOMNAME
+                'text' => $db->ROOMNAME,
+                
             );
+           }
+           
+        }
 
         echo json_encode($result);
     }
