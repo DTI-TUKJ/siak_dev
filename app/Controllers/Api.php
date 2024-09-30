@@ -11,13 +11,15 @@ use App\Models\scheduleModel;
 class Api extends ResourceController
 {
     protected $AM;
+    protected $SM;
+    protected $req;
 
     public function __construct()
     {
         // Load the model in the constructor
         $this->AM = new ApiModel();
         // $this->req = \Config\Services::request();
-        // $this->SM = new scheduleModel($this->req);
+        $this->SM = new scheduleModel($this->req);
     }
 
     public function createBatch()
@@ -26,18 +28,22 @@ class Api extends ResourceController
         $dataActiveSemester = $this->request->getVar('settingSemester');
         $dataMhw=  $this->request->getVar('dataMhw');
         $dataRooms=  $this->request->getVar('dataClassroom');
+        $getSemesterActive = $this->SM->getActiveSchoolyear();
         // print_r($data);
         $update = $this->AM->updateSchedule($data);
         // print_r($dataActiveSemester);
-        $updateActiveSenester = $this->AM->updateActiveSemester($dataActiveSemester);
-        if($dataMhw!='none'){
-            $updateDataMhw = $this->AM->updateTableMhw($dataMhw);
+        if ($getSemesterActive['set_schoolyear']!=$dataActiveSemester->SCHOOLYEAR){
+
+            $updateActiveSenester = $this->AM->updateActiveSemester($dataActiveSemester);
+            if($dataMhw!='none'){
+                $updateDataMhw = $this->SM->updateTableMhw($dataMhw);
+            }
         }
         $updateRooms = $this->AM->updateDataRoom($dataRooms);
 
         $response = [
-            'status'   => 201,
-            'error'    => null,
+            'status'   => 200,
+            'error'    => false,
             'messages' => [
                 'success' => 'Data Mahasiswa berhasil ditambahkan.'
             ]
