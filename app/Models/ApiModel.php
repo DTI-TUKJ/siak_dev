@@ -44,11 +44,11 @@ class ApiModel extends Model
         return  $this->db->table('ROOMS')->insertBatch($data);
     }
 
-    public function getSchoolyear(){
+    public function getActiveSchoolyear(){
         $builder = $this->db->table('SETTINGSEMESTER');
-         $builder->distinct()->select('set_schoolyear');
+        $builder->where('set_status', 1);
         $query = $builder->get();
-        return $query->getResultArray();
+        return $query->getRowArray();
     }
 
 
