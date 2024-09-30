@@ -201,6 +201,7 @@ class Loan extends BaseController
 
              $date_start=date('Y-m-d H:i:s', strtotime($date_loan[0]));
              $date_end=date('Y-m-d H:i:s', strtotime($date_loan[1]));
+            
              $driver=explode("|",$this->request->getPost('driver') );
             $data = array(
                'nip'               => $this->request->getPost('owner')!==null? session()->nip_emp :$dataPgw['nip_emp'],

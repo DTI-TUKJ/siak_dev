@@ -2105,7 +2105,7 @@
     function CheckSchedule(owner){
        var html='';
        var option='';
-           var driver='';
+           var inpdriver='';
            var destination=''
            var pickup=''
         var form_data = new FormData($('#frmcheck')[0]);
@@ -2144,7 +2144,26 @@
                                         if(value.asset_type=='Kendaraan'){
                                             var disabled = '';
                                             var nb ='';
-                                        
+                                            inpdriver=`
+                                                 <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-label" for="activity">Choose Driver</label>
+                                                    <div class="form-control-wrap">
+                                                           <select class="form-select" id="driver" name="driver">
+                                                                <option value="0">- Pilih Driver -</option>
+                                                                  ${e.driver} 
+                                                                
+                                                            </select>
+                                                    </div>
+                                                    <div>
+                                                        <span class="badge badge-dim bg-warning">Kosongkan Driver dan Pick up Jika Tidak Memakai driver</span>
+                                                    </div>
+                                                    <div id="driver-error">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            `
                                           
                                             destination+=` <div class="col-lg-6">
                                                 <div class="form-group">
@@ -2244,24 +2263,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label class="form-label" for="activity">Choose Driver</label>
-                                                    <div class="form-control-wrap">
-                                                           <select class="form-select" id="driver" name="driver">
-                                                                <option value="0">- Pilih Driver -</option>
-                                                                  ${e.driver} 
-                                                                
-                                                            </select>
-                                                    </div>
-                                                    <div>
-                                                        <span class="badge badge-dim bg-warning">Kosongkan Driver dan Pick up Jika Tidak Memakai driver</span>
-                                                    </div>
-                                                    <div id="driver-error">
-
-                                                    </div>
-                                                </div>
-                                            </div>
+                                             ${inpdriver}
                                           
                                             ${pickup}
 
