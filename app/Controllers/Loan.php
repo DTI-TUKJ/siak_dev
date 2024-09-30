@@ -201,7 +201,7 @@ class Loan extends BaseController
 
              $date_start=date('Y-m-d H:i:s', strtotime($date_loan[0]));
              $date_end=date('Y-m-d H:i:s', strtotime($date_loan[1]));
-
+             $driver=explode("|",$this->request->getPost('driver') );
             $data = array(
                'nip'               => $this->request->getPost('owner')!==null? session()->nip_emp :$dataPgw['nip_emp'],
                 'name'              => $this->request->getPost('owner')!==null? session()->name_emp :$dataPgw['name_emp'],
@@ -214,7 +214,7 @@ class Loan extends BaseController
                 'id_asset_loan'     =>$this->request->getPost('id_asset'),
                 'activity'          => $this->request->getPost('activity'),
                 'destination_city'  => ($this->request->getPost('destination')!==null)?$this->request->getPost('destination'):null,
-                'driver'            =>($this->request->getPost('driver')!==null)?$this->request->getPost('driver'):0,
+                'driver'            =>$driver[0],
                 'pickup_point'      =>($this->request->getPost('pick_up_loc')!==null)?$this->request->getPost('pick_up_loc'):"-",
                          
             );
@@ -236,13 +236,18 @@ class Loan extends BaseController
                 $i++;
                 }
 
+                if (base_url('')!='http://localhost:8080/'){
+
+                
                     if(!$this->SendWaReq($namapeminjam,$waNum,'addloan',$this->request->getPost('activity'))){
                      $this->sendEmailRequest($namapeminjam, $val['email'],'addloan');
                     }
                 
-                if ($this->request->getPost('driver')!==null){
-                    $this->SendWaReq($namapeminjam, '081211469053','driverNotif',$this->request->getPost('activity'), datetoindo(date('Y-m-d', strtotime($date_loan[0])))." Pukul ".date('H:i', strtotime($date_loan[0]))." (Waktu Dimulainya kegiatan), Dengan mobil ".$car['asset_name']."Serta Lokasi Penjemputan Di ".$this->request->getPost('pick_up_loc'));
+                    if ($this->request->getPost('driver')!==0){
+                        $this->SendWaReq($namapeminjam, $driver[1],'driverNotif',$this->request->getPost('activity'), datetoindo(date('Y-m-d', strtotime($date_loan[0])))." Pukul ".date('H:i', strtotime($date_loan[0]))." (Waktu Dimulainya kegiatan), Dengan mobil ".$car['asset_name']."Serta Lokasi Penjemputan Di ".$this->request->getPost('pick_up_loc'));
+                    }
                 }
+
             }
             echo json_encode(array('status' => 'ok;', 'text' => ''));
         } else {
@@ -331,13 +336,20 @@ class Loan extends BaseController
              $check_asset =$this->LM->checkScheduleAvailable($id_asset, $date_start, $date_end);
 
             $check_driver =$this->LM->checkScheduleDriver($id_asset, $date_start, $date_end);
+            $driver_list="";
+            
+            foreach ($check_driver as $value) {
 
-             $drive_use=true;
-             foreach ($check_driver as $value) {
-                    if($value['driver']==1){
-                        $drive_use=false;
+                    $noteDis="";
+                    $btnDisDriver="";
+                    if(isset($value['id_loan'])){
+                        $noteDis=' (Driver tidak tersedia ditanggal yang anda pilih)';
+                        $btnDisDriver='disabled';
                     }
+
+                $driver_list .='<option value="'.$value['id_driver'].'|'.$value['no_wa_driver'].'" '.$btnDisDriver.' >'.$value['nama_driver'].$noteDis.'</option>';
              }
+
 
              if(count($check_asset)==0){
                 $data=array(
@@ -346,7 +358,7 @@ class Loan extends BaseController
                         'data_asset'=>$this->MAM->getAssetAll(),
                         'max_req'=>$dataasset['amount_asset']
                         );
-               echo json_encode(array('status' => 'ok;', 'text' => '', 'data'=>$data, 'driver'=>$drive_use));
+               echo json_encode(array('status' => 'ok;', 'text' => '', 'data'=>$data, 'driver'=>$driver_list));
              }else{
 
                 $in_loan=0;
@@ -361,7 +373,7 @@ class Loan extends BaseController
                         'data_asset'=>$this->MAM->getAssetByOwner(),
                         'max_req'=>$max_req
                         );
-                    echo json_encode(array('status' => 'ok;', 'text' => '', 'data'=>$data, 'driver'=>$drive_use));
+                    echo json_encode(array('status' => 'ok;', 'text' => '', 'data'=>$data, 'driver'=>$driver_list));
                 }else{
                     echo json_encode(array('status' => 'ok;','status_check'=>'unavailable', 'text' => '', 'data'=>null));
                 }

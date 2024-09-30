@@ -2144,23 +2144,8 @@
                                         if(value.asset_type=='Kendaraan'){
                                             var disabled = '';
                                             var nb ='';
-                                            if (!e.driver){
-                                                disabled='disabled';
-                                                nb ='<span class="badge badge-dim bg-warning" style="margin-left:15px">Driver sudah di booking di schedule yang anda pilih</span>'
-                                            }
-                                            driver +=`<div class="col-lg-6">
-                                                <div class="form-group">
-                                                  
-                                                    <div class="custom-control">
-                                                         <input type="checkbox" class="custom-control-input" id="driver" name="driver" value="1" ${disabled}>    
-                                                         <label class="custom-control-label" for="driver">Driver</label>
-                                                         ${nb}
-                                                    </div>
-                                                    <div id="driver-error">
-
-                                                    </div>
-                                                </div>
-                                            </div>`
+                                        
+                                          
                                             destination+=` <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-label" for="destination">Destination City</label>
@@ -2172,15 +2157,13 @@
                                                     </div>
                                                 </div>
                                             </div>`
-                                            pickup+=` <div class="col-lg-12">
+                                            pickup+=` <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-label" for="pick_up_loc">Pick Up Location</label>
                                                     <div class="form-control-wrap">
                                                         <input type="text" class="form-control" value="" name="pick_up_loc" id="pick_up_loc" placeholder="Masukan Lokasi penjemputan" >
                                                     </div>
-                                                    <div>
-                                                        <span class="badge badge-dim bg-warning">Kosongkan Jika Tidak Memakai driver</span>
-                                                    </div>
+                                                    
                                                     <div id="pick_up_loc-error">
 
                                                     </div>
@@ -2260,7 +2243,25 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            ${driver}
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-label" for="activity">Choose Driver</label>
+                                                    <div class="form-control-wrap">
+                                                           <select class="form-select" id="driver" name="driver">
+                                                                <option value="0">- Pilih Driver -</option>
+                                                                  ${e.driver} 
+                                                                
+                                                            </select>
+                                                    </div>
+                                                    <div>
+                                                        <span class="badge badge-dim bg-warning">Kosongkan Driver dan Pick up Jika Tidak Memakai driver</span>
+                                                    </div>
+                                                    <div id="driver-error">
+
+                                                    </div>
+                                                </div>
+                                            </div>
                                           
                                             ${pickup}
 
@@ -2274,9 +2275,18 @@
                                         </div>
                                     </form>
                                `
+
+                              
                                 $('#mainAdd').html(html);
+
+                                $("#driver").select2({
+                                        dropdownParent: $("#modalAdd"),
+                                        minimumResultsForSearch: -1
+
+                                    })
+                                    
                                 $("#modaltambah").modal('hide');
-                                 <?php  if (isset(session()->unit_emp)) { ?>
+                            <?php  if (isset(session()->unit_emp)) { ?>
                                 $("#modalAdd").modal('show');
                             <?php }else{ ?>
 

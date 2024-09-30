@@ -129,7 +129,7 @@ class LoanModel extends Model
 
       public function checkScheduleDriver($id_asset,$date_start, $date_end)
     {  
-        $sql="SELECT * FROM loan l join ms_assets ma on l.id_asset_loan =ma.id_asset
+        $sql="SELECT * FROM driver n left join ( SELECT * FROM loan l join ms_assets ma on l.id_asset_loan =ma.id_asset
                 where ((( '$date_start' BETWEEN l.tanggal_pinjam  and l.tanggal_kembali) or 
                         ('$date_end'BETWEEN l.tanggal_pinjam  and l.tanggal_kembali))
                         or ((l.tanggal_pinjam  BETWEEN '$date_start' and '$date_end' )
@@ -138,7 +138,7 @@ class LoanModel extends Model
                 union 
                 SELECT * FROM loan l join ms_assets ma on l.id_asset_loan =ma.id_asset
                 WHERE NOW() > l.tanggal_pinjam and l.tanggal_masuk IS NULL and l.status=1 
-                and DATE_FORMAT(l.tanggal_pinjam, '%Y-%m-%d')=DATE_FORMAT('$date_start', '%Y-%m-%d')";
+                and DATE_FORMAT(l.tanggal_pinjam, '%Y-%m-%d')=DATE_FORMAT('$date_start', '%Y-%m-%d') ) lt on n.id_driver =lt.driver ";
        
         return $this->db->query($sql)->getResultArray();
 

@@ -44,6 +44,9 @@ $RECYCLE.BIN/
 # .env
 public/.htaccess
 app/.htaccess
+
+app/Config/Database.php
+
 .vagrant
 Vagrantfile
 
