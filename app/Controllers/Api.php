@@ -34,12 +34,13 @@ class Api extends ResourceController
         // print_r($dataActiveSemester);
         if ($getSemesterActive['set_schoolyear']!=$dataActiveSemester->SCHOOLYEAR){
 
-            $updateActiveSenester = $this->AM->updateActiveSemester($dataActiveSemester);
+           
             if($dataMhw!='none'){
                 $updateDataMhw = $this->SM->updateTableMhw($dataMhw);
             }
         }
-        $updateRooms = $this->AM->updateDataRoom($dataRooms);
+        $updateActiveSenester = $this->AM->updateActiveSemester($dataActiveSemester);
+        $updateRooms = $this->AM->updateDataRoom($dataRooms); 
 
         $response = [
             'status'   => 200,
