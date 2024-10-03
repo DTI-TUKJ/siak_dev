@@ -275,5 +275,11 @@ class MyassetModel extends Model
         return $query->getResultArray();
     }
 
+    public function updateEndloanlate(){
+        $sql="UPDATE loan set status = 3 WHERE TIMESTAMPDIFF(HOUR, tanggal_kembali, NOW()) >=24 and tanggal_masuk is null and status in (0,1)";
+       
+        return $this->db->query($sql);
+    }
+
     
 }

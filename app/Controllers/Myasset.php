@@ -295,7 +295,7 @@ class Myasset extends BaseController
 
     public function show_asset(){
         
-
+        $this->MAM->updateEndloanlate();
         $data =$this->MAM->GetShowAssetCat($this->request->getPost('search'), $this->request->getPost('searchByName'));
         echo json_encode(array('status' => 'ok;', 'text' => '', 'data'=>$data));
         
