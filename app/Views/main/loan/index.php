@@ -295,6 +295,7 @@ function CheckSchedule(){
        var html='';
        var option='';
       var driver='';
+      var inpdriver='';
       var destination='';
       var pickup='';
         var form_data = new FormData($('#frmcheck')[0]);
@@ -331,18 +332,26 @@ function CheckSchedule(){
                                     if(value.id_asset==e.data.id_asset){
                                         option+=` <option value="${value.id_asset}">${value.asset_name}</option>`
                                             if(value.asset_type=='Kendaraan'){
-                                            driver +=`<div class="col-lg-6">
+                                              inpdriver=`
+                                                 <div class="col-lg-6">
                                                 <div class="form-group">
-                                                  
-                                                    <div class="custom-control custom-checkbox">
-                                                         <input type="checkbox" class="custom-control-input" id="driver" name="driver" value="1">    
-                                                         <label class="custom-control-label" for="driver">Driver</label>
+                                                    <label class="form-label" for="activity">Choose Driver</label>
+                                                    <div class="form-control-wrap">
+                                                           <select class="form-select" id="driver" name="driver">
+                                                                <option value="0">- Pilih Driver -</option>
+                                                                  ${e.driver} 
+                                                                
+                                                            </select>
+                                                    </div>
+                                                    <div>
+                                                        <span class="badge badge-dim bg-warning">Kosongkan Driver dan Pick up Jika Tidak Memakai driver</span>
                                                     </div>
                                                     <div id="driver-error">
 
                                                     </div>
                                                 </div>
-                                            </div>`
+                                            </div>
+                                            `
 
                                             destination+=` <div class="col-lg-6">
                                                 <div class="form-group">
@@ -355,15 +364,13 @@ function CheckSchedule(){
                                                     </div>
                                                 </div>
                                             </div>`
-                                            pickup+=` <div class="col-lg-12">
+                                            pickup+=` <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-label" for="pick_up_loc">Pick Up Location</label>
                                                     <div class="form-control-wrap">
                                                         <input type="text" class="form-control" value="" name="pick_up_loc" id="pick_up_loc" placeholder="Masukan Lokasi penjemputan" >
                                                     </div>
-                                                    <div>
-                                                        <span class="badge badge-dim bg-warning">Kosongkan Jika Tidak Memakai driver</span>
-                                                    </div>
+                                                  
                                                     <div id="pick_up_loc-error">
 
                                                     </div>
@@ -454,7 +461,7 @@ function CheckSchedule(){
                                                 </div>
                                             </div>
                                             
-                                              ${driver}
+                                             ${inpdriver}
                                               ${pickup}
                                            
 
