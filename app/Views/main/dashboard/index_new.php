@@ -1660,9 +1660,10 @@
                              let date_start=new Date(e.data.tanggal_pinjam)
                              let date_end=new Date(e.data.tanggal_kembali)
                              let driver=''
+                             console.log(e.data)
                                  if (e.data.asset_type=='Kendaraan'){
                                     if (e.data.driver==1){
-                                        driver +=' ( With Driver )'
+                                        driver +=`( With Driver - ${e.data.nama_driver} )`
                                     }else{
                                          driver +='( Without Driver )'
                                     }

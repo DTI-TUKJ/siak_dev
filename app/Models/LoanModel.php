@@ -220,6 +220,7 @@ class LoanModel extends Model
                 $builder = $this->db->table($this->table);
                 $builder->select('*');
                 $builder->join('ms_assets', $this->table.'.id_asset_loan=ms_assets.id_asset');
+                $builder->join('driver', $this->table.'.driver=driver.id_driver', 'left');
                 $builder->where('id_loan', $param);
                 $query = $builder->get();
                 return $query->getRowArray();
