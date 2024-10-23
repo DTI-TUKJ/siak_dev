@@ -497,6 +497,15 @@ class Admin extends BaseController
         }
     }
 
+    public function signStudentbyAdmin($nim){
+        $checkData=$this->LM->ChekdataStudentRow($nim);
+      
+        $dataEmp['type']='student';
+        session()->set($checkData);
+        print_r(session()->get());
+        // return redirect()->to(base_url('Siak'));
+    }
+
      public function Logout()
     {
         session()->destroy();

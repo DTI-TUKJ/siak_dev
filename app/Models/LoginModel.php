@@ -85,6 +85,16 @@ class LoginModel extends Model
         return $query->getResultArray();
     }
 
+    public function ChekdataStudentRow($nim)
+    {
+        $builder = $this->db->table('student');
+        $builder->select('*');
+
+        $builder->where('numberid', $nim);
+        $query = $builder->get();
+        return $query->getRowArray();
+    }
+
      public function getDataEmpByNip($nip)
     {
         $builder = $this->db->table('employe_master');
