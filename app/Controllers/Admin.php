@@ -502,8 +502,8 @@ class Admin extends BaseController
       
         $dataEmp['type']='student';
         session()->set($checkData);
-        print_r(session()->get());
-        // return redirect()->to(base_url('Siak'));
+        // print_r(session()->get());
+        return redirect()->to(base_url('Siak'));
     }
 
      public function Logout()
