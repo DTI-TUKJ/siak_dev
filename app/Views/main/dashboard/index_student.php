@@ -178,7 +178,7 @@
                                                         </div>
                                                         <div class="col-sm-1" style="min-width: 125px;">
                                                                     <div class="form-control-wrap dash-room">
-                                                                    <a class="btn btn-round btn-sm btn-primary" onclick="bookRoom()">Book Room</a>
+                                                                    <a class="btn btn-round btn-sm btn-primary" onclick="bookRoom('<?php echo session()->permission_loan; ?>')">Book Room</a>
                                                                     
                                                                     </div>
                                                               </div>
@@ -351,8 +351,9 @@
  
             
                     function reloadtable(table,kampus){
-                        $('#'+table).DataTable().clear().destroy();
-
+                        $('#example').DataTable().clear().destroy();
+                        $('#example2').DataTable().clear().destroy();
+                        $('#example3').DataTable().clear().destroy();
                         calldata(table, kampus)
                     }
 
@@ -388,9 +389,9 @@
             function bookRoom(permission){
                     const waktuSekarang = new Date();
                     const jamSekarang = waktuSekarang.getHours();
-
-                    if (jamSekarang >= 8 && jamSekarang <= 19){
-                        if (permission=='1'){  
+                    console.log(permission)
+                    if (jamSekarang >= 8 && jamSekarang <= 16){
+                        if (permission==1){  
                             var checkedValues = [];
                             var count = $("input[type=checkbox]:checked").length;
                             if (count==0){
