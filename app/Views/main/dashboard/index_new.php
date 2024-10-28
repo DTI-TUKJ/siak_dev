@@ -1662,7 +1662,7 @@
                              let driver=''
                              console.log(e.data)
                                  if (e.data.asset_type=='Kendaraan'){
-                                    if (e.data.driver==1){
+                                    if (e.data.driver!=0){
                                         driver +=`( With Driver - ${e.data.nama_driver} )`
                                     }else{
                                          driver +='( Without Driver )'
