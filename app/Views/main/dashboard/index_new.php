@@ -231,7 +231,7 @@
                           
                             </div>
                         </div>
-                        <?php if (session()->lectur || session()->type=='admin akademik' || session()->type=='superadmin') { ?>
+                        
                         <div class="nk-content-body" style="margin-top:30px">
                             <div class="nk-block-head nk-block-head-sm">
                                 <div class="nk-block-between">
@@ -490,7 +490,7 @@
                                  </nav> -->
                             </div>
                         </div>
-                        <?php } ;?>
+                   
                     </div>
                 </div>
             </div>
@@ -716,6 +716,12 @@
                                                          <option value="kelas pengganti">Kelas Pengganti</option>`
                                             viewOptionPic='none-view'
                                         }
+
+                                        if (!sessionLectur && sessionadmin=='pegawai' ){
+                                              optionType= `<option value="other">Other</option>`
+                                              viewOptionPic='none-view'
+                                        }
+
                                         html +=`
                                             <form id="frmAddReqRoom">
                                             <div class="row g-4"  >

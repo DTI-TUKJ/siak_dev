@@ -71,6 +71,10 @@ class MyClassLoanModel extends Model
                 if(session()->lectur && session()->type!='admin akademik'){
                     $this->dt->where('nim_loaner', session()->nip_emp);
                 }
+
+                if(!session()->lectur && session()->type=='pegawai'){
+                    $this->dt->where('nim_loaner', session()->nip_emp);
+                }
                 if (session()->pembina && session()->type!='admin akademik'){
                     $this->dt->orWhere('assoc_lecturer_id', session()->nip_emp);
                     $this->dt->orWhere('assoc_lecturer_id_b', session()->nip_emp);
@@ -84,10 +88,6 @@ class MyClassLoanModel extends Model
                     $this->dt->where('nip_emp', session()->nip_emp);
                 }
             }
-            
-           
-            
-
             
             $this->dt->orderBy('id_class_loan', 'DESC');
        
@@ -114,6 +114,10 @@ class MyClassLoanModel extends Model
                 $this->dt->orWhere('nim_loaner', session()->nip_emp);
             }
         }else if(session()->lectur && session()->type!='admin akademik'){
+            $this->dt->where('nim_loaner', session()->nip_emp);
+        }
+
+        if(!session()->lectur && session()->type=='pegawai'){
             $this->dt->where('nim_loaner', session()->nip_emp);
         }
 

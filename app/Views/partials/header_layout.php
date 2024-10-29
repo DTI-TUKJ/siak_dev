@@ -213,7 +213,7 @@
                          
                                } ?> 
 
-                                <?php if (session()->type=='student' || (session()->lectur && !session()->pembina)){ ?>
+                                <?php if (session()->type=='student' || (session()->lectur && !session()->pembina) || (!session()->lectur && session()->type=='pegawai')){ ?>
 
                                     <li class="nk-menu-item has-sub">
                                         <a href="<?php echo base_url('MyClassLoan') ?>" class="nk-menu-link">

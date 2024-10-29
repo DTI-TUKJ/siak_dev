@@ -322,7 +322,7 @@ class Organization extends BaseController
                 ]);
             $isDataValid = $this->validation->withRequest($this->request)->run();
             
-            $lecturer_b=$this->request->getPost('delete_pb_2')==1? null:$this->request->getPost('pembina_b');
+            $lecturer_b =$this->request->getPost('delete_pb_2')==1? null:$this->request->getPost('pembina_b');
 
             if ($isDataValid) {
                 $id=$this->request->getPost('assoc_id');

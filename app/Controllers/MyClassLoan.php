@@ -28,7 +28,12 @@ class MyClassLoan extends BaseController
     public function index()
     {
             if (session()->type!='student' &&  (!session()->lectur || session()->pembina) ){
-                return redirect()->to(base_url('Siak'));
+                if (session()->type=='pegawai'){
+
+                }else{
+                    return redirect()->to(base_url('Siak'));
+                }
+               
             }
         //   print_r(session()->get());
          return view('main/loan/myclasloan_new');
@@ -95,7 +100,11 @@ class MyClassLoan extends BaseController
      public function dataJson()
     {
           if (session()->type!='student' &&  (!session()->lectur || session()->pembina) ){
-            return false;
+                if (session()->type=='pegawai'){
+
+                }else{
+                    return false;
+                }
             }
 
             // $type = $this->request->getPost("type");
@@ -209,7 +218,11 @@ class MyClassLoan extends BaseController
     {
 
         if (session()->type!='student' &&  (!session()->lectur || session()->pembina) ){
-            return false;
+                if (session()->type=='pegawai'){
+
+                }else{
+                    return false;
+                }
             }
      
         $id = $this->request->getPost('id_loan');

@@ -23,7 +23,9 @@
                                                 <li class="nav-item nav-item-loan">
                                                     <a class="nav-link active" data-bs-toggle="tab" href="#tabItem1_used "  onclick="reloadtable('example', 'non-academic', '<?php echo base_url('dataJsonMyClassLoan') ?>')">Non-Academic</a>
                                                 </li>
-                                                <?php if (session()->type=='pegawai') { ?>
+                                                <?php if (session()->lectur && session()->type=='pegawai') {
+                                                
+                                                    ?>
                                                 <li class="nav-item nav-item-loan">
                                                     <a class="nav-link" data-bs-toggle="tab" href="#tabItem2_used" onclick="reloadtable('example2', 'academic', '<?php echo base_url('dataJsonClassroomLoanRep') ?>')" >Academic (Kelas Pengganti)</a>
                                                 </li>
