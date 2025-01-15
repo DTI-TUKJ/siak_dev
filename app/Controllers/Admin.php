@@ -88,6 +88,20 @@ class Admin extends BaseController
         }
     }
 
+    public function formSignin(){
+        if (!isset($_POST['simpan'])) {
+            $data = [
+                'titletab' => 'Mitra',
+                'activemitra' => 'active',
+            ];
+            // echo ENVIRONMENT;
+            echo view('partials/login/index', $data);
+        } else {
+            
+        }
+
+    }
+
      public function pgwSignin()
     {   
         if (session()->nip_emp!=null){
