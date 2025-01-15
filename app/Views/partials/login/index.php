@@ -104,7 +104,7 @@
                                     if (!$cekusername) { ?>
                                         <div class="example-alert" style="margin-bottom: 10px;">
                                             <div class="alert alert-danger alert-icon alert-dismissible">
-                                                <em class="icon ni ni-cross-circle"></em>Username Salah <button class="close" data-bs-dismiss="alert"></button>
+                                                <em class="icon ni ni-cross-circle"></em>Username/Password Salah <button class="close" data-bs-dismiss="alert"></button>
                                             </div>
                                         </div>
                                     <?php
@@ -116,7 +116,7 @@
                                     if (!$cekpasword) { ?>
                                         <div class="example-alert" style="margin-bottom: 10px;">
                                             <div class="alert alert-danger alert-icon alert-dismissible">
-                                                <em class="icon ni ni-cross-circle"></em> Password Salah<button class="close" data-bs-dismiss="alert"></button>
+                                                <em class="icon ni ni-cross-circle"></em> Username/Password Salah<button class="close" data-bs-dismiss="alert"></button>
                                             </div>
                                         </div>
 

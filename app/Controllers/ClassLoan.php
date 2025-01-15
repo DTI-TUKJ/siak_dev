@@ -460,7 +460,7 @@ class ClassLoan extends BaseController
         if ($st==2){
             if ($Telephone!='' || $Telephone!=null){
                 if (ENVIRONMENT=='production'){
-                $this->SendWaReq($getDataClassLoan, $st, $Telephone,'sendAproval' );
+                // $this->SendWaReq($getDataClassLoan, $st, $Telephone,'sendAproval' );
                 }
             }
         }else{
@@ -484,16 +484,16 @@ class ClassLoan extends BaseController
             if (ENVIRONMENT=='production'){
                 if($aprovalFrom=='aproval_lecturer_a'){ 
                     if($getDataClassLoan['no_tlp_pembina_b']!='' || $getDataClassLoan['no_tlp_pembina_b']!=null){
-                        $this->SendWaReq($getDataClassLoan,$st, $getDataClassLoan['no_tlp_pembina_b'],'sendAccept', $getDataClassLoan['activity_class'], $name_loaner  );
+                        // $this->SendWaReq($getDataClassLoan,$st, $getDataClassLoan['no_tlp_pembina_b'],'sendAccept', $getDataClassLoan['activity_class'], $name_loaner  );
                     }else{
                         if (session()->type!='admin akademik'){
-                            $this->SendWaReq($getDataClassLoan, $st,$waNum,'sendAccept', $getDataClassLoan['activity_class'], $name_loaner, $aprovalFrom ); 
+                            // $this->SendWaReq($getDataClassLoan, $st,$waNum,'sendAccept', $getDataClassLoan['activity_class'], $name_loaner, $aprovalFrom ); 
                         }
 
                         if (isset($data['status_class_loan'])){
                             if ($data['status_class_loan']==1){
-                                $this->SendWaReq($getDataClassLoan, $st, $Telephone,'sendAproval' );
-                                $this->SendWaReq($getDataClassLoan, $st, $waNumLog,'sendAprovalToAdminLogistik' );
+                                // $this->SendWaReq($getDataClassLoan, $st, $Telephone,'sendAproval' );
+                                // $this->SendWaReq($getDataClassLoan, $st, $waNumLog,'sendAprovalToAdminLogistik' );
                             }
                         }
                     }
@@ -502,21 +502,21 @@ class ClassLoan extends BaseController
                 if($aprovalFrom=='aproval_lecturer_b'){
                     // echo $waNum; 
                     if (session()->type!='admin akademik'){
-                    $this->SendWaReq($getDataClassLoan, $st,$waNum,'sendAccept', $getDataClassLoan['activity_class'], $name_loaner, $aprovalFrom );
+                    // $this->SendWaReq($getDataClassLoan, $st,$waNum,'sendAccept', $getDataClassLoan['activity_class'], $name_loaner, $aprovalFrom );
                     }
 
                     if (isset($data['status_class_loan'])){
                         if ($data['status_class_loan']==1){
-                            $this->SendWaReq($getDataClassLoan, $st, $Telephone,'sendAproval' );
-                            $this->SendWaReq($getDataClassLoan, $st, $waNumLog,'sendAprovalToAdminLogistik' );
+                            // $this->SendWaReq($getDataClassLoan, $st, $Telephone,'sendAproval' );
+                            // $this->SendWaReq($getDataClassLoan, $st, $waNumLog,'sendAprovalToAdminLogistik' );
                         }
                     }
                 }
 
                 if($aprovalFrom=='adminlaak'){
                     // echo $waNum; 
-                    $this->SendWaReq($getDataClassLoan, $st, $Telephone,'sendAproval' );
-                    $this->SendWaReq($getDataClassLoan, $st, $waNumLog,'sendAprovalToAdminLogistik' );
+                    // $this->SendWaReq($getDataClassLoan, $st, $Telephone,'sendAproval' );
+                    // $this->SendWaReq($getDataClassLoan, $st, $waNumLog,'sendAprovalToAdminLogistik' );
                 }
             }
         }
@@ -570,7 +570,7 @@ class ClassLoan extends BaseController
             $getDataClassLoan=$this->CLM->getClassLoanByid($id_class_loan);
             $waNum=$getDataClassLoan['phone']!=''||$getDataClassLoan['phone']!=null?$getDataClassLoan['phone']:$getDataClassLoan['no_tlp'];
             // print_r( $getDataClassLoan);
-            $this->SendWaReq($getDataClassLoan, '', $waNum,'SendNotes','','','', $this->request->getPost('Notes'));
+            // $this->SendWaReq($getDataClassLoan, '', $waNum,'SendNotes','','','', $this->request->getPost('Notes'));
             echo json_encode(array('status' => 'ok;', 'text' => ''));
         } else {
            $validation = $this->validation;

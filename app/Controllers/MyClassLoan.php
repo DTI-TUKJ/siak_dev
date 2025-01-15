@@ -293,7 +293,7 @@ class MyClassLoan extends BaseController
 
                     $name_loaner= isset($getDataClassLoan['fullname'])?$getDataClassLoan['fullname']:$getDataClassLoan['name_emp'];
                     if (ENVIRONMENT=='production'){
-                     $this->SendWaReq($waNum,'sendReqEnd', $getDataClassLoan['activity_class'],  $name_loaner);
+                    //  $this->SendWaReq($waNum,'sendReqEnd', $getDataClassLoan['activity_class'],  $name_loaner);
                     }
                     
                     }else{

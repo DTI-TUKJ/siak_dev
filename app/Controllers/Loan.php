@@ -240,12 +240,12 @@ class Loan extends BaseController
                 if (base_url('')!='http://localhost:8080/'){
 
                 
-                    if(!$this->SendWaReq($namapeminjam,$waNum,'addloan',$this->request->getPost('activity'))){
-                     $this->sendEmailRequest($namapeminjam, $val['email'],'addloan');
-                    }
+                    // if(!$this->SendWaReq($namapeminjam,$waNum,'addloan',$this->request->getPost('activity'))){
+                    //  $this->sendEmailRequest($namapeminjam, $val['email'],'addloan');
+                    // }
                 
                     if ($this->request->getPost('driver')!==0){
-                        $this->SendWaReq($namapeminjam, $driver[1],'driverNotif',$this->request->getPost('activity'), datetoindo(date('Y-m-d', strtotime($date_loan[0])))." Pukul ".date('H:i', strtotime($date_loan[0]))." (Waktu Dimulainya kegiatan), Dengan mobil ".$car['asset_name']."Serta Lokasi Penjemputan Di ".$this->request->getPost('pick_up_loc'));
+                        // $this->SendWaReq($namapeminjam, $driver[1],'driverNotif',$this->request->getPost('activity'), datetoindo(date('Y-m-d', strtotime($date_loan[0])))." Pukul ".date('H:i', strtotime($date_loan[0]))." (Waktu Dimulainya kegiatan), Dengan mobil ".$car['asset_name']."Serta Lokasi Penjemputan Di ".$this->request->getPost('pick_up_loc'));
                     }
                 }
 
@@ -436,9 +436,9 @@ class Loan extends BaseController
          $this->LM->upStatusLoan($data,$id);
         if ($action!='finish'){
          //$this->sendEmailRequest('',  $email, $action );
-         if(!$this->SendWaReq('',$wa, $action)){
-                 $this->sendEmailRequest('',  $email, $action );
-            }
+        //  if(!$this->SendWaReq('',$wa, $action)){
+        //          $this->sendEmailRequest('',  $email, $action );
+        //     }
         }
 
         echo json_encode(array('status' => 'ok;', 'text' => ''));

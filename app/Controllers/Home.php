@@ -35,18 +35,7 @@ class Home extends BaseController
           "dataSettingApp"=>$datajbt
         );
 
-        // $filePath = base_url('assets/json/settingWeb.json');
-
-        // Memanggil file JSON
-        //  $jsonData = file_get_contents($filePath);
-
-        // // Mengubah data JSON menjadi array asosiatif
-        // $data = json_decode($jsonData);
-
-        // Menyimpan data ke variabel, lalu passing ke view (jika diperlukan)
-        // return view('data_view', ['users' => $data['users']]);
-        // echo $filePath;
-        // print_r($data);
+      //  echo print_r(session()->get());
        return session()->name_emp!=null?view('main/dashboard/index_new',$data):view('main/dashboard/index_student', $data);
     }
 

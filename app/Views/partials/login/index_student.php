@@ -104,7 +104,7 @@
                                     if (!$cekusername) { ?>
                                         <div class="example-alert" style="margin-bottom: 10px;">
                                             <div class="alert alert-danger alert-icon alert-dismissible">
-                                                <em class="icon ni ni-cross-circle"></em>Username Salah <button class="close" data-bs-dismiss="alert"></button>
+                                                <em class="icon ni ni-cross-circle"></em>Username/pasword Salah <button class="close" data-bs-dismiss="alert"></button>
                                             </div>
                                         </div>
                                     <?php
@@ -116,7 +116,7 @@
                                     if (!$cekpasword) { ?>
                                         <div class="example-alert" style="margin-bottom: 10px;">
                                             <div class="alert alert-danger alert-icon alert-dismissible">
-                                                <em class="icon ni ni-cross-circle"></em> Password Salah<button class="close" data-bs-dismiss="alert"></button>
+                                                <em class="icon ni ni-cross-circle"></em> Username/pasword salah<button class="close" data-bs-dismiss="alert"></button>
                                             </div>
                                         </div>
 
@@ -133,14 +133,14 @@
                                         <label class="form-label" for="default-01"> Username <?php echo $sso ?></label>
                                     </div>
                                     <div class="form-control-wrap">
-                                        <input name="email" type="text" class="form-control form-control-lg" id="default-01" placeholder="Enter your username <?php echo $sso ?>" value="<?php echo set_value('email') ?>">
+                                        <input name="username" type="text" class="form-control form-control-lg" id="default-01" placeholder="Enter your username <?php echo $sso ?>" value="<?php echo set_value('username') ?>">
                                         <?php
                                         if (isset($validation)) {
                                             // print_r($validation);
-                                            if ($validation->hasError('email')) { //untuk mendapatkan label error yang diset bisa menggunakan getError(namfield)
+                                            if ($validation->hasError('username')) { //untuk mendapatkan label error yang diset bisa menggunakan getError(namfield)
 
                                         ?>
-                                                <span class="badge badge-dim bg-danger" style=""> <?= $validation->getError('email') ?>
+                                                <span class="badge badge-dim bg-danger" style=""> <?= $validation->getError('username') ?>
                                                 </span>
 
 

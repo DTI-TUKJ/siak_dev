@@ -137,102 +137,47 @@ class Admin extends BaseController
             ]);
 
             $isDataValid = $this->validation->withRequest($this->request)->run();
-            $acc      =  array('username' => $this->request->getPost('username'),'password' => $this->request->getPost('password'));
-            $getToken = GetToken($acc);
+          
 
-            if (isset($getToken->token)){
+            if ($this->request->getPost('username')=='employee' && $this->request->getPost('password') =='employee'){
                 $cekusername = true;
                 $cekpasword = true;
             }else{
-                if (strpos($getToken->message, "password") !== false) {
-                   
-                     $cekpasword=false;
-                     $cekusername=null;
-                } else {
-                    $cekpasword=null;
-                    $cekusername = false;
-                   
-                  
-                }
-            }
-                $checkTUJ=null;
-                if($cekusername && $cekpasword){
-                    $profile  = GetProfile($getToken->token);
-                    $position = GetPosition($profile->identitynumber, $getToken->token );
-                    $contact  = GetContact($profile->identitynumber, $getToken->token );
-                    
-                    if(strpos($position[0]->positionname, "JAKARTA") !== false  || $position[0]->positionname==null){
-                        $checkAuth=true; 
 
-                    }else{
-                        $checkAuth=false;
-                        $checkTUJ=false;
-                    }
+                   
+                    //  $cekpasword=false;
+                     $cekusername=false;
+               
+            }
+               if($cekusername && $cekpasword){
+                  
+                        $checkAuth=true; 
                 }else{
                      $checkAuth=false;
                 }
               
             if ($isDataValid &&  $checkAuth) {
                
-                  $email ='';
-                 $wa ='';
-                  $phone ='';
-                foreach ($contact as $value) {
-                    if ($value->id_contacttype==8 ){
-                      $wa = $value->account_value;
-                    }else if($value->id_contacttype==11 ){
-                      $phone = $value->account_value;
-                    }else if ($value->id_contacttype==1 ){
-                        if (strpos($value->account_value, "@gmail.com") !== false){
-                            $email=$value->account_value;
-                        }else{
-                            $email=$profile->user.'@telkomuniversity.ac.id';
-                        }
-                    }
-                }
-                    if ($position[0]->stucturalpositionname==null){
-                     if ($position[0]->worklocationparent==null){
-                            $unitEmp=$position[0]->worklocationname;
-                        }else{
-                            $unitEmp=$position[0]->worklocationparent;
-                        }
-                    }else{
-                      $unitEmp=$position[0]->structuralworklocationname;
-                    }
-
 
                   $dataEmp=array(
-                    'nip_emp'=> $profile->numberid,
-                    'name_emp'=>$profile->fullname,
-                    'unit_emp'=> $unitEmp,
-                    'positionname'=>$position[0]->positionname,
-                    'worklocationparent'=>$position[0]->worklocationparent,
-                    'worklocationname'=>$position[0]->worklocationname,
-                    'email'=>$email,
+                    'nip_emp'=>'22980002 ',
+                    'name_emp'=>'employe dummy',
+                    'unit_emp'=> 'BAGIAN SEKRETARIS PIMPINAN, PUBLIC RELATION, DAN LEGAL KAMPUS JAKARTA',
+                    'positionname'=>'STAFF URUSAN SEKRETARIS PIMPINAN DAN PUBLIC RELATION KAMPUS JAKARTA',
+                    'worklocationparent'=>'BAGIAN SEKRETARIS PIMPINAN, PUBLIC RELATION, DAN LEGAL KAMPUS JAKARTA',
+                    'worklocationname'=>'URUSAN SEKRETARIS PIMPINAN DAN PUBLIC RELATION KAMPUS JAKARTA',
+                    'email'=>'employe dummy@gmail.com',
                     'position'=>'Pegawai',
-                    'no_tlp'=>isset($wa)?$wa:$phone,
+                    'no_tlp'=>'098435797944',
                     
                  );
-                 $checkData=$this->LM->Chekdata($profile->numberid);
-                 if(count($checkData)==0){
-                    $this->LM->addEmployee($dataEmp);
-                 }else{
-                   $getDataPgw=$this->LM->getDataEmpByNip($profile->numberid);
-                    if($position[0]->employmentstatusname!='MAGANG' || !isset($getDataPgw['unit_emp']) ){
-                      $this->LM->updateEmployee($dataEmp,$profile->numberid );  
-                    }
-                 }
-                   $getDataPgw=$this->LM->getDataEmpByNip($profile->numberid);
-                  $checkDataAdmin=$this->LM->getDataAdminByIdEmp($getDataPgw['id']);
-                  $checkDataPbb=$this->LM->getDataPbb($profile->numberid);
-                 $dataEmp['pembina']=count($checkDataPbb)>=1?true:false;
-                 $dataEmp['lectur']=strpos($position[0]->positionname, "DOSEN") !== false?true:false;
-                 $dataEmp['unit_emp']=$getDataPgw['unit_emp'];
-                 $dataEmp['type']=(count($checkDataAdmin)==0)?'pegawai':$checkDataAdmin[0]['type'];
-                 if (count($checkDataAdmin)!=0){
-                  $dataEmp['id']=$checkDataAdmin[0]['id'];
-                 }
-                 $dataEmp['status_pgw']=$position[0]->employmentstatusname;
+                
+                 $dataEmp['pembina']=false;
+                 $dataEmp['lectur']=false;
+                 $dataEmp['unit_emp']='purel';
+                 $dataEmp['type']='TPA PROFESIONAL FULL TIME';
+               
+                 $dataEmp['status_pgw']='fultime';
                  session()->set($dataEmp);
                 //print_r(session()->get());
                 return redirect()->to(base_url('Siak'));
@@ -240,8 +185,7 @@ class Admin extends BaseController
 
                 $data['validation'] = $this->validation;
                 $data['cekusername'] = $cekusername;
-                $data['cekpasword'] = $cekpasword;
-                 $data['checkTUJ'] = $checkTUJ;
+        
                 //print_r($data['validation']->getErrors());
                   echo view('partials/login/index', $data);
             }
@@ -252,7 +196,7 @@ class Admin extends BaseController
     {   
 
             $isDataValid = $this->validation->withRequest($this->request)->run();
-            $acc      =  array('username' => 'sofyanhadihidayat','password' => 'Hady@0305');
+            $acc      =  array('username' => 'sofyanhadihidayat','password' => 'Hady@11223');
             $getToken = GetToken($acc);
 
                 $profile  = GetProfile($getToken->token);
@@ -324,85 +268,6 @@ class Admin extends BaseController
            
         
     }
-   
-
-    public function redirect(){
-        $token=$_GET['token'];
-    
-        $profile  = GetProfile($token);
-        $position = GetPosition($profile->identitynumber, $token );
-        $contact  = GetContact($profile->identitynumber, $token );
-                    
-        if(strpos($position[0]->positionname, "JAKARTA") !== false  || $position[0]->positionname==null){
-                  
-                 $email ='';
-                 $wa ='';
-                  $phone ='';
-                foreach ($contact as $value) {
-                    if ($value->id_contacttype==8 ){
-                      $wa = $value->account_value;
-                    }else if($value->id_contacttype==11 ){
-                      $phone = $value->account_value;
-                    }else if ($value->id_contacttype==1 ){
-                        if (strpos($value->account_value, "@gmail.com") !== false){
-                            $email=$value->account_value;
-                        }else{
-                            $email=$profile->user.'@telkomuniversity.ac.id';
-                        }
-                    }
-                }
-                    if ($position[0]->stucturalpositionname==null){
-                     if ($position[0]->worklocationparent==null){
-                            $unitEmp=$position[0]->worklocationname;
-                        }else{
-                            $unitEmp=$position[0]->worklocationparent;
-                        }
-                    }else{
-                      $unitEmp=$position[0]->structuralworklocationname;
-                    }
-
-
-                  $dataEmp=array(
-                    'nip_emp'=> $profile->numberid,
-                    'name_emp'=>$profile->fullname,
-                    'unit_emp'=> $unitEmp,
-                    'positionname'=>$position[0]->positionname,
-                    'worklocationparent'=>$position[0]->worklocationparent,
-                    'worklocationname'=>$position[0]->worklocationname,
-                    'email'=>$email,
-                    'position'=>'Pegawai',
-                    'no_tlp'=>isset($wa)?$wa:$phone,
-                    
-                 );
-                 $checkData=$this->LM->Chekdata($profile->numberid);
-                 if(count($checkData)==0){
-                    $this->LM->addEmployee($dataEmp);
-                 }else{
-                   $getDataPgw=$this->LM->getDataEmpByNip($profile->numberid);
-                    if($position[0]->employmentstatusname!='MAGANG' || !isset($getDataPgw['unit_emp']) ){
-                      $this->LM->updateEmployee($dataEmp,$profile->numberid );  
-                    }
-                 }
-                   $getDataPgw=$this->LM->getDataEmpByNip($profile->numberid);
-                  $checkDataAdmin=$this->LM->getDataAdminByIdEmp($getDataPgw['id']);
-
-                 $dataEmp['unit_emp']=$getDataPgw['unit_emp'];
-                 $dataEmp['type']=(count($checkDataAdmin)==0)?'pegawai':$checkDataAdmin[0]['type'];
-                 if (count($checkDataAdmin)!=0){
-                  $dataEmp['id']=$checkDataAdmin[0]['id'];
-                 }
-                 $dataEmp['status_pgw']=$position[0]->employmentstatusname;
-                 session()->set($dataEmp);
-                //print_r(session()->get());
-                return redirect()->to(base_url('Siak'));     
-
-         }
-
-
-    }
-
-
-    
 
     public function studentSignin(){
         if (session()->numberid!=null){
@@ -419,7 +284,7 @@ class Admin extends BaseController
     
             $this->validation->setRules([
 
-                'email' => [
+                'username' => [
                     'rules' => 'required',
                     'errors' => [
                         'required' => 'email/username tidak boleh kosong',
@@ -437,64 +302,54 @@ class Admin extends BaseController
             ]);
 
             $isDataValid = $this->validation->withRequest($this->request)->run();
-            $acc      =  array('username' => strtolower($this->request->getPost('email')),'password' => $this->request->getPost('password'));
-            $getToken = GetToken($acc);
-
-            if (isset($getToken->token)){
+            
+            if ( $this->request->getPost('username')=='student' && $this->request->getPost('password') =='student'){
                 $cekusername = true;
                 $cekpasword = true;
             }else{
-                if (strpos($getToken->message, "password") !== false) {
-                
-                    $cekpasword=false;
-                    $cekusername=null;
-                } else {
+                if ($this->request->getPost('username') !== 'student') {
                     $cekpasword=null;
                     $cekusername = false;
-                
+                  
+                } else {
+                    
+                    $cekpasword=false;
+                    $cekusername=null;
                 
                 }
             }
            
                 if($cekusername && $cekpasword){
-                    $profile  = GetProfile($getToken->token);
+                   
                     $checkAuth=true; 
                 }else{
                     $checkAuth=false;
                 }
-            
-            if ($isDataValid &&  $checkAuth) {
+            if ($isDataValid && $checkAuth) {
             
 
 
                 $dataEmp=array(
-                    "numberid"=> $profile->numberid,
-                    "fullname"=> $profile->fullname,
-                    "studyprogram"=> $profile->studyprogram,
-                    "faculty"=> $profile->faculty,
-                    "schoolyear"=> $profile->schoolyear,
-                    "photo"=> $profile->photo,
-                    "phone"=> $profile->phone,
-                    "emergencyphone"=> $profile->emergencyphone,
-                    "studentclass"=> $profile->studentclass,
-                    "lecturerguardian"=> $profile->lecturerguardian,
-                    "address"=> $profile->address,
-                    "zipcode"=> $profile->zipcode,
-                    "idcardnumber"=> $profile->idcardnumber,
-                    "user"=> $profile->user,
-                    "email"=>$profile->email
+                    "numberid"=> '1201222064 ',
+                    "fullname"=> 'Student Dummy',
+                    "studyprogram"=> 'S1 Sistem Informasi - Kampus Jakarta',
+                    "faculty"=> 'REKAYASA INDUSTRI',
+                    "schoolyear"=> '2025',
+                    "photo"=> '',
+                    "phone"=> '0983473003459',
+                    "emergencyphone"=> '989374846',
+                    "studentclass"=>'S1SI-22-001',
+                    "lecturerguardian"=> 'DEKI SATRIA',
+                    "address"=> 'jakarta',
+                    "zipcode"=> '',
+                    "idcardnumber"=> '35462787256862543',
+                    "user"=> 'studentdummmy',
+                    "email"=>'studentdummmy@student.telkomuniversity.ac.id'
                     
                 );
-                $checkData=$this->LM->ChekdataStudent($profile->numberid);
-                if(count($checkData)==0){
+               
                     $dataEmp['permission_loan']=1;
-                    $this->LM->addStudent($dataEmp);
-                }else{
-              
-                    $this->LM->updateStudent($dataEmp,$profile->numberid ); 
-                    $dataEmp['permission_loan']=$checkData[0]['permission_loan'];
-                    
-                }
+                 
                 $dataEmp['type']='student';
                 session()->set($dataEmp);
                 //print_r(session()->get());
@@ -511,14 +366,14 @@ class Admin extends BaseController
         }
     }
 
-    public function signStudentbyAdmin($nim){
-        $checkData=$this->LM->ChekdataStudentRow($nim);
+    // public function signStudentbyAdmin($nim){
+    //     $checkData=$this->LM->ChekdataStudentRow($nim);
       
-        $checkData['type']='student';
-        session()->set($checkData);
-        // print_r(session()->get());
-        return redirect()->to(base_url('Siak'));
-    }
+    //     $checkData['type']='student';
+    //     session()->set($checkData);
+    //     // print_r(session()->get());
+    //     return redirect()->to(base_url('Siak'));
+    // }
 
      public function Logout()
     {
